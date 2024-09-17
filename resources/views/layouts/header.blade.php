@@ -8,11 +8,11 @@
     .navbar-brand {
         font-family: 'Montserrat', sans-serif;
         /* Ganti dengan font yang diinginkan */
-        font-weight: 700;
+        font-weight: 800;
         /* Berat font */
         font-size: 54px;
         /* Ukuran font */
-        letter-spacing: 1px;
+        letter-spacing: 0px;
         /* Jarak antar huruf */
         color: #FFA500;
         /* Warna oranye untuk menyesuaikan dengan tema */
@@ -26,10 +26,12 @@
         color: #FF6F61;
         /* Warna saat hover */
     }
+
+    
 </style>
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="/home">Eventees HUB</a>
+        <a class="navbar-brand" href="/eventhub">Eventees HUB</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
             aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span> Menu

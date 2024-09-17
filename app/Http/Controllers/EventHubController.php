@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Event; 
 
 class EventHubController extends Controller
 {
@@ -11,7 +12,11 @@ class EventHubController extends Controller
      */
     public function index()
     {
-        return view ('eventhub');
+          // Ambil semua data events dari database
+        $events = Event::all();
+        
+        // Kirim data events ke view
+        return view('eventhub', compact('events'));
     }
 
     /**
