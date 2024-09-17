@@ -37,44 +37,42 @@
 
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item {{ request()->is('home') ? 'active' : '' }}"><a href="/home"
+                <li class="nav-item <?php echo e(request()->is('home') ? 'active' : ''); ?>"><a href="/home"
                         class="nav-link">Home</a></li>
-                <li class="nav-item {{ request()->is('about') ? 'active' : '' }}"><a href="/about"
+                <li class="nav-item <?php echo e(request()->is('about') ? 'active' : ''); ?>"><a href="/about"
                         class="nav-link">About</a></li>
-                <li class="nav-item {{ request()->is('event') ? 'active' : '' }}"><a href="/event"
+                <li class="nav-item <?php echo e(request()->is('event') ? 'active' : ''); ?>"><a href="/event"
                         class="nav-link">Events</a></li>
            
 
-                @if(auth()->check())
+                <?php if(auth()->check()): ?>
                 <div class="dropdown mt-2">
                     <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        Hi, {{auth()->user()->name}}
+                        Hi, <?php echo e(auth()->user()->name); ?>
+
                     </a>
 
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         <li><a class="dropdown-item" href="#">Account</a></li>
                         <li><a class="dropdown-item" href="#">Your Donate</a></li>
                         <li>
-                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                            <a class="dropdown-item" href="<?php echo e(route('logout')); ?>" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                 <div style="color: red">Sign Out</div>
                             </a>
                         </li>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
+                        <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" class="d-none">
+                            <?php echo csrf_field(); ?>
                         </form>
                     </ul>
                 </div>
-                @else
-                {{-- <div class="dropdown mt-2">
-                    <a class="btn btn-secondary" href="{{route('donation')}}" role="button" aria-expanded="false">
-                        Login
-                    </a>
-                </div> --}}
-                @endif
+                <?php else: ?>
+                
+                <?php endif; ?>
 
             </ul>
         </div>
     </div>
 </nav>
+<?php /**PATH D:\Project KWUJTI\KWUJti\resources\views/layouts/header.blade.php ENDPATH**/ ?>

@@ -1,4 +1,4 @@
-@extends('user-view.app')
+@extends('layouts.app')
 
 @section('content')
 <div class="hero-wrap" style="background-image: url({{asset('images/bg_7.jpg')}});" data-stellar-background-ratio="0.5">

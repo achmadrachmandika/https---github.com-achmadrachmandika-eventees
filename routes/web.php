@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HomeAdminController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\EventHubController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,8 +23,10 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', [HomeAdminController::class, 'index'])->name('admin.home');
-Route::get('/event', [EventController::class, 'index'])->name('event');
+Route::resource('events', EventController::class);
 Route::get('/home', [EventController::class, 'index'])->name('event');
+Route::get('/eventhub', [EventHubController::class, 'index'])->name('eventhub');
+
 
 Auth::routes();
 

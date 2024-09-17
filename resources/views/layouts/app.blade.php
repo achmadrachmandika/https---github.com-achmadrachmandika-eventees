@@ -8,6 +8,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Overpass:300,400,400i,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap">
 
     <link rel="stylesheet" href="{{asset('css/open-iconic-bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/animate.css')}}">
@@ -29,6 +30,7 @@
     <link rel="stylesheet" href="{{asset('css/flaticon.css')}}">
     <link rel="stylesheet" href="{{asset('css/icomoon.css')}}">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('css/styleeventhub.css')}}">
 
 
 

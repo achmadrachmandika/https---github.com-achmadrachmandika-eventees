@@ -14,7 +14,7 @@
             <i class="fas fa-file mr-2"></i>
         </div>
         <div class="info">
-            <a href="{{ route('event') }}" class="d-block">Event</a>
+            <a href="<?php echo e(route('event')); ?>" class="d-block">Event</a>
         </div>
     </div>
 
@@ -40,35 +40,10 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
-                {{-- <li class="nav-item">
-                    <a href="{{ route('home') }}" class="nav-link {{ (request()->routeIs('home') ? 'active' : '') }}">
-                        <i class="nav-icon fas fa-home"></i>
-                        <p>
-                            Dashboard
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('profile') }}"
-                        class="nav-link {{ (request()->routeIs('profile') ? 'active' : '') }}">
-                        <i class="nav-icon fas fa-user"></i>
-                        <p>
-                            Profil
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('pengalaman') }}"
-                        class="nav-link {{ (request()->routeIs('pengalaman') ? 'active' : '') }}">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                            Pengalaman Kuliah
-                        </p>
-                    </a>
-                </li> --}}
+                
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
-</aside>
+</aside><?php /**PATH D:\Project KWUJTI\KWUJti\resources\views/dashboard/sidebar.blade.php ENDPATH**/ ?>
