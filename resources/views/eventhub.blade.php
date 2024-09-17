@@ -1,12 +1,12 @@
 @extends('layouts.app')
-<link rel="stylesheet" href="{{asset('css/styleeventhub.css')}}">
+<link rel="stylesheet" href="{{ asset('css/styleeventhub.css') }}">
 @section('content')
 
-<div class="hero-wrap" style="background-color: #ffc800;" data-stellar-background-ratio="0.5">
+<div id="hero-wrap" style="background-color: #ffc800;" data-stellar-background-ratio="0.5">
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
             <div class="col-md-7 ftco-animate text-center" data-scrollax="properties: { translateY: '70%' }">
-                <img src="{{ asset('images/eventeeslog1.png') }}" alt="Eventees HUB Logo" class="hero-logo">
+                <img src="{{ asset('images/eventeeslog1.png') }}" alt="Eventees HUB Logo" class="hero-logo img-fluid">
                 <p class="mb-5" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Penyedia Event JTI
                     Pertama <a href="#">EventeesHUB</a></p>
                 <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
@@ -16,9 +16,6 @@
         </div>
     </div>
 </div>
-
-
-
 
 <section id="events-section" class="wrapper">
     <div class="container">
@@ -45,7 +42,7 @@
                                     alt="Generic placeholder image" style="max-width:50px">
                                 <div class="media-body">
                                     <h6 class="my-0 text-dark d-block">Oz Coruhlu</h6>
-                                    <small>Director of UI/UX</small>
+                                    <small>{{ $event->description }}</small>
                                 </div>
                             </div>
                         </div>
@@ -57,16 +54,13 @@
     </div>
 </section>
 
-
-
-
-
-<section class="ftco-section-3 img" style="background-image: url({{asset('images/bg_3.jpg')}});">
+<section class="ftco-section-3 img" style="background-image: url({{ asset('images/bg_3.jpg') }});">
     <div class="overlay"></div>
     <div class="container">
         <div class="row d-md-flex">
             <div class="col-md-6 d-flex ftco-animate">
-                <div class="img img-2 align-self-stretch" style="background-image: url({{asset('images/bg_4.jpg')}});">
+                <div class="img img-2 align-self-stretch"
+                    style="background-image: url({{ asset('images/bg_4.jpg') }});">
                 </div>
             </div>
             <div class="col-md-6 volunteer pl-md-5 ftco-animate">
@@ -91,8 +85,6 @@
     </div>
 </section>
 
-
-
 @endsection
 
 @section('script')
@@ -101,37 +93,31 @@
 </script>
 <script>
     $(document).ready(function() {
-            $('#alert-login').click(function() {
-                // berikan waktu 1 detik, lalu arahkan ke halaman login
-
-                {{--if (!{{ auth()->check() }}) {--}}
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'You must login first!',
-                    footer: '<a href="/login">Login</a>'
-                })
-                // }
+        $('#alert-login').click(function() {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'You must login first!',
+                footer: '<a href="/login">Login</a>'
             });
-
-            //buatkan javascript jika tombol donate di klik maka akan menampilkan alert
-            {{--document.getElementById('alert-login').onclick = function() {--}}
-            {{--    // jika belum melakukan login maka akan menampilkan alert--}}
-            {{--    if (!{{ auth()->check() }}) {--}}
-            {{--        Swal.fire({--}}
-            {{--            icon: 'error',--}}
-            {{--            title: 'Oops...',--}}
-            {{--            text: 'You must login first!',--}}
-            {{--            footer: '<a href="/login">Login</a>'--}}
-            {{--        })--}}
-            {{--    }--}}
-            {{--    Swal.fire({--}}
-            {{--        icon: 'error',--}}
-            {{--        title: 'Oops...',--}}
-            {{--        text: 'Something went wrong!',--}}
-            {{--        footer: '<a href="">Why do I have this issue?</a>'--}}
-            {{--    })--}}
-            {{--};--}}
-        })
+        });
+    });
 </script>
+<script>
+$(document).ready(function() {
+$(window).on('scroll', function() {
+var scrollPos = $(document).scrollTop();
+$('.nav-link').each(function() {
+var currLink = $(this);
+var refElement = $(currLink.attr('href'));
+if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height()> scrollPos) {
+    $('.nav-link').removeClass('active');
+    currLink.addClass('active');
+    } else {
+    currLink.removeClass('active');
+    }
+    });
+    });
+    });
+    </script>
 @endsection

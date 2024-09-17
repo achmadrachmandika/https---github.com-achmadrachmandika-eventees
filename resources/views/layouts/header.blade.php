@@ -26,6 +26,28 @@
         color: #FF6F61;
         /* Warna saat hover */
     }
+    /* Gaya dasar untuk navbar item */
+    .nav-link {
+    color: #fff; /* Warna teks navbar */
+    padding: 10px 15px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-transform: uppercase;
+    }
+    
+    /* Gaya untuk item navbar aktif */
+    .nav-item.active .nav-link {
+    background: linear-gradient(90deg,#FFA500);
+    color: #fff;
+    border-radius: 5px;
+    font-weight: bold;
+    }
+    
+    /* Gaya untuk navbar item saat hover */
+    .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Warna latar belakang saat hover */
+    color: #FFA500; /* Warna teks saat hover */
+    border-radius: 5px;
+    }
 
     
 </style>
@@ -39,12 +61,16 @@
 
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item {{ request()->is('home') ? 'active' : '' }}"><a href="/home"
-                        class="nav-link">Home</a></li>
-                <li class="nav-item {{ request()->is('about') ? 'active' : '' }}"><a href="/about"
-                        class="nav-link">About</a></li>
-                <li class="nav-item {{ request()->is('event') ? 'active' : '' }}"><a href="/event"
-                        class="nav-link">Events</a></li>
+                <li class="nav-item {{ request()->is('hero-wrap') ? 'active' : '' }}">
+                    <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
+                    <a href="#hero-wrap" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item {{ request()->is('about') ? 'active' : '' }}">
+                    <a href="/about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item {{ request()->is('events-section') ? 'active' : '' }}">
+                    <a href="#events-section" class="nav-link">Events</a>
+                </li>
            
 
                 @if(auth()->check())
