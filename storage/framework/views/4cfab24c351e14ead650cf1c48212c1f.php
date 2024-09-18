@@ -22,29 +22,57 @@
                             </div>
                             <h2 class="fs-6 fw-normal text-center text-secondary mb-4">Selamat Datang di EventeesHUB
                             </h2>
-                            <form method="POST" action="{{ route('login') }}">
-                                @csrf
+                            <form method="POST" action="<?php echo e(route('login')); ?>">
+                                <?php echo csrf_field(); ?>
                                 <div class="form-floating mb-3">
                                     <input id="email"
-                                        class="form-control form-control-lg @error('email') is-invalid @enderror"
-                                        type="email" name="email" placeholder=" " value="{{ old('email') }}" />
+                                        class="form-control form-control-lg <?php $__errorArgs = ['email'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>"
+                                        type="email" name="email" placeholder=" " value="<?php echo e(old('email')); ?>" />
                                     <label for="email" class="form-label">Email</label>
-                                    @error('email')
+                                    <?php $__errorArgs = ['email'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
                                     <span class="invalid-feedback" role="alert">
-                                        <strong class="text-danger">{{ $message }}</strong>
+                                        <strong class="text-danger"><?php echo e($message); ?></strong>
                                     </span>
-                                    @enderror
+                                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input id="password"
-                                        class="form-control form-control-lg @error('password') is-invalid @enderror"
+                                        class="form-control form-control-lg <?php $__errorArgs = ['password'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>"
                                         type="password" name="password" placeholder=" " />
                                     <label for="password" class="form-label">Password</label>
-                                    @error('password')
+                                    <?php $__errorArgs = ['password'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
                                     <span class="invalid-feedback" role="alert">
-                                        <strong class="text-danger">{{ $message }}</strong>
+                                        <strong class="text-danger"><?php echo e($message); ?></strong>
                                     </span>
-                                    @enderror
+                                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                 </div>
                                 <div class="text-left d-grid gap-2 mt-5">
                                     <button type="submit" class="btn btn-lg btn-primary">Masuk</button>
@@ -61,4 +89,4 @@
     <script src="https://unpkg.com/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
 </body>
 
-</html>
+</html><?php /**PATH D:\Project KWUJTI\KWUJti\resources\views/auth/login.blade.php ENDPATH**/ ?>

@@ -139,5 +139,26 @@ h1 {
         /* Warna saat hover */
     }
 
+    .intro-title1 {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        font-size: 54px;
+        color: #343a40;
+        /* Warna judul yang lebih gelap untuk kontras */
+        margin-bottom: 1rem;
+        /* Jarak bawah untuk pemisahan dengan paragraf */
+    }
+
+    .intro-text1 {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        /* Berat font untuk teks paragraf biasanya lebih ringan */
+        font-size: 24px;
+        /* Ukuran font yang lebih kecil dari judul */
+        color: #6c757d;
+        /* Warna teks yang lebih terang */
+        line-height: 1.6;
+        /* Jarak antar baris yang lebih baik */
+    }
 
 }

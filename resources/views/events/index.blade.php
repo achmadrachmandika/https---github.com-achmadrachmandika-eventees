@@ -5,7 +5,6 @@
     <div class="card-header">
         <div class="d-flex justify-content-between align-items-center">
             <h2 class="font-weight-bold">Daftar Event</h2>
-
             <div class="col-md-6 d-flex flex-row justify-content-end mb-3">
                 <a class="btn btn-success" href="{{ route('events.create') }}">Masukkan Event</a>
             </div>
@@ -25,7 +24,6 @@
                 <th>Photo</th>
                 <th>Nama Event</th>
                 <th>Tanggal</th>
-                {{-- <th>Deskripsi</th> --}}
                 <th width="280px">Action</th>
             </tr>
         </thead>
@@ -33,33 +31,34 @@
             @foreach ($events as $event)
             <tr>
                 <td>{{ $event->kode_event }}</td>
-                @if($event->photo)
                 <td>
+                    @if($event->photo)
                     <img src="{{ asset('storage/event_photos/' . $event->photo) }}" alt="{{ $event->kode_event }}"
-                        style="max-width: 100px; height: 100px; cursor: pointer;" data-toggle="modal" data-target="#imageModal"
-                        data-image="{{ asset('storage/event_photos/' . $event->photo) }}"
+                        style="max-width: 100px; height: 100px; cursor: pointer;" data-toggle="modal"
+                        data-target="#imageModal" data-image="{{ asset('storage/event_photos/' . $event->photo) }}"
                         data-title="{{ $event->kode_event }}">
+                    @else
+                    Tidak Ada Foto
+                    @endif
                 </td>
-                @else
-                <td>Tidak Ada Foto</td>
-                @endif
                 <td>{{ $event->nama_event }}</td>
                 <td>{{ \Carbon\Carbon::parse($event->tanggal)->format('d-m-Y') }}</td>
-                {{-- <td>{{ $event->description }}</td> --}}
                 <td>
+                    <a class="btn btn-info" href="{{ route('events.show', $event->kode_event) }}">Show</a>
+                    <a class="btn btn-primary" href="{{ route('events.edit', $event->kode_event) }}">Edit</a>
                     <form action="{{ route('events.destroy', $event->kode_event) }}" method="POST"
-                        style="display: inline;">
-                        <a class="btn btn-info" href="{{ route('events.show', $event->kode_event) }}">Show</a>
-                        <a class="btn btn-primary" href="{{ route('events.edit', $event->kode_event) }}">Edit</a>
+                        style="display:inline;">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Delete</button>
+                        <button type="submit" class="btn btn-outline-danger"
+                            onclick="return confirmDelete()">Hapus</button>
                     </form>
                 </td>
             </tr>
             @endforeach
         </tbody>
     </table>
+
     <!-- Modal -->
     <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel"
         aria-hidden="true">
@@ -84,12 +83,23 @@
 
 <script>
     $('#imageModal').on('show.bs.modal', function (event) {
-    var button = $(event.relatedTarget);
-    var imageUrl = button.data('image');
-    var imageTitle = button.data('title');
-    var modal = $(this);
-    modal.find('.modal-body #modalImage').attr('src', imageUrl);
-    modal.find('.modal-title').text(imageTitle);
+        var button = $(event.relatedTarget);
+        var imageUrl = button.data('image');
+        var imageTitle = button.data('title');
+        var modal = $(this);
+        modal.find('.modal-body #modalImage').attr('src', imageUrl);
+        modal.find('.modal-title').text(imageTitle);
     });
-    </script>
+
+    function confirmDelete() {
+        return confirm('Apakah Anda yakin ingin menghapus Event ini?');
+    }
+
+    window.onload = function() {
+        var images = document.getElementsByTagName('img');
+        for (var i = 0; i < images.length; i++) {
+            images[i].src = images[i].src + '?' + new Date().getTime();
+        }
+    }
+</script>
 @endsection

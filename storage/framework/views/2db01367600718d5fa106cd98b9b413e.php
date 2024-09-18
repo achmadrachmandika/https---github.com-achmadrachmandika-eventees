@@ -7,40 +7,49 @@
     </a>
 
     <!-- Sidebar -->
-   <div class="sidebar">
-    <!-- Sidebar user (optional) -->
-    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-            <i class="fas fa-file mr-2"></i>
-        </div>
-        <div class="info">
-            <a href="<?php echo e(route('event')); ?>" class="d-block">Event</a>
-        </div>
-    </div>
-
-    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-            <i class="fas fa-file mr-2"></i>
-        </div>
-        <div class="info">
-            <a href="#" class="d-block">Keuangan</a>
-        </div>
-    </div>
-
-    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-            <i class="fas fa-file mr-2"></i>
-        </div>
-        <div class="info">
-            <a href="#" class="d-block">Laporan</a>
-        </div>
-    </div>
+    <div class="sidebar">
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                <!-- Add icons to the links using the .nav-icon class
-                     with font-awesome or any other icon font library -->
-                
+                <!-- Event Link -->
+                <li class="nav-item">
+                    <a href="<?php echo e(route('events.index')); ?>"
+                        class="nav-link <?php echo e(request()->routeIs('events.index') ? 'active' : ''); ?>">
+                        <i class="nav-icon fas fa-calendar-alt"></i>
+                        <p>
+                            Event
+                        </p>
+                    </a>
+                </li>
+                <!-- Keuangan Link -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link <?php echo e(request()->routeIs('keuangan') ? 'active' : ''); ?>">
+                        <i class="nav-icon fas fa-money-bill-wave"></i>
+                        <p>
+                            Keuangan
+                        </p>
+                    </a>
+                </li>
+                <!-- Laporan Link -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link <?php echo e(request()->routeIs('laporan') ? 'active' : ''); ?>">
+                        <i class="nav-icon fas fa-file-alt"></i>
+                        <p>
+                            Laporan
+                        </p>
+                    </a>
+                </li>
+
+                <!-- Logout Button -->
+                <li class="nav-item">
+                    <form action="<?php echo e(route('logout')); ?>" method="POST" class="nav-link">
+                        <?php echo csrf_field(); ?>
+                        <button type="submit" class="btn btn-link text-white" style="width: 100%; text-align: left;">
+                            <i class="nav-icon fas fa-sign-out-alt"></i>
+                            <p class="d-inline">Logout</p>
+                        </button>
+                    </form>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

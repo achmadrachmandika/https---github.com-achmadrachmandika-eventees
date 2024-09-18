@@ -67,10 +67,10 @@ class EventController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(string $kode_event)
     {
         // Menampilkan form edit untuk event berdasarkan ID
-        $event = Event::findOrFail($id);
+        $event = Event::findOrFail($kode_event);
         // Mengembalikan tampilan dengan data event
         return view('events.edit', compact('event'));
     }
@@ -78,10 +78,10 @@ class EventController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $kode_event)
 {
     $request->validate([
-        'kode_event' => 'required|unique:events,kode_event,' . $id,
+        'kode_event' => 'required|unique:events,kode_event,' . $kode_event,
         'photo' => 'nullable|image|file|max:2048',
         'nama_event' => 'required',
         'tanggal' => 'required|date',
