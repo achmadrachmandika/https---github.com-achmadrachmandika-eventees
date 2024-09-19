@@ -24,6 +24,7 @@
                 <th>Photo</th>
                 <th>Nama Event</th>
                 <th>Tanggal</th>
+                <th>Benefits</th> <!-- New column for benefits -->
                 <th width="280px">Action</th>
             </tr>
         </thead>
@@ -43,6 +44,11 @@
                 </td>
                 <td><?php echo e($event->nama_event); ?></td>
                 <td><?php echo e(\Carbon\Carbon::parse($event->tanggal)->format('d-m-Y')); ?></td>
+                <td>
+                    <?php $__currentLoopData = $event->benefits; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $benefit): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <div><?php echo e($benefit); ?></div>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                </td>
                 <td>
                     <a class="btn btn-info" href="<?php echo e(route('events.show', $event->kode_event)); ?>">Show</a>
                     <a class="btn btn-primary" href="<?php echo e(route('events.edit', $event->kode_event)); ?>">Edit</a>

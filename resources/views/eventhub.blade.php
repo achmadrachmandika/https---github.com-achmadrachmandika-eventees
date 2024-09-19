@@ -19,28 +19,30 @@
 
 <section id="events-section" class="wrapper">
     <div class="intro-section text-center mb-5">
-        <h2 class="intro-title1">Selamat Datang di Acara Kami!</h2>
+        <h2 class="intro-title1">"{Mau Jago IT ?}"</h2>
         <p class="intro-text1">Jelajahi berbagai acara menarik yang kami tawarkan. Temukan kegiatan yang sesuai dengan minat
             Anda dan bergabunglah dengan kami dalam setiap momen spesial. Jangan lewatkan kesempatan untuk menjadi bagian
             dari pengalaman tak terlupakan!</p>
     </div>
-    <div class="container">
-        <div class="row">
-           @foreach ($events as $event)
+   <div class="container">
+    <div class="row">
+        @foreach ($events as $event)
         <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
             <div class="card text-dark card-has-bg click-col" data-event-name="{{ $event->nama_event }}"
                 data-event-date="{{ \Carbon\Carbon::parse($event->tanggal)->format('d-m-Y') }}"
-                data-event-description="{{ $event->description }}" data-event-kode="{{ $event->kode_event }}" <!-- Tambahkan
-                atribut data untuk kode_event -->
+                data-event-description="{{ $event->description }}" data-event-kode="{{ $event->kode_event }}"
                 style="background-image:url('{{ asset('storage/event_photos/' . $event->photo) }}');">
+
                 <img class="card-img d-none" src="{{ asset('storage/event_photos/' . $event->photo) }}"
                     alt="{{ $event->nama_event }}">
+
                 <div class="card-img-overlay d-flex flex-column">
                     <div class="card-body">
                         <small class="card-meta mb-2">{{ $event->kode_event }}</small>
-                        <h4 class="card-title mt-0 ">
+                        <h4 class="card-title mt-0">
                             <a class="text-dark" href="#">{{ $event->nama_event }}</a>
                         </h4>
+
                         <small><i class="far fa-clock"></i> {{ \Carbon\Carbon::parse($event->tanggal)->format('d-m-Y')
                             }}</small>
                     </div>
@@ -59,8 +61,8 @@
             </div>
         </div>
         @endforeach
-        </div>
     </div>
+</div>
 
     <!-- Modal -->
     <!-- Modal -->

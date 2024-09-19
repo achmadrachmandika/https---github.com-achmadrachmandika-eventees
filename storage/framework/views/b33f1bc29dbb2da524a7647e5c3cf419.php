@@ -89,6 +89,25 @@ endif;
 unset($__errorArgs, $__bag); ?>
                 </div>
 
+                <div class="col-md-12 mb-3">
+                    <label for="benefits" class="form-label"><strong>Benefits:</strong></label>
+                    <input type="text" id="benefits" name="benefits[]" class="form-control mb-2" placeholder="Benefit 1"
+                        value="<?php echo e(old('benefits.0')); ?>">
+                    <?php for($i = 1; $i <= 9; $i++): ?> <input type="text" id="benefits" name="benefits[]"
+                        class="form-control mb-2" placeholder="Benefit <?php echo e($i+1); ?>" value="<?php echo e(old('benefits.' . $i)); ?>">
+                        <?php endfor; ?>
+                        <?php $__errorArgs = ['benefits'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                        <div class="text-danger"><?php echo e($message); ?></div>
+                        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                </div>
+
                 <div class="col-md-12 text-end">
                     <div class="btn-group">
                         <button type="submit" class="btn btn-success">Simpan</button>

@@ -61,14 +61,13 @@
 
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item <?php echo e(request()->is('hero-wrap') ? 'active' : ''); ?>">
-                    <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
+                <li class="nav-item">
                     <a href="#hero-wrap" class="nav-link">Home</a>
                 </li>
-                <li class="nav-item <?php echo e(request()->is('about') ? 'active' : ''); ?>">
+                <li class="nav-item">
                     <a href="/about" class="nav-link">About</a>
                 </li>
-                <li class="nav-item <?php echo e(request()->is('events-section') ? 'active' : ''); ?>">
+                <li class="nav-item">
                     <a href="#events-section" class="nav-link">Events</a>
                 </li>
            

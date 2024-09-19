@@ -1,9 +1,10 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4"
     style="background: linear-gradient(to bottom, rgb(41, 48, 66), rgb(41, 48, 66)); color: #fff;">
     <!-- Brand Logo -->
-    <a href="../../index3.html" class="brand-link"
+    <a href="<?php echo e(route('admin.dashboard')); ?>" class="brand-link"
         style="text-align: center; display: flex; justify-content: center; align-items: center;">
-        <span class="brand-text font-weight-light">Eventees Hub</span>
+        <img src="<?php echo e(asset('assets/dist/img/logo_eventees.png')); ?>" alt="Eventees Hub Logo" class="brand-image"
+            style="max-height: 70px; width: auto; margin: 3px;">
     </a>
 
     <!-- Sidebar -->
@@ -23,7 +24,8 @@
                 </li>
                 <!-- Keuangan Link -->
                 <li class="nav-item">
-                    <a href="#" class="nav-link <?php echo e(request()->routeIs('keuangan') ? 'active' : ''); ?>">
+                    <a href="<?php echo e(route('pembayaran.index')); ?>"
+                        class="nav-link <?php echo e(request()->routeIs('pembayaran.index') ? 'active' : ''); ?>">
                         <i class="nav-icon fas fa-money-bill-wave"></i>
                         <p>
                             Keuangan
@@ -40,13 +42,16 @@
                     </a>
                 </li>
 
+                <!-- Spacer for logout -->
+                <li class="nav-item flex-grow-1"></li>
+
                 <!-- Logout Button -->
-                <li class="nav-item">
+                <li class="nav-item sidebar-footer">
                     <form action="<?php echo e(route('logout')); ?>" method="POST" class="nav-link">
                         <?php echo csrf_field(); ?>
-                        <button type="submit" class="btn btn-link text-white" style="width: 100%; text-align: left;">
+                        <button type="submit" class="btn btn-link text-white" style="width: 50%; text-align: left;">
                             <i class="nav-icon fas fa-sign-out-alt"></i>
-                            <p class="d-inline">Logout</p>
+                            <p >Logout</p>
                         </button>
                     </form>
                 </li>

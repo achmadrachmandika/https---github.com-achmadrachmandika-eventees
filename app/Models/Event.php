@@ -17,11 +17,15 @@ class Event extends Model
         'kode_event',
         'photo',
         'nama_event',
+        'benefits', // Updated to reflect JSON column
         'tanggal',
         'description',
     ];
 
     // Ensure 'tanggal' is a Carbon instance
     protected $dates = ['tanggal'];
+     protected $casts = [
+        'benefits' => 'array',
+    ];
 
 }

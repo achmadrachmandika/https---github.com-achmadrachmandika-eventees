@@ -54,6 +54,18 @@
                     @enderror
                 </div>
 
+                <div class="col-md-12 mb-3">
+                    <label for="benefits" class="form-label"><strong>Benefits:</strong></label>
+                    <input type="text" id="benefits" name="benefits[]" class="form-control mb-2" placeholder="Benefit 1"
+                        value="{{ old('benefits.0') }}">
+                    @for ($i = 1; $i <= 9; $i++) <input type="text" id="benefits" name="benefits[]"
+                        class="form-control mb-2" placeholder="Benefit {{ $i+1 }}" value="{{ old('benefits.' . $i) }}">
+                        @endfor
+                        @error('benefits')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                </div>
+
                 <div class="col-md-12 text-end">
                     <div class="btn-group">
                         <button type="submit" class="btn btn-success">Simpan</button>

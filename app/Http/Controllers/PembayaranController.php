@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class HomeAdminController extends Controller
+class PembayaranController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-          return view ('admin.dashboard');
+          return view('pembayaran.index');
     }
 
     /**
