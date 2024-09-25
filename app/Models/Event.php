@@ -10,7 +10,7 @@ class Event extends Model
 {
     use HasFactory;
 
-     protected $primaryKey = 'kode_event';
+    protected $primaryKey = 'kode_event';
     public $incrementing = false;
     protected $keyType = 'string';
     protected $fillable = [

@@ -1,21 +1,19 @@
-@extends('admin.home')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 <div class="card" style="margin: 20px; padding: 20px;">
     <div class="card-header">
         <div class="d-flex justify-content-between align-items-center">
             <h2 class="font-weight-bold">Daftar Event</h2>
             <div class="col-md-6 d-flex flex-row justify-content-end mb-3">
-                <a class="btn btn-success" href="{{ route('events.create') }}">Masukkan Event</a>
+                <a class="btn btn-success" href="<?php echo e(route('events.create')); ?>">Masukkan Event</a>
             </div>
         </div>
     </div>
 
-    @if ($message = Session::get('success'))
+    <?php if($message = Session::get('success')): ?>
     <div class="alert alert-success">
-        <p>{{ $message }}</p>
+        <p><?php echo e($message); ?></p>
     </div>
-    @endif
+    <?php endif; ?>
 
     <table class="table table-bordered">
         <thead>
@@ -29,41 +27,41 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($events as $event)
+            <?php $__currentLoopData = $events; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $event): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <tr>
-                <td>{{ $event->kode_event }}</td>
+                <td><?php echo e($event->kode_event); ?></td>
                 <td>
-                    @if($event->photo)
-                    @php
+                    <?php if($event->photo): ?>
+                    <?php
                     $imagePath = asset('storage/event_photos/' . $event->photo);
-                    @endphp
-                    <img src="{{ $imagePath }}" alt="{{ $event->kode_event }}"
+                    ?>
+                    <img src="<?php echo e($imagePath); ?>" alt="<?php echo e($event->kode_event); ?>"
                         style="max-width: 100px; height: 100px; cursor: pointer;" data-toggle="modal"
-                        data-target="#imageModal" data-image="{{ $imagePath }}" data-title="{{ $event->kode_event }}">
-                    @else
+                        data-target="#imageModal" data-image="<?php echo e($imagePath); ?>" data-title="<?php echo e($event->kode_event); ?>">
+                    <?php else: ?>
                     Tidak Ada Foto
-                    @endif
+                    <?php endif; ?>
                 </td>
-                <td>{{ $event->nama_event }}</td>
-                <td>{{ \Carbon\Carbon::parse($event->tanggal)->format('d-m-Y') }}</td>
+                <td><?php echo e($event->nama_event); ?></td>
+                <td><?php echo e(\Carbon\Carbon::parse($event->tanggal)->format('d-m-Y')); ?></td>
                 <td>
-                    @foreach($event->benefits as $benefit)
-                    <div>{{ $benefit }}</div>
-                    @endforeach
+                    <?php $__currentLoopData = $event->benefits; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $benefit): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <div><?php echo e($benefit); ?></div>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </td>
                 <td>
-                    <a class="btn btn-info" href="{{ route('events.show', $event->kode_event) }}">Show</a>
-                    <a class="btn btn-primary" href="{{ route('events.edit', $event->kode_event) }}">Edit</a>
-                    <form action="{{ route('events.destroy', $event->kode_event) }}" method="POST"
+                    <a class="btn btn-info" href="<?php echo e(route('events.show', $event->kode_event)); ?>">Show</a>
+                    <a class="btn btn-primary" href="<?php echo e(route('events.edit', $event->kode_event)); ?>">Edit</a>
+                    <form action="<?php echo e(route('events.destroy', $event->kode_event)); ?>" method="POST"
                         style="display:inline;">
-                        @csrf
-                        @method('DELETE')
+                        <?php echo csrf_field(); ?>
+                        <?php echo method_field('DELETE'); ?>
                         <button type="submit" class="btn btn-outline-danger"
                             onclick="return confirmDelete()">Hapus</button>
                     </form>
                 </td>
             </tr>
-            @endforeach
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </tbody>
     </table>
 
@@ -85,8 +83,8 @@
         </div>
     </div>
 
-    {{-- Pagination links if applicable --}}
-    {{-- {{ $events->links() }} --}}
+    
+    
 </div>
 
 <script>
@@ -110,4 +108,5 @@
         }
     }
 </script>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.home', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Magang KWUJTI\https---github.com-achmadrachmandika-eventees\resources\views/events/index.blade.php ENDPATH**/ ?>

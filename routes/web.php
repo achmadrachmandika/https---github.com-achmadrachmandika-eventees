@@ -29,6 +29,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::resource('events', EventController::class);
     Route::delete('events/{event}', [EventController::class, 'destroy'])->name('events.destroy');
     Route::get('events/{event}/edit', [EventController::class, 'edit'])->name('events.edit');
+    Route::get('/events/{kode_event}', [EventController::class, 'show'])->name('events.show');
+
 
      Route::resource('pembayaran', PembayaranController::class);
 });
@@ -36,6 +38,10 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
 
 Route::get('/eventhub', [EventHubController::class, 'index'])->name('eventhub');
+// routes/web.php
+Route::get('/eventhubshow/{kode_event}', [EventHubController::class, 'show'])->name('eventhub.show');
+
+
 
 
 

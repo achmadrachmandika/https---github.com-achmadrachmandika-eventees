@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Event; 
+use Illuminate\Support\Facades\Storage;
+
 
 class EventHubController extends Controller
 {
@@ -38,10 +40,18 @@ class EventHubController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-        //
+    public function show(string $kode_event)
+{
+    $event = Event::where('kode_event', $kode_event)->first();
+    
+    // Jika event tidak ditemukan, arahkan ke halaman lain atau tampilkan pesan error
+    if (!$event) {
+        return redirect()->route('eventhub.index')->with('error', 'Event not found');
     }
+
+    return view('eventhubshow', compact('event'));
+}
+
 
     /**
      * Show the form for editing the specified resource.

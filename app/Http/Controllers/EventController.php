@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 
 class EventController extends Controller
 {
@@ -39,13 +41,17 @@ class EventController extends Controller
         ]);
 
         // Handle file upload
-        $photoPath = null;
+        $photo = null;
         if ($request->hasFile('photo')) {
-            $photoPath = $request->file('photo')->store('event_photos', 'public');
+            $photo = $request->file('photo')->store('event_photos', 'public');
         }
 
         // Save the event
-        Event::create(array_merge($request->all(), ['photo' => $photoPath]));
+        $event = new Event;
+        $event-> nama_event = $request->input('nama_event');
+        $event-> benefits = $request->input('benefits');
+        $event-> tanggal = $request->input('tanggal');
+        $event-> description = $request->input('description');
 
         return redirect()->route('events.index')->with('success', 'Event created successfully.');
     }
@@ -81,20 +87,28 @@ class EventController extends Controller
             'description' => 'required',
         ]);
 
-        $event = Event::findOrFail($kode_event);
+        $event = Event::find($kode_event);
 
         // Handle file upload
-        if ($request->hasFile('photo')) {
-            // Delete old photo if exists
-            if ($event->photo) {
-                \Storage::disk('public')->delete($event->photo);
-            }
-            $photoPath = $request->file('photo')->store('event_photos', 'public');
-            $event->photo = $photoPath;
+        if (!$event) {
+            return redirect()->back()->with('error', 'Data gallery tidak ditemukan.');
+        }
+        $oldPhoto = $event->photo;
+
+         if($request->hasFile('photo'))
+        {
+            if(Storage::exists('public/' . $event->photo))
+                Storage::delete('public/' . $event->photo);
+
+            $event['photo'] = $request->photo->store('event_photos', 'public');
         }
 
         // Update the event
-        $event->update($request->except('photo'));
+        $event = new Event;
+        $event-> nama_event = $request->input('nama_event');
+        $event-> benefits = $request->input('benefits');
+        $event-> tanggal = $request->input('tanggal');
+        $event-> description = $request->input('description');
 
         return redirect()->route('events.index')->with('success', 'Event updated successfully.');
     }
