@@ -1,0 +1,36 @@
+    #eventees-section1 {
+        background: linear-gradient(to right, #6a11cb, #2575fc);
+        /* Gradasi warna */
+        color: white;
+        /* Warna teks */
+        padding: 50px 20px;
+        /* Ruang dalam */
+        border-radius: 10px;
+        /* Sudut membulat */
+        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+        /* Bayangan teks */
+    }
+
+    .eventees-title2 {
+        font-family: 'Georgia', serif;
+        /* Font artistik */
+        font-size: 2.5em;
+        /* Ukuran font judul */
+        margin-bottom: 20px;
+        /* Jarak bawah */
+        letter-spacing: 1px;
+        /* Jarak antar huruf */
+    }
+
+    .eventees-text2 {
+        font-family: 'Arial', sans-serif;
+        /* Font teks */
+        font-size: 1.2em;
+        /* Ukuran font teks */
+        line-height: 1.6;
+        /* Tinggi baris */
+        max-width: 800px;
+        /* Lebar maksimum */
+        margin: 0 auto;
+        /* Pusatkan teks */
+    }

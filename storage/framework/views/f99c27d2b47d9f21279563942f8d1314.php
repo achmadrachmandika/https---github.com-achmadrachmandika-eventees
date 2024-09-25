@@ -15,7 +15,7 @@
         <div class="mb-3">
             <strong>Photo:</strong>
             <?php if($event->photo): ?>
-            <img src="<?php echo e(asset('storage/event_photos/' . $event->photo)); ?>" alt="<?php echo e($event->kode_event); ?>"
+            <img src="<?php echo e(asset('storage/' . $event->photo)); ?>" alt="<?php echo e($event->kode_event); ?>"
                 style="max-width: 300px; height: auto;">
             <?php else: ?>
             <p>Tidak Ada Foto</p>

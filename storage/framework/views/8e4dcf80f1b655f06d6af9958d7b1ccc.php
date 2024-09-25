@@ -34,17 +34,15 @@
                 <td>
                     <?php if($event->photo): ?>
                     <?php
-                    $imagePath = asset('storage/event_photos/' . $event->photo);
+                    $imagePath = asset('storage/' . $event->photo);
                     ?>
                     <img src="<?php echo e($imagePath); ?>" alt="<?php echo e($event->kode_event); ?>"
-                        style="max-width: 100px; height: 100px; cursor: pointer;" data-toggle="modal"
-                        data-target="#imageModal" data-image="<?php echo e($imagePath); ?>" data-title="<?php echo e($event->kode_event); ?>">
+                        style="max-width: 100px; height: 100px;">
                     <?php else: ?>
                     Tidak Ada Foto
                     <?php endif; ?>
                 </td>
                 <td><?php echo e($event->nama_event); ?></td>
-               
                 <td><?php echo e(\Carbon\Carbon::parse($event->tanggal)->format('d-m-Y')); ?></td>
                 <td><?php echo e($event->harga); ?></td>
                 <td>
@@ -69,41 +67,18 @@
     </table>
 
     <!-- Modal -->
-    <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="imageModalLabel">Image View</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body text-center">
-                    <img id="modalImage" src="" alt="" style="width: 100%; height: auto;">
-                </div>
-            </div>
-        </div>
-    </div>
 
     
     
 </div>
 
 <script>
-    $('#imageModal').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget);
-        var imageUrl = button.data('image');
-        var imageTitle = button.data('title');
-        var modal = $(this);
-        modal.find('.modal-body #modalImage').attr('src', imageUrl);
-        modal.find('.modal-title').text(imageTitle);
-    });
 
     function confirmDelete() {
         return confirm('Apakah Anda yakin ingin menghapus Event ini?');
     }
 
+    // Menambahkan timestamp untuk cache busting gambar
     window.onload = function() {
         var images = document.getElementsByTagName('img');
         for (var i = 0; i < images.length; i++) {

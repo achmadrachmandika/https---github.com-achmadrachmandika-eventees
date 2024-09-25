@@ -14,7 +14,7 @@
         <div class="mb-3">
             <strong>Photo:</strong>
             @if($event->photo)
-            <img src="{{ asset('storage/event_photos/' . $event->photo) }}" alt="{{ $event->kode_event }}"
+            <img src="{{ asset('storage/' . $event->photo) }}" alt="{{ $event->kode_event }}"
                 style="max-width: 300px; height: auto;">
             @else
             <p>Tidak Ada Foto</p>

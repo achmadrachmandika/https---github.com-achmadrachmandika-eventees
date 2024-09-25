@@ -10,17 +10,17 @@
                 <p class="mb-5" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Penyedia Event JTI
                     Pertama <a href="#">EventeesHUB</a></p>
                 <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
-                    <a href="#events-section" class="btn btn-white btn-outline-white px-4 py-3">Mulai Event</a>
+                    <a href="#eventees_1" class="btn btn-white btn-outline-white px-4 py-3">Mulai Event</a>
                 </p>
             </div>
         </div>
     </div>
 </div>
 
-<section id="events-section" class="wrapper">
+<section id="eventees_1" class="wrapper">
     <div class="intro-section text-center mb-5">
-        <h2 class="intro-title1">"{Mau Jago IT ?}"</h2>
-        <p class="intro-text1">Jelajahi berbagai acara menarik yang kami tawarkan. Temukan kegiatan yang sesuai dengan
+        <h2 class="eventees-title2">"{Wadah Edukasi Jembatan Prestasi}"</h2>
+        <p class="eventees-text2">Jelajahi berbagai acara menarik yang kami tawarkan. Temukan kegiatan yang sesuai dengan
             minat
             Anda dan bergabunglah dengan kami dalam setiap momen spesial. Jangan lewatkan kesempatan untuk menjadi
             bagian
@@ -38,7 +38,7 @@
                 <div class="card text-dark card-has-bg click-col"
                     onclick="navigateToEvent('{{ route('eventhub.show', ['kode_event' => $event->kode_event]) }}')"
                     style="background-image:url('{{ asset('storage/event_photos/' . $event->photo) }}');">
-                    <img class="card-img d-none" src="{{ asset('storage/event_photos/' . $event->photo) }}"
+                    <img class="card-img d-none" src="{{ asset('storage/' . $event->photo) }}"
                         alt="{{ $event->nama_event }}">
 
                     <div class="card-img-overlay d-flex flex-column">

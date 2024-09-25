@@ -108,13 +108,12 @@ h1 {
 
     .card-img-overlay {
         transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
-        background: rgb(255, 186, 33);
-        background: linear-gradient(0deg, rgba(255, 186, 33, 0.3785889355742297) 0%, rgba(255, 186, 33, 1) 100%);
+        background: linear-gradient(0deg, rgba(230, 230, 250, 0.7) 0%, rgba(255, 239, 204, 0.7) 100%);
     }
 
+
     body {
-        margin: 0;
-        font-family: 'Montserrat', sans-serif;
+        font-family: 'Georgia', serif;
     }
 
     .navbar-brand {
@@ -160,5 +159,8 @@ h1 {
         line-height: 1.6;
         /* Jarak antar baris yang lebih baik */
     }
+
+
+
 
 }
