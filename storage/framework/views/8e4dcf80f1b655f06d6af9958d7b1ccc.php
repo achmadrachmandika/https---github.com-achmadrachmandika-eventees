@@ -22,6 +22,7 @@
                 <th>Photo</th>
                 <th>Nama Event</th>
                 <th>Tanggal</th>
+                <th>Harga</th>
                 <th>Benefits</th> <!-- New column for benefits -->
                 <th width="280px">Action</th>
             </tr>
@@ -43,7 +44,9 @@
                     <?php endif; ?>
                 </td>
                 <td><?php echo e($event->nama_event); ?></td>
+               
                 <td><?php echo e(\Carbon\Carbon::parse($event->tanggal)->format('d-m-Y')); ?></td>
+                <td><?php echo e($event->harga); ?></td>
                 <td>
                     <?php $__currentLoopData = $event->benefits; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $benefit): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div><?php echo e($benefit); ?></div>

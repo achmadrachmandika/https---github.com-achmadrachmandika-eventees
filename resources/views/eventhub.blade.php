@@ -47,6 +47,9 @@
                             <h4 class="card-title mt-0">
                                 <a class="text-dark" href="#">{{ $event->nama_event }}</a>
                             </h4>
+                            <h4 class="card-title mt-0">
+                                <a class="text-dark" href="#">Rp.{{ $event->harga }}</a>
+                            </h4>
 
                             <small><i class="far fa-clock"></i> {{
                                 \Carbon\Carbon::parse($event->tanggal)->format('d-m-Y') }}</small>

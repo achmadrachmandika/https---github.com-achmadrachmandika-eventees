@@ -56,6 +56,22 @@ endif;
 unset($__errorArgs, $__bag); ?>
                 </div>
 
+               <div class="col-md-6 mb-3">
+                <label for="harga" class="form-label"><strong>Harga:</strong></label>
+                <input type="number" id="harga" name="harga" class="form-control" placeholder="Harga" value="<?php echo e(old('harga')); ?>"
+                    step="1" min="0" required>
+                <?php $__errorArgs = ['harga'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                <div class="text-danger"><?php echo e($message); ?></div>
+                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+            </div>
+
                 <div class="col-md-6 mb-3">
                     <label for="tanggal" class="form-label"><strong>Tanggal:</strong></label>
                     <input type="date" id="tanggal" name="tanggal" class="form-control" value="<?php echo e(old('tanggal')); ?>">

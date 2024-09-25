@@ -17,6 +17,7 @@ class Event extends Model
         'kode_event',
         'photo',
         'nama_event',
+        'harga',
         'benefits', // Updated to reflect JSON column
         'tanggal',
         'description',

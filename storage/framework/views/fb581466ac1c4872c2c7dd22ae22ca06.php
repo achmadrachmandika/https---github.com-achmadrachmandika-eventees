@@ -15,6 +15,7 @@
                     <p><strong><?php echo e($event->kode_event); ?></strong> </p>
                     <p><strong>Tanggal:</strong> <?php echo e(\Carbon\Carbon::parse($event->tanggal)->format('d-m-Y')); ?></p>
                     <p><strong>Deskripsi:</strong> <?php echo e($event->description); ?></p>
+                     <p><strong>Harga: Rp.</strong><?php echo e($event->harga); ?> </p>
                 
                     <?php if($event->benefits && count($event->benefits) > 0): ?>
                     <p><strong>Benefits:</strong></p>

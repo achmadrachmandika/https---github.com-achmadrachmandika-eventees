@@ -16,6 +16,7 @@ return new class extends Migration
             $table->text('photo');
             $table->string('nama_event', 100);
             $table->json('benefits');
+            $table->integer('harga');
             $table->date('tanggal',);
             $table->text('description');
             $table->timestamps();

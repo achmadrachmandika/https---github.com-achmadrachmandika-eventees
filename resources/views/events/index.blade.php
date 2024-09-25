@@ -24,6 +24,7 @@
                 <th>Photo</th>
                 <th>Nama Event</th>
                 <th>Tanggal</th>
+                <th>Harga</th>
                 <th>Benefits</th> <!-- New column for benefits -->
                 <th width="280px">Action</th>
             </tr>
@@ -45,7 +46,9 @@
                     @endif
                 </td>
                 <td>{{ $event->nama_event }}</td>
+               
                 <td>{{ \Carbon\Carbon::parse($event->tanggal)->format('d-m-Y') }}</td>
+                <td>{{ $event->harga }}</td>
                 <td>
                     @foreach($event->benefits as $benefit)
                     <div>{{ $benefit }}</div>

@@ -23,6 +23,11 @@
         </div>
 
         <div class="mb-3">
+            <strong>Harga:</strong> <?php echo e($event->harga); ?>
+
+        </div>
+
+        <div class="mb-3">
             <strong>Tanggal:</strong> <?php echo e(\Carbon\Carbon::parse($event->tanggal)->format('d-m-Y')); ?>
 
         </div>

@@ -37,6 +37,15 @@
                     @enderror
                 </div>
 
+               <div class="col-md-6 mb-3">
+                <label for="harga" class="form-label"><strong>Harga:</strong></label>
+                <input type="number" id="harga" name="harga" class="form-control" placeholder="Harga" value="{{ old('harga') }}"
+                    step="1" min="0" required>
+                @error('harga')
+                <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+
                 <div class="col-md-6 mb-3">
                     <label for="tanggal" class="form-label"><strong>Tanggal:</strong></label>
                     <input type="date" id="tanggal" name="tanggal" class="form-control" value="{{ old('tanggal') }}">

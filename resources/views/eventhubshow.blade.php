@@ -15,6 +15,7 @@
                     <p><strong>{{ $event->kode_event }}</strong> </p>
                     <p><strong>Tanggal:</strong> {{ \Carbon\Carbon::parse($event->tanggal)->format('d-m-Y') }}</p>
                     <p><strong>Deskripsi:</strong> {{ $event->description }}</p>
+                     <p><strong>Harga: Rp.</strong>{{ $event->harga }} </p>
                 
                     @if($event->benefits && count($event->benefits) > 0)
                     <p><strong>Benefits:</strong></p>
