@@ -2,9 +2,7 @@
     style="background: linear-gradient(to bottom, rgb(41, 48, 66), rgb(41, 48, 66)); color: #fff;">
     <!-- Brand Logo -->
     <a href="<?php echo e(route('admin.dashboard')); ?>" class="brand-link"
-        style="text-align: center; display: flex; justify-content: center; align-items: center;">
-        <img src="<?php echo e(asset('assets/dist/img/logo_eventees.png')); ?>" alt="Eventees Hub Logo" class="brand-image"
-            style="max-height: 70px; width: auto; margin: 3px;">
+        <h1 class="brand-title" style="font-size: 24px; margin: 3px; color: #fff; text-alignt:center;">EVENTEEShub</h1>
     </a>
 
     <!-- Sidebar -->

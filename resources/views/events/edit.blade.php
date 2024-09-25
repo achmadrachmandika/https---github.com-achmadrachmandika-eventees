@@ -26,7 +26,7 @@
                         <label for="photo" class="form-label"><strong>Photo:</strong></label>
                         <input type="file" id="photo" name="photo" class="form-control">
                         @if($event->photo)
-                        <img src="{{ asset('storage/event_photos/' . $event->photo) }}" alt="Current Photo"
+                        <img src="{{ asset('storage/' . $event->photo) }}" alt="Current Photo"
                             style="max-width: 150px; height: auto; margin-top: 10px;">
                         @endif
                         @error('photo')

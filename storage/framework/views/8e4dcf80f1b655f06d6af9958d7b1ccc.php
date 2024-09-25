@@ -15,8 +15,9 @@
     </div>
     <?php endif; ?>
 
-    <table class="table table-bordered">
-        <thead>
+    <div style="max-height:550px;overflow-y:auto; margin-bottom: 10px">
+        <table id="myTable" class="table table-striped mt-4" style="text-align: center;">
+            <thead class="bg-secondary text-white text-center sticky-header">
             <tr>
                 <th>Kode Event</th>
                 <th>Photo</th>
@@ -65,6 +66,7 @@
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </tbody>
     </table>
+    </div>
 
     <!-- Modal -->
 
@@ -86,5 +88,26 @@
         }
     }
 </script>
+
+<script>
+    function myFunction() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+    </script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('admin.home', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Magang KWUJTI\https---github.com-achmadrachmandika-eventees\resources\views/events/index.blade.php ENDPATH**/ ?>

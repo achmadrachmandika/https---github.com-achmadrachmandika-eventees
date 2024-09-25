@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Event; 
 
 class HomeAdminController extends Controller
 {
@@ -11,7 +12,8 @@ class HomeAdminController extends Controller
      */
     public function index()
     {
-          return view ('admin.dashboard');
+            $event = Event::all(); // Ambil semua event
+          return view ('admin.dashboard' , compact('event'));
     }
 
     /**

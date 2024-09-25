@@ -31,7 +31,7 @@ unset($__errorArgs, $__bag); ?>
                         <label for="photo" class="form-label"><strong>Photo:</strong></label>
                         <input type="file" id="photo" name="photo" class="form-control">
                         <?php if($event->photo): ?>
-                        <img src="<?php echo e(asset('storage/event_photos/' . $event->photo)); ?>" alt="Current Photo"
+                        <img src="<?php echo e(asset('storage/' . $event->photo)); ?>" alt="Current Photo"
                             style="max-width: 150px; height: auto; margin-top: 10px;">
                         <?php endif; ?>
                         <?php $__errorArgs = ['photo'];
