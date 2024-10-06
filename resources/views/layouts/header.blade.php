@@ -1,56 +1,8 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap">
-<style>
-    body {
-        margin: 0;
-        font-family: 'Montserrat', sans-serif;
-    }
-
-    .navbar-brand {
-        font-family: 'Montserrat', sans-serif;
-        /* Ganti dengan font yang diinginkan */
-        font-weight: 800;
-        /* Berat font */
-        font-size: 54px;
-        /* Ukuran font */
-        letter-spacing: 0px;
-        /* Jarak antar huruf */
-        color: #FFA500;
-        /* Warna oranye untuk menyesuaikan dengan tema */
-        text-transform: uppercase;
-        /* Mengubah teks menjadi huruf kapital */
-        transition: color 0.3s ease;
-        /* Transisi warna saat hover */
-    }
-
-    .navbar-brand:hover {
-        color: #FF6F61;
-        /* Warna saat hover */
-    }
-    /* Gaya dasar untuk navbar item */
-    .nav-link {
-    color: #fff; /* Warna teks navbar */
-    padding: 10px 15px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    text-transform: uppercase;
-    }
-    
-    /* Gaya untuk item navbar aktif */
-    .nav-item.active .nav-link {
-    background: linear-gradient(90deg,#FFA500);
-    color: #fff;
-    border-radius: 5px;
-    font-weight: bold;
-    }
-    
-    /* Gaya untuk navbar item saat hover */
-    .nav-link:hover {
-    background-color: rgba(255, 255, 255, 0.2); /* Warna latar belakang saat hover */
-    color: #FFA500; /* Warna teks saat hover */
-    border-radius: 5px;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ asset('css/styleheader.css') }}">
 
     
-</style>
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
         <a class="navbar-brand" href="/eventhub">Eventees HUB</a>

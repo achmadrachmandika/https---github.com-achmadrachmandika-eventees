@@ -1,0 +1,42 @@
+        body {
+            background-color: #f0f2f5;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        .card {
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .card-header {
+            background-color: #ffc800;
+            color: #fff;
+            padding: 15px;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-footer {
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .btn-primary {
+            background-color: #ffc800;
+            border-color: #ffc800;
+        }
+
+        .btn-outline-primary {
+            color: #ffc800;
+            border-color: #ffc800;
+
+        }
+
+        .btn-outline-primary:hover {
+            background-color: #ffc800;
+            color: #fff;
+        }

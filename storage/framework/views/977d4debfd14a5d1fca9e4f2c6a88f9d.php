@@ -1,11 +1,11 @@
 <link rel="stylesheet" href="<?php echo e(asset('css/styleeventhub.css')); ?>">
 <?php $__env->startSection('content'); ?>
 
-<div id="hero-wrap" style="background-color: #ffc800;" data-stellar-background-ratio="0.5">
+<div id="hero-wrap" style="background-color: rgb(1, 107, 107);" data-stellar-background-ratio="0.5">
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
             <div class="col-md-7 ftco-animate text-center" data-scrollax="properties: { translateY: '70%' }">
-                <img src="<?php echo e(asset('images/eventeeslog1.png')); ?>" alt="Eventees HUB Logo" class="hero-logo img-fluid">
+                <img src="<?php echo e(asset('images/logo_eventeesFix.svg')); ?>" alt="Eventees HUB Logo" class="hero-logo img-fluid">
                 <p class="mb-5" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Penyedia Event JTI
                     Pertama <a href="#">EventeesHUB</a></p>
                 <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">

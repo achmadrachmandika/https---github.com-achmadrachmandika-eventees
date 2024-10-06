@@ -12,7 +12,7 @@
     }
 
     .eventees-title2 {
-        font-family: 'Georgia', serif;
+        font-family: 'Nunito';
         /* Font artistik */
         font-size: 2.5em;
         /* Ukuran font judul */
@@ -23,7 +23,7 @@
     }
 
     .eventees-text2 {
-        font-family: 'Arial', sans-serif;
+        font-family: 'Nunito';
         /* Font teks */
         font-size: 1.2em;
         /* Ukuran font teks */
@@ -46,4 +46,3 @@
     #myTable th {
         width: auto !important;
     }
-
