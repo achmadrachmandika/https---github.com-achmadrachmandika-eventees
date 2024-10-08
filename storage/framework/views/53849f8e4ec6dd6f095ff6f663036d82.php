@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <title>Eventees-Login</title>
+    <title>Eventees-Register</title>
 </head>
 
 <body>
@@ -22,8 +22,58 @@
                             </div>
                             <h2 class="fs-6 fw-normal text-center text-secondary mb-4">Selamat Datang di EventeesHUB
                             </h2>
-                            <form method="POST" action="<?php echo e(route('login')); ?>">
+                            <form method="POST" action="<?php echo e(route('register')); ?>">
                                 <?php echo csrf_field(); ?>
+                                <div class="form-floating mb-3">
+                                    <input id="name"
+                                        class="form-control form-control-lg <?php $__errorArgs = ['name'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>"
+                                        type="text" name="name" placeholder=" " value="<?php echo e(old('name')); ?>" required />
+                                    <label for="name" class="form-label">Nama</label>
+                                    <?php $__errorArgs = ['name'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong class="text-danger"><?php echo e($message); ?></strong>
+                                    </span>
+                                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input id="nip"
+                                        class="form-control form-control-lg <?php $__errorArgs = ['nip'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>"
+                                        type="text" name="nip" placeholder=" " value="<?php echo e(old('nip')); ?>" required />
+                                    <label for="nip" class="form-label">NIP Dosen</label>
+                                    <?php $__errorArgs = ['nip'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong class="text-danger"><?php echo e($message); ?></strong>
+                                    </span>
+                                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                                </div>
                                 <div class="form-floating mb-3">
                                     <input id="email"
                                         class="form-control form-control-lg <?php $__errorArgs = ['email'];
@@ -34,7 +84,7 @@ $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>"
-                                        type="email" name="email" placeholder=" " value="<?php echo e(old('email')); ?>" />
+                                        type="email" name="email" placeholder=" " value="<?php echo e(old('email')); ?>" required />
                                     <label for="email" class="form-label">Email</label>
                                     <?php $__errorArgs = ['email'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -59,7 +109,7 @@ $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>"
-                                        type="password" name="password" placeholder=" " />
+                                        type="password" name="password" placeholder=" " required />
                                     <label for="password" class="form-label">Password</label>
                                     <?php $__errorArgs = ['password'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -74,14 +124,15 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                                 </div>
-                                <div class="text-left d-grid gap-2 mt-4">
-                                    <button type="submit" class="btn btn-lg btn-primary">Masuk</button>
+                                <div class="form-floating mb-3">
+                                    <input id="password_confirmation" class="form-control form-control-lg"
+                                        type="password" name="password_confirmation" placeholder=" " required />
+                                    <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
+                                </div>
+                                <div class="text-left d-grid gap-2 mt-5">
+                                    <button type="submit" class="btn btn-lg btn-primary">Daftar</button>
                                 </div>
                             </form>
-                            <!-- Tombol Register -->
-                            <div class="text-center mt-3">
-                                <a href="<?php echo e(route('register')); ?>" class="btn btn-secondary">Daftar</a>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -93,4 +144,4 @@ unset($__errorArgs, $__bag); ?>
     <script src="https://unpkg.com/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
 </body>
 
-</html><?php /**PATH D:\Magang KWUJTI\https---github.com-achmadrachmandika-eventees\resources\views/auth/login.blade.php ENDPATH**/ ?>
+</html><?php /**PATH D:\Magang KWUJTI\https---github.com-achmadrachmandika-eventees\resources\views/auth/register.blade.php ENDPATH**/ ?>

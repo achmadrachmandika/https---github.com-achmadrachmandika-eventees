@@ -39,6 +39,14 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('feedback.index') }}" class="nav-link {{ request()->routeIs('feedback.index') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-file-alt"></i>
+                        <p>
+                            Kritik dan Saran
+                        </p>
+                    </a>
+                </li>
 
                 <!-- Spacer for logout -->
                 <li class="nav-item flex-grow-1"></li>

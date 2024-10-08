@@ -75,28 +75,41 @@
     <div class="overlay"></div>
     <div class="container">
         <div class="row d-md-flex">
-            <div class="col-md-6 d-flex ftco-animate">
+            <div class="col-md-3 d-flex ftco-animate">
                 <div class="img img-2 align-self-stretch"
-                    style="background-image: url({{ asset('images/eventeeslog1.png') }});">
+                    style="background-image: url({{ asset('images/logo_eventeesFix.svg') }});">
                 </div>
             </div>
             <div class="col-md-6 volunteer pl-md-5 ftco-animate">
                 <h3 class="mb-3">Kritik dan Saran</h3>
-                <form action="#" class="volunter-form">
+
+                @if(session('success'))
+                <div class="alert alert-success">{{ session('success') }}</div>
+                @endif
+
+                @if(Auth::check())
+                <!-- Check if the user is authenticated -->
+                <form id="feedback-form" action="{{ route('feedback.store') }}" method="POST" class="volunter-form">
+                    @csrf
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Your Name">
+                        <input type="text" class="form-control" name="name" placeholder="Your Name" required
+                            value="{{ Auth::user()->name }}" readonly>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Your Email">
+                        <input type="email" class="form-control" name="email" placeholder="Your Email" required
+                            value="{{ Auth::user()->email }}" readonly>
                     </div>
                     <div class="form-group">
-                        <textarea name="" id="" cols="30" rows="3" class="form-control"
-                            placeholder="Message"></textarea>
+                        <textarea name="message" cols="30" rows="3" class="form-control" placeholder="Message"
+                            required></textarea>
                     </div>
                     <div class="form-group">
                         <input type="submit" value="Send Message" class="btn btn-white py-3 px-5">
                     </div>
                 </form>
+                @else
+                <p>Anda harus <a href="{{ route('login') }}">login</a> untuk memberikan kritik dan saran.</p>
+                @endif
             </div>
         </div>
     </div>
@@ -144,5 +157,19 @@ if (refElement.position().top <= scrollPos && refElement.position().top + refEle
     function navigateToEvent(url) {
         window.location.href = url;
     }
+</script>
+
+<script>
+    document.getElementById('feedback-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        // Check if the user is authenticated
+        @if(!Auth::check())
+            alert('Anda harus login terlebih dahulu untuk mengirim kritik dan saran.');
+            window.location.href = "{{ route('login') }}";
+        @else
+            this.submit(); // Proceed with form submission
+        @endif
+    });
 </script>
 @endsection

@@ -28,11 +28,10 @@
 <div class="card" style="margin: 20px; padding: 20px;">
     <div class="card-header">
         <div class="d-flex justify-content-between align-items-center">
-            <h2 class="font-weight-bold">Daftar Event</h2>
+            <h2 class="font-weight-bold">Feedback</h2>
             <div class="col-md-6 d-flex flex-row justify-content-end mb-3">
-                <input class="form-control" type="text" id="myInput" onkeyup="myFunction()" placeholder="Cari.." title="Type in a name">
-                <a class="btn btn-success" href="{{ route('events.create') }}">Masukkan Event</a>
-                
+                <input class="form-control" type="text" id="myInput" onkeyup="myFunction()" placeholder="Cari.."
+                    title="Type in a name">
             </div>
         </div>
     </div>
@@ -48,49 +47,21 @@
             <table id="myTable" class="table table-striped mt-4" style="text-align: center;">
                 <thead class="bg-secondary text-white text-center sticky-header">
                     <tr>
-                        <th>Kode Event</th>
-                        <th>Photo</th>
-                        <th>Nama Event</th>
-                        <th>Tanggal</th>
-                        <th>Harga</th>
-                        <th>Benefits</th>
-                        <th width="280px">Action</th>
-                    </tr>
+                            <th>#</th>
+                            <th>Nama</th>
+                            <th>Email</th>
+                            <th>Pesan</th>
+                            <th>Tanggal</th>
+                        </tr>
                 </thead>
                 <tbody>
-                    @foreach ($events as $event)
+                    @foreach ($feedbacks as $feedback)
                     <tr>
-                        <td>{{ $event->kode_event }}</td>
-                        <td>
-                            @if($event->photo)
-                            @php
-                            $imagePath = asset('storage/' . $event->photo);
-                            @endphp
-                            <img src="{{ $imagePath }}" alt="{{ $event->kode_event }}"
-                                style="max-width: 100px; height: 100px;">
-                            @else
-                            Tidak Ada Foto
-                            @endif
-                        </td>
-                        <td>{{ $event->nama_event }}</td>
-                        <td>{{ \Carbon\Carbon::parse($event->tanggal)->format('d-m-Y') }}</td>
-                        <td>{{ $event->harga }}</td>
-                        <td>
-                            @foreach($event->benefits as $benefit)
-                            <div>{{ $benefit }}</div>
-                            @endforeach
-                        </td>
-                        <td>
-                            <a class="btn btn-info" href="{{ route('events.show', $event->kode_event) }}">Show</a>
-                            <a class="btn btn-primary" href="{{ route('events.edit', $event->kode_event) }}">Edit</a>
-                            <form action="{{ route('events.destroy', $event->kode_event) }}" method="POST"
-                                style="display:inline;">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-outline-danger"
-                                    onclick="return confirmDelete()">Hapus</button>
-                            </form>
-                        </td>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $feedback->name }}</td>
+                        <td>{{ $feedback->email }}</td>
+                        <td>{{ $feedback->message }}</td>
+                        <td>{{ $feedback->created_at->format('d-m-Y H:i:s') }}</td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -100,9 +71,6 @@
 </div>
 
 <script>
-    function confirmDelete() {
-    return confirm('Apakah Anda yakin ingin menghapus Event ini?');
-  }
 
   // Menambahkan timestamp untuk cache busting gambar
   window.onload = function() {
@@ -112,7 +80,7 @@
     }
   }
 
- function myFunction() {
+  function myFunction() {
     var input = document.getElementById("myInput");
     var filter = input.value.toUpperCase();
     var table = document.getElementById("myTable");

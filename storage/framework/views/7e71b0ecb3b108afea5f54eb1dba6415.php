@@ -33,8 +33,6 @@
                     </a>
 
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <li><a class="dropdown-item" href="#">Account</a></li>
-                        <li><a class="dropdown-item" href="#">Your Donate</a></li>
                         <li>
                             <a class="dropdown-item" href="<?php echo e(route('logout')); ?>" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

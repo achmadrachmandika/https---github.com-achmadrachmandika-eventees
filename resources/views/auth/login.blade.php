@@ -46,10 +46,14 @@
                                     </span>
                                     @enderror
                                 </div>
-                                <div class="text-left d-grid gap-2 mt-5">
+                                <div class="text-left d-grid gap-2 mt-4">
                                     <button type="submit" class="btn btn-lg btn-primary">Masuk</button>
                                 </div>
                             </form>
+                            <!-- Tombol Register -->
+                            <div class="text-center mt-3">
+                                <a href="{{ route('register') }}" class="btn btn-secondary">Daftar</a>
+                            </div>
                         </div>
                     </div>
                 </div>

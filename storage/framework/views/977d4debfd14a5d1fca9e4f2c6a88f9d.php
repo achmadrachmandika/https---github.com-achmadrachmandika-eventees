@@ -74,28 +74,41 @@
     <div class="overlay"></div>
     <div class="container">
         <div class="row d-md-flex">
-            <div class="col-md-6 d-flex ftco-animate">
+            <div class="col-md-3 d-flex ftco-animate">
                 <div class="img img-2 align-self-stretch"
-                    style="background-image: url(<?php echo e(asset('images/eventeeslog1.png')); ?>);">
+                    style="background-image: url(<?php echo e(asset('images/logo_eventeesFix.svg')); ?>);">
                 </div>
             </div>
             <div class="col-md-6 volunteer pl-md-5 ftco-animate">
                 <h3 class="mb-3">Kritik dan Saran</h3>
-                <form action="#" class="volunter-form">
+
+                <?php if(session('success')): ?>
+                <div class="alert alert-success"><?php echo e(session('success')); ?></div>
+                <?php endif; ?>
+
+                <?php if(Auth::check()): ?>
+                <!-- Check if the user is authenticated -->
+                <form id="feedback-form" action="<?php echo e(route('feedback.store')); ?>" method="POST" class="volunter-form">
+                    <?php echo csrf_field(); ?>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Your Name">
+                        <input type="text" class="form-control" name="name" placeholder="Your Name" required
+                            value="<?php echo e(Auth::user()->name); ?>" readonly>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Your Email">
+                        <input type="email" class="form-control" name="email" placeholder="Your Email" required
+                            value="<?php echo e(Auth::user()->email); ?>" readonly>
                     </div>
                     <div class="form-group">
-                        <textarea name="" id="" cols="30" rows="3" class="form-control"
-                            placeholder="Message"></textarea>
+                        <textarea name="message" cols="30" rows="3" class="form-control" placeholder="Message"
+                            required></textarea>
                     </div>
                     <div class="form-group">
                         <input type="submit" value="Send Message" class="btn btn-white py-3 px-5">
                     </div>
                 </form>
+                <?php else: ?>
+                <p>Anda harus <a href="<?php echo e(route('login')); ?>">login</a> untuk memberikan kritik dan saran.</p>
+                <?php endif; ?>
             </div>
         </div>
     </div>
@@ -143,6 +156,20 @@ if (refElement.position().top <= scrollPos && refElement.position().top + refEle
     function navigateToEvent(url) {
         window.location.href = url;
     }
+</script>
+
+<script>
+    document.getElementById('feedback-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        // Check if the user is authenticated
+        <?php if(!Auth::check()): ?>
+            alert('Anda harus login terlebih dahulu untuk mengirim kritik dan saran.');
+            window.location.href = "<?php echo e(route('login')); ?>";
+        <?php else: ?>
+            this.submit(); // Proceed with form submission
+        <?php endif; ?>
+    });
 </script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Magang KWUJTI\https---github.com-achmadrachmandika-eventees\resources\views/eventhub.blade.php ENDPATH**/ ?>
