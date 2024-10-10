@@ -1,64 +1,33 @@
 <?php
 
-namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 
 class PembayaranController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    // Method untuk menerima callback dari Midtrans
+    public function callback(Request $request)
     {
-          return view('pembayaran.index');
-    }
+        // Verifikasi signature untuk memastikan keamanan
+        $signature_key = config('midtrans.server_key');
+        $status = $request->input('transaction_status');
+        $order_id = $request->input('order_id');
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+        // Update status pembayaran di database Anda
+        // Misalnya, Anda memiliki model Payment yang terkait dengan transaksi
+        $payment = Payment::where('order_id', $order_id)->first();
+        
+        if ($payment) {
+            if ($status == 'success') {
+                $payment->status = 'success'; // Atur status menjadi success
+            } elseif ($status == 'pending') {
+                $payment->status = 'pending'; // Atur status menjadi pending
+            } elseif ($status == 'failed') {
+                $payment->status = 'failed'; // Atur status menjadi failed
+            }
+            $payment->save();
+        }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        // Redirect ke halaman sukses
+        return redirect()->route('pembayaran.success'); // Rute ke halaman sukses
     }
 }

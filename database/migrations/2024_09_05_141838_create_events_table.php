@@ -16,7 +16,8 @@ return new class extends Migration
             $table->text('photo');
             $table->string('nama_event', 100);
             $table->json('benefits');
-            $table->integer('harga');
+            $table->bigInteger('harga');
+            $table->enum('status', ['Unpaid', 'Paid']);
             $table->date('tanggal',);
             $table->text('description');
             $table->timestamps();

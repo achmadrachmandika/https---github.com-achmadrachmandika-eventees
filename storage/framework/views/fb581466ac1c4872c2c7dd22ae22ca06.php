@@ -7,7 +7,7 @@
     <title><?php echo e($event->nama_event); ?></title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="<?php echo e(asset('css/styleshow.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('css/styleshow.css')); ?>">
 </head>
 
 <body>
@@ -45,16 +45,44 @@
                     </div>
                     <div class="card-footer d-flex justify-content-between">
                         <a href="<?php echo e(route('eventhub')); ?>" class="btn btn-outline-primary">Kembali ke Daftar Event</a>
-                        <a href="<?php echo e(route('eventhub')); ?>" class="btn btn-outline-primary">Bayar</a>
+                        <button id="pay-button" class="btn btn-outline-primary">Bayar</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js"
+        data-client-key="<?php echo e(env('MIDTRANS_CLIENT_KEY', 'SB-Mid-client-pe0su41EHxvjXTK9')); ?>"></script>
+    <script type="text/javascript">
+        document.getElementById('pay-button').onclick = function () {
+            console.log('Pay button clicked'); // Debugging line
+            
+            // Make an AJAX call to create the transaction and get the snap token
+            $.ajax({
+                url: '<?php echo e(route('transactions.create')); ?>',
+                method: 'POST',
+                data: {
+                    _token: '<?php echo e(csrf_token()); ?>',
+                    kode_event: '<?php echo e($event->kode_event); ?>',
+                    nama: '<?php echo e(Auth::user()->name); ?>',
+                    email: '<?php echo e(Auth::user()->email); ?>',
+                    nip: '<?php echo e(Auth::user()->nip); ?>'
+                },
+                success: function (data) {
+                    console.log('Transaction created successfully:', data); // Debugging line
+                    snap.pay(data.snap_token);
+                },
+                error: function (error) {
+                    console.error('Error creating transaction:', error); // Debugging line
+                }
+            });
+        };
+    </script>
 </body>
 
-</html><?php /**PATH D:\Magang KWUJTI\https---github.com-achmadrachmandika-eventees\resources\views/eventhubshow.blade.php ENDPATH**/ ?>
+</html>
+<?php /**PATH D:\Magang KWUJTI\https---github.com-achmadrachmandika-eventees\resources\views/eventhubshow.blade.php ENDPATH**/ ?>
