@@ -8,14 +8,16 @@
             <div class="col-md-7 ftco-animate text-center" data-scrollax="properties: { translateY: '70%' }">
                 <img src="{{ asset('images/logo_eventeesFix.svg') }}" alt="Eventees HUB Logo" class="hero-logo img-fluid">
                 <p class="mb-5" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Penyedia Event JTI
-                    Pertama <a href="#">EventeesHUB</a></p>
+                    Pertama <a href="#"></a></p>
                 <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
-                    <a href="#eventees_1" class="btn btn-white btn-outline-white px-4 py-3">Mulai Event</a>
+                    <a data-toggle="modal" class="btn btn-white btn-outline-white px-4 py-3" data-target="#createEventModal">Buat Event</a>
                 </p>
             </div>
         </div>
     </div>
 </div>
+
+{{-- rgb(1, 107, 107); --}}
 
 <section id="eventees_1" class="wrapper">
     <div class="intro-section text-center mb-5">
@@ -28,6 +30,7 @@
     </div>
     <div class="container">
         <div class="row">
+            
             @if (session('error'))
             <div class="alert alert-danger">
                 {{ session('error') }}
@@ -36,11 +39,11 @@
             @foreach ($events as $event)
             <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
                 <div class="card text-dark card-has-bg click-col"
-                    onclick="navigateToEvent('{{ route('eventhub.show', ['kode_event' => $event->kode_event]) }}')"
-                    style="background-image:url('{{ asset('storage/event_photos/' . $event->photo) }}');">
+                    onclick="handleCardClick('{{ route('eventhub.show', ['kode_event' => $event->kode_event]) }}', {{ auth()->check() ? 'true' : 'false' }})"
+                    style="background-image:url('{{ asset('storage/' . $event->photo) }}');">
                     <img class="card-img d-none" src="{{ asset('storage/' . $event->photo) }}"
                         alt="{{ $event->nama_event }}">
-
+    
                     <div class="card-img-overlay d-flex flex-column">
                         <div class="card-body">
                             <small class="card-meta mb-2">{{ $event->kode_event }}</small>
@@ -50,14 +53,17 @@
                             <h4 class="card-title mt-0">
                                 <a class="text-dark" href="#">Rp.{{ $event->harga }}</a>
                             </h4>
-
+    
                             <small><i class="far fa-clock"></i> {{
                                 \Carbon\Carbon::parse($event->tanggal)->format('d-m-Y') }}</small>
+                                <br>
+                                <small><i class="far fa-clock"></i> {{
+                                    \Carbon\Carbon::parse($event->jam)->format('H:i:s') }}</small>
                         </div>
                         <div class="card-footer">
                             <div class="media">
-                                <img class="mr-3 rounded-circle" src="{{ asset('images/eventeeslog1.png') }}" alt="Eventees Logo"
-                                    style="max-width:100px">
+                                <img class="mr-3 rounded-circle" src="{{ asset('images/eventeeslog1.png') }}"
+                                    alt="Eventees Logo" style="max-width:100px">
                                 <div class="media-body">
                                     <small>{{ $event->description }}</small>
                                 </div>
@@ -69,7 +75,71 @@
             @endforeach
         </div>
     </div>
+
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Silahkan Login Terlebih Dahulu</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Anda harus login untuk melihat detail acara ini.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                    <a href="{{ route('login') }}" class="btn btn-primary">Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
 </section>
+
+<!-- Create Event Modal -->
+    <div class="modal fade" id="createEventModal" tabindex="-1" role="dialog" aria-labelledby="createEventModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="createEventModalLabel">Input Event Dosen</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form id="event-form" action="{{ route('eventdosens.store') }}" method="POST">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="kode_dosen">Kode Dosen</label>
+                            <input type="text" class="form-control" id="kode_dosen" name="kode_dosen" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nama_dosen">Nama Dosen</label>
+                            <input type="text" class="form-control" id="nama_dosen" name="nama_dosen" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="training_topic">Topik Pelatihan (optional)</label>
+                            <input type="text" class="form-control" id="training_topic" name="training_topic">
+                        </div>
+                        <div class="form-group">
+                            <label for="no_hp">Nomor HP</label>
+                            <input type="text" class="form-control" id="no_hp" name="no_hp" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </section>
 
 <section class="ftco-section-3 img">
     <div class="overlay"></div>
@@ -171,5 +241,15 @@ if (refElement.position().top <= scrollPos && refElement.position().top + refEle
             this.submit(); // Proceed with form submission
         @endif
     });
+</script>
+
+<script>
+    function handleCardClick(url, isLoggedIn) {
+        if (isLoggedIn) {
+            window.location.href = url;
+        } else {
+            $('#loginModal').modal('show');
+        }
+    }
 </script>
 @endsection

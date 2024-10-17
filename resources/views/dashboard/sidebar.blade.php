@@ -11,12 +11,32 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Event Link -->
+
                 <li class="nav-item">
                     <a href="{{ route('events.index') }}"
                         class="nav-link {{ request()->routeIs('events.index') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-calendar-alt"></i>
                         <p>
-                            Event
+                            Event Mahasiswa
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('events.index') }}" class="nav-link {{ request()->routeIs('events.index') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-calendar-alt"></i>
+                        <p>
+                            Event Dosen
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('eventdosens.index') }}"
+                        class="nav-link {{ request()->routeIs('eventdosens.index') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-calendar-alt"></i>
+                        <p>
+                            Event Request Dosen
                         </p>
                     </a>
                 </li>

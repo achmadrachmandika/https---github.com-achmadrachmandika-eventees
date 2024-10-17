@@ -13,20 +13,29 @@ class Event extends Model
     protected $primaryKey = 'kode_event';
     public $incrementing = false;
     protected $keyType = 'string';
+
     protected $fillable = [
         'kode_event',
+        'kode_dosen',
         'photo',
         'nama_event',
         'harga',
-        'benefits', // Updated to reflect JSON column
+        'benefits',
         'tanggal',
+        'status',
         'description',
+        'jam',
+        'kategori',
     ];
 
     // Ensure 'tanggal' is a Carbon instance
     protected $dates = ['tanggal'];
-     protected $casts = [
+    protected $casts = [
         'benefits' => 'array',
     ];
 
+    public function eventdosen()
+    {
+        return $this->belongsTo(Eventdosen::class, 'kode_dosen', 'kode_dosen');
+    }
 }

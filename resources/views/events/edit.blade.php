@@ -12,11 +12,28 @@
             <form action="{{ route('events.update', $event->kode_event) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
+
                 <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="kode_dosen" class="form-label"><strong>Kode Dosen:</strong></label>
+                        <select id="kode_dosen" name="kode_dosen"
+                            class="form-control @error('kode_dosen') is-invalid @enderror" required>
+                            @foreach($eventdosens as $dosen)
+                            <option value="{{ $dosen->kode_dosen }}" {{ $event->kode_dosen == $dosen->kode_dosen ?
+                                'selected' : '' }}>
+                                {{ $dosen->kode_dosen }}
+                            </option>
+                            @endforeach
+                        </select>
+                        @error('kode_dosen')
+                        <span class="invalid-feedback">{{ $message }}</span>
+                        @enderror
+                    </div>
+
                     <div class="col-md-6 mb-3">
                         <label for="kode_event" class="form-label"><strong>Kode Event:</strong></label>
                         <input type="text" id="kode_event" name="kode_event" class="form-control"
-                            placeholder="Kode Event" value="{{ old('kode_event', $event->kode_event) }}" readonly>
+                            value="{{ old('kode_event', $event->kode_event) }}" readonly>
                         @error('kode_event')
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
@@ -37,7 +54,7 @@
                     <div class="col-md-6 mb-3">
                         <label for="nama_event" class="form-label"><strong>Nama Event:</strong></label>
                         <input type="text" id="nama_event" name="nama_event" class="form-control"
-                            placeholder="Nama Event" value="{{ old('nama_event', $event->nama_event) }}">
+                            value="{{ old('nama_event', $event->nama_event) }}">
                         @error('nama_event')
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
@@ -52,10 +69,19 @@
                         @enderror
                     </div>
 
+                    <div class="col-md-6 mb-3">
+                        <label for="jam" class="form-label"><strong>Jam:</strong></label>
+                        <input type="time" id="jam" name="jam" class="form-control"
+                            value="{{ old('jam', $event->jam) }}">
+                        @error('jam')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+
                     <div class="col-md-12 mb-3">
                         <label for="description" class="form-label"><strong>Deskripsi:</strong></label>
-                        <textarea id="description" class="form-control" name="description" rows="4"
-                            placeholder="Deskripsi">{{ old('description', $event->description) }}</textarea>
+                        <textarea id="description" class="form-control" name="description"
+                            rows="4">{{ old('description', $event->description) }}</textarea>
                         @error('description')
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
@@ -64,18 +90,39 @@
                     <div class="col-md-12 mb-3">
                         <label for="benefits" class="form-label"><strong>Benefits:</strong></label>
                         <div id="benefits">
-                            @foreach($event->benefits as $benefit)
-                            @if($benefit)
+                            @foreach($event->benefits as $index => $benefit)
                             <div class="input-group mb-2">
-                                <input type="text" name="benefits[]" class="form-control" placeholder="Benefit"
-                                    value="{{ old('benefits.' . $loop->index, $benefit) }}">
+                                <input type="text" name="benefits[]" class="form-control"
+                                    value="{{ old('benefits.' . $index, $benefit) }}">
                                 <button type="button" class="btn btn-danger"
                                     onclick="this.parentElement.remove()">X</button>
                             </div>
-                            @endif
                             @endforeach
                         </div>
                         <button type="button" class="btn btn-secondary" onclick="addBenefit()">Add Benefit</button>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label for="kategori" class="form-label"><strong>Kategori:</strong></label>
+                        <select class="form-control" name="kategori" id="kategori">
+                            <option value="Online" {{ $event->kategori == 'Online' ? 'selected' : '' }}>Online</option>
+                            <option value="Offline" {{ $event->kategori == 'Offline' ? 'selected' : '' }}>Offline
+                            </option>
+                        </select>
+                        @error('kategori')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label for="status" class="form-label"><strong>Status:</strong></label>
+                        <select class="form-control" name="status" id="status">
+                            <option value="Paid" {{ $event->status == 'Paid' ? 'selected' : '' }}>Paid</option>
+                            <option value="Unpaid" {{ $event->status == 'Unpaid' ? 'selected' : '' }}>Unpaid</option>
+                        </select>
+                        @error('status')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <div class="col-md-12 text-end">

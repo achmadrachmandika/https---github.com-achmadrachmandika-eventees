@@ -21,6 +21,22 @@
                 </div>
 
                 <div class="col-md-6 mb-3">
+                    <label for="kode_dosen" class="form-label"><strong>Kode Dosen:</strong></label>
+                    <select id="kode_dosen" name="kode_dosen" class="form-control" onchange="updateFields()">
+                        <option value="">Pilih Kode Dosen</option>
+                        @foreach($eventdosens as $dosen)
+                        <option value="{{ $dosen->kode_dosen }}" data-training="{{ $dosen->training_topic }}"
+                            data-nohp="{{ $dosen->no_hp }}">
+                            {{ $dosen->kode_dosen }}
+                        </option>
+                        @endforeach
+                    </select>
+                    @error('kode_dosen')
+                    <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="col-md-6 mb-3">
                     <label for="photo" class="form-label"><strong>Photo:</strong></label>
                     <input type="file" id="photo" name="photo" class="form-control">
                     @error('photo')
@@ -37,19 +53,27 @@
                     @enderror
                 </div>
 
-               <div class="col-md-6 mb-3">
-                <label for="harga" class="form-label"><strong>Harga:</strong></label>
-                <input type="number" id="harga" name="harga" class="form-control" placeholder="Harga" value="{{ old('harga') }}"
-                    step="1" min="0" required>
-                @error('harga')
-                <div class="text-danger">{{ $message }}</div>
-                @enderror
-            </div>
+                <div class="col-md-6 mb-3">
+                    <label for="harga" class="form-label"><strong>Harga:</strong></label>
+                    <input type="number" id="harga" name="harga" class="form-control" placeholder="Harga"
+                        value="{{ old('harga') }}" step="1" min="0" required>
+                    @error('harga')
+                    <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                </div>
 
                 <div class="col-md-6 mb-3">
                     <label for="tanggal" class="form-label"><strong>Tanggal:</strong></label>
                     <input type="date" id="tanggal" name="tanggal" class="form-control" value="{{ old('tanggal') }}">
                     @error('tanggal')
+                    <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label for="jam" class="form-label"><strong>Jam:</strong></label>
+                    <input type="time" id="jam" name="jam" class="form-control" value="{{ old('jam') }}">
+                    @error('jam')
                     <div class="text-danger">{{ $message }}</div>
                     @enderror
                 </div>
@@ -75,6 +99,22 @@
                         @enderror
                 </div>
 
+                <div class="col-2" style="height: 100%;">
+                    <label for="kategori" class="required-star">Kategori</label>
+                    <select class="form-control" name="kategori" id="kategori" style="height: 35px;">
+                        <option value="Online">Online</option>
+                        <option value="Offline">Offline</option>
+                    </select>
+                </div>
+
+                <div class="col-2" style="height: 100%;">
+                    <label for="status" class="required-star">Status</label>
+                    <select class="form-control" name="status" id="status" style="height: 35px;">
+                        <option value="Paid">Paid</option>
+                        <option value="Unpaid">Unpaid</option>
+                    </select>
+                </div>
+
                 <div class="col-md-12 text-end">
                     <div class="btn-group">
                         <button type="submit" class="btn btn-success">Simpan</button>
@@ -85,4 +125,24 @@
         </form>
     </div>
 </div>
+
+@section('scripts')
+<script>
+    function updateFields() {
+        const kodeDosenSelect = document.getElementById('kode_dosen');
+        const selectedOption = kodeDosenSelect.options[kodeDosenSelect.selectedIndex];
+
+        const trainingTopicInput = document.getElementById('training_topic');
+        const noHpInput = document.getElementById('no_hp');
+
+        if (selectedOption.value) {
+            trainingTopicInput.value = selectedOption.getAttribute('data-training');
+            noHpInput.value = selectedOption.getAttribute('data-nohp');
+        } else {
+            trainingTopicInput.value = '';
+            noHpInput.value = '';
+        }
+    }
+</script>
+@endsection
 @endsection

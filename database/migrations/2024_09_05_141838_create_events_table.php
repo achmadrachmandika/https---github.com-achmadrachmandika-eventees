@@ -13,12 +13,16 @@ return new class extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->string('kode_event', 100)->primary();
+            $table->string('kode_dosen', 100); // Add kode_dosen field
+            $table->foreign('kode_dosen')->references('kode_dosen')->on('eventdosens')->onDelete('cascade');
             $table->text('photo');
             $table->string('nama_event', 100);
             $table->json('benefits');
             $table->bigInteger('harga');
             $table->enum('status', ['Unpaid', 'Paid']);
-            $table->date('tanggal',);
+            $table->enum('kategori', ['Online', 'Offline']);
+            $table->date('tanggal');
+            $table->time('jam');
             $table->text('description');
             $table->timestamps();
         });
@@ -32,3 +36,4 @@ return new class extends Migration
         Schema::dropIfExists('events');
     }
 };
+

@@ -30,6 +30,10 @@
         </div>
 
         <div class="mb-3">
+            <strong>Jam:</strong> {{ \Carbon\Carbon::parse($event->jam)->format('H:i:s') }}
+        </div>
+
+        <div class="mb-3">
             <strong>Deskripsi:</strong>
             <p>{{ $event->description }}</p>
         </div>
@@ -45,6 +49,13 @@
                         @endforeach
                     </ul>
                     @endif
+        </div>
+
+        <div class="mb-3">
+            <strong>Kategori:</strong> {{ $event->kategori }}
+        </div>
+        <div class="mb-3">
+            <strong>Status:</strong> {{ $event->status }}
         </div>
     </div>
 

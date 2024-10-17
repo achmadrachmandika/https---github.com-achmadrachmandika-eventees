@@ -74,14 +74,15 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                                 </div>
-                                <div class="text-left d-grid gap-2 mt-4">
+                                <div class="text-left gap-2 mt-4">
                                     <button type="submit" class="btn btn-lg btn-primary">Masuk</button>
                                 </div>
+                               <div class="text-left gap-2 mt-4">
+                                <a href="#" class="btn btn-secondary" onclick="confirmRole()">Daftar</a>
+                            </div>
                             </form>
                             <!-- Tombol Register -->
-                            <div class="text-center mt-3">
-                                <a href="<?php echo e(route('register')); ?>" class="btn btn-secondary">Daftar</a>
-                            </div>
+                         
                         </div>
                     </div>
                 </div>
@@ -93,4 +94,19 @@ unset($__errorArgs, $__bag); ?>
     <script src="https://unpkg.com/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
 </body>
 
-</html><?php /**PATH D:\Magang KWUJTI\https---github.com-achmadrachmandika-eventees\resources\views/auth/login.blade.php ENDPATH**/ ?>
+</html>
+<script>
+    function confirmRole() {
+        const role = prompt("Apakah Anda seorang Dosen atau Mahasiswa? Ketik 'Dosen' untuk Dosen, atau 'Mahasiswa' untuk Mahasiswa.").toLowerCase();
+        
+        if (role === 'dosen') {
+            // Jika pengguna mengetik 'Dosen', arahkan ke route dosen
+            window.location.href = "<?php echo e(route('register.dosen')); ?>";
+        } else if (role === 'mahasiswa') {
+            // Jika pengguna mengetik 'Mahasiswa', arahkan ke route mahasiswa
+            window.location.href = "<?php echo e(route('register.mahasiswa')); ?>"; // Pastikan rute ini ada
+        } else {
+            alert("Input tidak valid. Silakan coba lagi."); // Tampilkan peringatan jika input tidak valid
+        }
+    }
+</script><?php /**PATH D:\Magang KWUJTI\https---github.com-achmadrachmandika-eventees\resources\views/auth/login.blade.php ENDPATH**/ ?>

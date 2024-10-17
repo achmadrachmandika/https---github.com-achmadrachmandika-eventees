@@ -8,11 +8,21 @@ use App\Http\Controllers\EventHubController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\EventDosenController;
+use App\Http\Controllers\Auth\RegisterDosenController;
+use App\Http\Controllers\Auth\RegisterMahasiswaController;
+use App\Http\Controllers\EventMhsController;
 
 // Rute utama
 Route::get('/', function () {
     return view('/auth/login');
 });
+
+Route::get('/register/dosen', [RegisterDosenController::class, 'showRegistrationForm'])->name('register.dosen');
+Route::post('/register/dosen', [RegisterDosenController::class, 'register']);
+
+Route::get('/register/mahasiswa', [RegisterMahasiswaController::class, 'showRegistrationForm'])->name('register.mahasiswa');
+Route::post('/register/mahasiswa', [RegisterMahasiswaController::class, 'register']);
 
 // Rute untuk Event Hub
 Route::get('/eventhub', [EventHubController::class, 'index'])->name('eventhub');
@@ -35,8 +45,14 @@ Route::middleware('auth')->group(function () {
     });
 
     // Rute untuk admin dan user
-     Route::middleware('role:admin|user')->group(function () {
-        Route::post('/transactions', [TransactionController::class, 'createTransaction'])->name('transactions.create');
+     Route::middleware('role:admin|dosen')->group(function () {
+       
+        Route::resource('eventdosens', EventDosenController::class);
+    });
+
+      Route::middleware('role:mahasiswa')->group(function () {
+        Route::get('/eventmhs', [EventMhsController::class, 'index'])->name('eventmhs');
+         Route::post('/transactions', [TransactionController::class, 'createTransaction'])->name('transactions.create');
         Route::post('/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
 
            Route::get('/pembayaran/sukses', function () {

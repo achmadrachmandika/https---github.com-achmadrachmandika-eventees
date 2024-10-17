@@ -33,6 +33,11 @@
         </div>
 
         <div class="mb-3">
+            <strong>Jam:</strong> <?php echo e(\Carbon\Carbon::parse($event->jam)->format('H:i:s')); ?>
+
+        </div>
+
+        <div class="mb-3">
             <strong>Deskripsi:</strong>
             <p><?php echo e($event->description); ?></p>
         </div>
@@ -48,6 +53,15 @@
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </ul>
                     <?php endif; ?>
+        </div>
+
+        <div class="mb-3">
+            <strong>Kategori:</strong> <?php echo e($event->kategori); ?>
+
+        </div>
+        <div class="mb-3">
+            <strong>Status:</strong> <?php echo e($event->status); ?>
+
         </div>
     </div>
 

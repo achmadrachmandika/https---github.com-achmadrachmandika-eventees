@@ -46,12 +46,18 @@ class LoginController extends Controller
      */
     protected function authenticated(Request $request, $user)
     {
-        if ($user->hasRole('admin')) {
+           if ($user->hasRole('admin')) {
             return redirect()->route('admin.dashboard');
         }
-          if ($user->hasRole('user')) {
-        return redirect()->route('eventhub');
-    }
+
+        if ($user->hasRole('dosen')) {
+            return redirect()->route('eventhub');
+        }
+
+        if ($user->hasRole('mahasiswa')) {
+            return redirect()->route('eventmhs');
+        }
+    
 
         return redirect()->route('eventhub');
     }

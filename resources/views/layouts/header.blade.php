@@ -17,7 +17,7 @@
                     <a href="#hero-wrap" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/about" class="nav-link">About</a>
+                    <a href="#" class="nav-link">About</a>
                 </li>
                 <li class="nav-item">
                     <a href="#events-section" class="nav-link">Events</a>

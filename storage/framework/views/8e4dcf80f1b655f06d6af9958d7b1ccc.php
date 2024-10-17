@@ -28,9 +28,9 @@
         <div class="d-flex justify-content-between align-items-center">
             <h2 class="font-weight-bold">Daftar Event</h2>
             <div class="col-md-6 d-flex flex-row justify-content-end mb-3">
-                <input class="form-control" type="text" id="myInput" onkeyup="myFunction()" placeholder="Cari.." title="Type in a name">
+                <input class="form-control me-2" type="text" id="myInput" onkeyup="myFunction()" placeholder="Cari.."
+                    title="Type in a name">
                 <a class="btn btn-success" href="<?php echo e(route('events.create')); ?>">Masukkan Event</a>
-                
             </div>
         </div>
     </div>
@@ -47,11 +47,15 @@
                 <thead class="bg-secondary text-white text-center sticky-header">
                     <tr>
                         <th>Kode Event</th>
+                        <th>Kode Dosen</th>
                         <th>Photo</th>
                         <th>Nama Event</th>
                         <th>Tanggal</th>
+                        <th>Jam</th>
                         <th>Harga</th>
                         <th>Benefits</th>
+                        <th>Kategori</th>
+                        <th>Status</th>
                         <th width="280px">Action</th>
                     </tr>
                 </thead>
@@ -59,6 +63,7 @@
                     <?php $__currentLoopData = $events; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $event): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr>
                         <td><?php echo e($event->kode_event); ?></td>
+                        <td><?php echo e($event->kode_dosen); ?></td>
                         <td>
                             <?php if($event->photo): ?>
                             <?php
@@ -72,12 +77,15 @@
                         </td>
                         <td><?php echo e($event->nama_event); ?></td>
                         <td><?php echo e(\Carbon\Carbon::parse($event->tanggal)->format('d-m-Y')); ?></td>
+                        <td><?php echo e(\Carbon\Carbon::parse($event->jam)->format('H:i:s')); ?></td>
                         <td><?php echo e($event->harga); ?></td>
                         <td>
                             <?php $__currentLoopData = $event->benefits; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $benefit): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <div><?php echo e($benefit); ?></div>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </td>
+                        <td><?php echo e($event->kategori); ?></td>
+                        <td><?php echo e($event->status); ?></td>
                         <td>
                             <a class="btn btn-info" href="<?php echo e(route('events.show', $event->kode_event)); ?>">Show</a>
                             <a class="btn btn-primary" href="<?php echo e(route('events.edit', $event->kode_event)); ?>">Edit</a>
@@ -99,42 +107,42 @@
 
 <script>
     function confirmDelete() {
-    return confirm('Apakah Anda yakin ingin menghapus Event ini?');
-  }
-
-  // Menambahkan timestamp untuk cache busting gambar
-  window.onload = function() {
-    var images = document.getElementsByTagName('img');
-    for (var i = 0; i < images.length; i++) {
-      images[i].src = images[i].src + '?' + new Date().getTime();
+        return confirm('Apakah Anda yakin ingin menghapus Event ini?');
     }
-  }
 
- function myFunction() {
-    var input = document.getElementById("myInput");
-    var filter = input.value.toUpperCase();
-    var table = document.getElementById("myTable");
-    var tr = table.getElementsByTagName("tr");
-    
-    for (var i = 0; i < tr.length; i++) {
-        // Lewati baris yang berisi <th> (header)
-        if (tr[i].getElementsByTagName("th").length > 0) {
-            continue;
+    // Menambahkan timestamp untuk cache busting gambar
+    window.onload = function() {
+        var images = document.getElementsByTagName('img');
+        for (var i = 0; i < images.length; i++) {
+            images[i].src = images[i].src + '?' + new Date().getTime();
         }
+    }
+
+    function myFunction() {
+        var input = document.getElementById("myInput");
+        var filter = input.value.toUpperCase();
+        var table = document.getElementById("myTable");
+        var tr = table.getElementsByTagName("tr");
         
-        var tds = tr[i].getElementsByTagName("td");
-        var found = false;
-        
-        for (var j = 0; j < tds.length; j++) {
-            if (tds[j].textContent.toUpperCase().indexOf(filter) > -1) {
-                found = true;
-                break; // Hentikan loop jika ditemukan kecocokan
+        for (var i = 0; i < tr.length; i++) {
+            // Lewati baris yang berisi <th> (header)
+            if (tr[i].getElementsByTagName("th").length > 0) {
+                continue;
             }
+            
+            var tds = tr[i].getElementsByTagName("td");
+            var found = false;
+            
+            for (var j = 0; j < tds.length; j++) {
+                if (tds[j].textContent.toUpperCase().indexOf(filter) > -1) {
+                    found = true;
+                    break; // Hentikan loop jika ditemukan kecocokan
+                }
+            }
+            
+            tr[i].style.display = found ? "" : "none";
         }
-        
-        tr[i].style.display = found ? "" : "none";
     }
-}
 </script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('admin.home', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Magang KWUJTI\https---github.com-achmadrachmandika-eventees\resources\views/events/index.blade.php ENDPATH**/ ?>

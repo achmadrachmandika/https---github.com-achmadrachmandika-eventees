@@ -30,6 +30,10 @@
                                     \Carbon\Carbon::parse($event->tanggal)->format('d-m-Y') }}</span></p>
                             <p class="font-weight-bold">Deskripsi: <span class="font-weight-normal">{{
                                     $event->description }}</span></p>
+                                    <p class="font-weight-bold">Kategori: <span class="font-weight-normal">{{
+                                            $event->kategori }}</span></p>
+                                            <p class="font-weight-bold">Status: <span class="font-weight-normal">{{
+                                                    $event->status }}</span></p>
                             <p class="font-weight-bold">Harga: <span class="font-weight-normal">Rp. {{
                                     number_format($event->harga, 0, ',', '.') }}</span></p>
                         </div>
@@ -60,7 +64,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js"
-        data-client-key="{{ env('MIDTRANS_CLIENT_KEY', '') }}"></script>
+        data-client-key="{{ env('MIDTRANS_CLIENT_KEY', 'SB-Mid-client-pe0su41EHxvjXTK9') }}"></script>
     <script type="text/javascript">
         document.getElementById('pay-button').onclick = function () {
             console.log('Pay button clicked'); // Debugging line

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\EventDosen; // Ensure the model is correctly imported
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -12,17 +13,19 @@ class EventController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        $events = Event::all();
-        return view('events.index', compact('events'));
-    }
+{
+    $events = Event::all();
+    $eventdosens = EventDosen::all(); // Pastikan untuk mengambil data dari EventDosen juga
+    return view('events.index', compact('events', 'eventdosens')); // Memisahkan kedua variabel dengan koma
+}
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        return view('events.create');
+        $eventdosens = EventDosen::all();
+        return view('events.create', compact('eventdosens'));
     }
 
     /**
@@ -32,11 +35,15 @@ class EventController extends Controller
     {
         $request->validate([
             'kode_event' => 'required|unique:events,kode_event',
-            'photo' => 'nullable|image|file|max:2048', // Changed to nullable
+            'kode_dosen' => 'required|exists:eventdosens,kode_dosen',
+            'photo' => 'nullable|image|file|max:2048',
             'nama_event' => 'required',
-            'benefits' => 'nullable|array', // Validate as array
+            'benefits' => 'nullable|array',
             'harga' => 'required',
             'tanggal' => 'required|date',
+            'jam' => 'required',
+            'status' => 'required|in:Paid,Unpaid',
+            'kategori' => 'required|in:Online,Offline',
             'description' => 'required',
         ]);
 
@@ -49,11 +56,15 @@ class EventController extends Controller
         // Save the event
         Event::create([
             'kode_event' => $request->input('kode_event'),
+            'kode_dosen' => $request->input('kode_dosen'),
             'photo' => $photoPath,
             'nama_event' => $request->input('nama_event'),
             'benefits' => $request->input('benefits'),
             'harga' => $request->input('harga'),
             'tanggal' => $request->input('tanggal'),
+            'jam' => $request->input('jam'),
+            'kategori' => $request->input('kategori'),
+            'status' => $request->input('status'),
             'description' => $request->input('description'),
         ]);
 
@@ -75,7 +86,8 @@ class EventController extends Controller
     public function edit(string $kode_event)
     {
         $event = Event::findOrFail($kode_event);
-        return view('events.edit', compact('event'));
+        $eventdosens = EventDosen::all();
+        return view('events.edit', compact('event', 'eventdosens'));
     }
 
     /**
@@ -84,11 +96,15 @@ class EventController extends Controller
     public function update(Request $request, string $kode_event)
     {
         $request->validate([
-            'kode_event' => 'required|unique:events,kode_event,' . $kode_event,
+            'kode_dosen' => 'required|exists:eventdosens,kode_dosen',
             'photo' => 'nullable|image|file|max:2048',
             'nama_event' => 'required',
+            'benefits' => 'nullable|array',
             'harga' => 'required',
             'tanggal' => 'required|date',
+            'jam' => 'required',
+            'kategori' => 'required|in:Online,Offline',
+            'status' => 'required|in:Paid,Unpaid',
             'description' => 'required',
         ]);
 
@@ -106,10 +122,14 @@ class EventController extends Controller
 
         // Update the event
         $event->update([
+            'kode_dosen' => $request->input('kode_dosen'),
             'nama_event' => $request->input('nama_event'),
             'benefits' => $request->input('benefits'),
             'harga' => $request->input('harga'),
             'tanggal' => $request->input('tanggal'),
+            'jam' => $request->input('jam'),
+            'kategori' => $request->input('kategori'),
+            'status' => $request->input('status'),
             'description' => $request->input('description'),
         ]);
 
