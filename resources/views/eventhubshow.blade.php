@@ -64,7 +64,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js"
-        data-client-key="{{  }}"></script>
+        data-client-key="{{ ) }}"></script>
     <script type="text/javascript">
         document.getElementById('pay-button').onclick = function () {
             console.log('Pay button clicked'); // Debugging line

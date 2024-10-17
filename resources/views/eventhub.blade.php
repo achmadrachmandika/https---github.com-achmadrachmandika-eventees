@@ -130,6 +130,10 @@
                             <label for="no_hp">Nomor HP</label>
                             <input type="text" class="form-control" id="no_hp" name="no_hp" required>
                         </div>
+                        <!-- Catatan -->
+                        <div class="alert alert-info" role="alert">
+                            Jika ingin melakukan pelatihan, diharapkan untuk menyediakan jadwal setelah pendaftaran.
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>

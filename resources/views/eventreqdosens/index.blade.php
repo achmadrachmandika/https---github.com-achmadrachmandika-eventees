@@ -63,7 +63,15 @@
                        
                         <td>{{ $eventreqdosen->training_topic }}</td>
                         <td>{{ $eventreqdosen->no_hp }}</td>
-                        <td>{{ $eventreqdosen->status }}</td>
+                       <td>
+                        @if ($eventreqdosen->status == 'Proses')
+                        <button class="btn btn-danger">{{ $eventreqdosen->status }}</button>
+                        @elseif ($eventreqdosen->status == 'Terealisasi')
+                        <button class="btn btn-success">{{ $eventreqdosen->status }}</button>
+                        @else
+                        <button class="btn btn-secondary">{{ $eventreqdosen->status }}</button> <!-- Untuk status lain -->
+                        @endif
+                    </td>
                         <td>
                             <a class="btn btn-info" href="{{ route('eventreqdosens.show', $eventreqdosen->kode_dosen) }}">Show</a>
                         </td>

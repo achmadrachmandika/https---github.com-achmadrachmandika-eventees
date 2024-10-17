@@ -63,7 +63,15 @@
                        
                         <td><?php echo e($eventreqdosen->training_topic); ?></td>
                         <td><?php echo e($eventreqdosen->no_hp); ?></td>
-                        <td><?php echo e($eventreqdosen->status); ?></td>
+                       <td>
+                        <?php if($eventreqdosen->status == 'Proses'): ?>
+                        <button class="btn btn-danger"><?php echo e($eventreqdosen->status); ?></button>
+                        <?php elseif($eventreqdosen->status == 'Terealisasi'): ?>
+                        <button class="btn btn-success"><?php echo e($eventreqdosen->status); ?></button>
+                        <?php else: ?>
+                        <button class="btn btn-secondary"><?php echo e($eventreqdosen->status); ?></button> <!-- Untuk status lain -->
+                        <?php endif; ?>
+                    </td>
                         <td>
                             <a class="btn btn-info" href="<?php echo e(route('eventreqdosens.show', $eventreqdosen->kode_dosen)); ?>">Show</a>
                         </td>

@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Event; 
 use App\Models\Eventreqdosen; 
+use App\Models\User; 
+use App\Models\Feedback; 
+
 
 class HomeAdminController extends Controller
 {
@@ -15,7 +18,9 @@ class HomeAdminController extends Controller
     {
             $event = Event::all(); // Ambil semua event
             $eventreqdosen = Eventreqdosen::all();
-          return view ('admin.dashboard' , compact('event', 'eventreqdosen'));
+            $user = User::all();
+            $feedbacks = Feedback::all();
+          return view ('admin.dashboard' , compact('event', 'eventreqdosen', 'user', 'feedbacks'));
     }
 
     /**

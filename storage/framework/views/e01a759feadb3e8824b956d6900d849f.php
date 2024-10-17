@@ -22,14 +22,7 @@
                     </a>
                 </li>
 
-                <li class="nav-item">
-                    <a href="<?php echo e(route('events.index')); ?>" class="nav-link <?php echo e(request()->routeIs('events.index') ? 'active' : ''); ?>">
-                        <i class="nav-icon fas fa-calendar-alt"></i>
-                        <p>
-                            Event Untuk Dosen
-                        </p>
-                    </a>
-                </li>
+                
 
                 <li class="nav-item">
                     <a href="<?php echo e(route('eventreqdosens.index')); ?>"
