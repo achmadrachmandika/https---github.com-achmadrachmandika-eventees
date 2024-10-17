@@ -26,14 +26,14 @@
                     <a href="{{ route('events.index') }}" class="nav-link {{ request()->routeIs('events.index') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-calendar-alt"></i>
                         <p>
-                            Event Dosen
+                            Event Untuk Dosen
                         </p>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ route('eventdosens.index') }}"
-                        class="nav-link {{ request()->routeIs('eventdosens.index') ? 'active' : '' }}">
+                    <a href="{{ route('eventreqdosens.index') }}"
+                        class="nav-link {{ request()->routeIs('eventreqdosens.index') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-calendar-alt"></i>
                         <p>
                             Event Request Dosen

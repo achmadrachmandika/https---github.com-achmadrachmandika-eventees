@@ -109,7 +109,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form id="event-form" action="<?php echo e(route('eventdosens.store')); ?>" method="POST">
+                <form id="event-form" action="<?php echo e(route('eventreqdosens.store')); ?>" method="POST">
                     <?php echo csrf_field(); ?>
                     <div class="modal-body">
                         <div class="form-group">

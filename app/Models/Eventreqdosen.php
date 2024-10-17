@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Eventdosen extends Model
+class Eventreqdosen extends Model
 {
     use HasFactory;
 
@@ -18,7 +18,7 @@ class Eventdosen extends Model
         'training_topic',
          'nama_dosen',
         'no_hp',
-        
+        'status',
     ];
 
 }

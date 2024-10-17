@@ -12,11 +12,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('eventdosens', function (Blueprint $table) {
+        Schema::create('eventreqdosens', function (Blueprint $table) {
             $table->string('kode_dosen', 100)->primary();
             $table->text('training_topic')->nullable();
             $table->string('no_hp');
             $table->string('nama_dosen');
+            $table->enum('status', ['Proses', 'Terealisasi']);
             $table->timestamps();
         });
     }
@@ -26,7 +27,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('eventdosens');
+        Schema::dropIfExists('eventreqdosens');
     }
 };
 

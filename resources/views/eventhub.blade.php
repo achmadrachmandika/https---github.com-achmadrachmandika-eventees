@@ -111,7 +111,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form id="event-form" action="{{ route('eventdosens.store') }}" method="POST">
+                <form id="event-form" action="{{ route('eventreqdosens.store') }}" method="POST">
                     @csrf
                     <div class="modal-body">
                         <div class="form-group">

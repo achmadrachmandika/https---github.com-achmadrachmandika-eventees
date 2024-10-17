@@ -20,7 +20,7 @@
                 <strong>Kode Dosen:</strong>
             </div>
             <div class="col-md-8">
-                {{ $eventdosen->kode_dosen }}
+                {{ $eventreqdosen->kode_dosen }}
             </div>
         </div>
         <div class="row mb-3">
@@ -28,7 +28,7 @@
                 <strong>Nama Dosen:</strong>
             </div>
             <div class="col-md-8">
-                {{ $eventdosen->nama_dosen }}
+                {{ $eventreqdosen->nama_dosen }}
             </div>
         </div>
         <div class="row mb-3">
@@ -36,7 +36,7 @@
                 <strong>Topik Pelatihan:</strong>
             </div>
             <div class="col-md-8">
-                {{ $eventdosen->training_topic }}
+                {{ $eventreqdosen->training_topic }}
             </div>
         </div>
         <div class="row mb-3">
@@ -44,13 +44,13 @@
                 <strong>Nomor HP:</strong>
             </div>
             <div class="col-md-8">
-                {{ $eventdosen->no_hp }}
+                {{ $eventreqdosen->no_hp }}
             </div>
         </div>
         <!-- Tambahkan detail lain yang ingin Anda tampilkan -->
         <div class="row">
             <div class="col-md-12 text-center">
-                <a href="{{ route('eventdosens.index') }}" class="btn btn-primary">Kembali ke Daftar Event Dosen</a>
+                <a href="{{ route('eventreqdosens.index') }}" class="btn btn-primary">Kembali ke Daftar Event Dosen</a>
             </div>
         </div>
     </div>

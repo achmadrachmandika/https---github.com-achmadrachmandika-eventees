@@ -1,6 +1,6 @@
-@extends('admin.home')
 
-@section('content')
+
+<?php $__env->startSection('content'); ?>
 <style>
     /* Tambahkan kelas CSS untuk judul tabel agar tetap pada posisi atas saat digulir */
     .sticky-header {
@@ -36,11 +36,11 @@
         </div>
     </div>
 
-    @if ($message = Session::get('success'))
+    <?php if($message = Session::get('success')): ?>
     <div class="alert alert-success">
-        <p>{{ $message }}</p>
+        <p><?php echo e($message); ?></p>
     </div>
-    @endif
+    <?php endif; ?>
 
     <div class="card-body">
         <div class="table-container">
@@ -51,22 +51,24 @@
                         <th>Nama Dosen</th>
                         <th>Topik Pelatihan</th>
                         <th>Nomor HP</th>
+                        <th>Status</th>
                         <th width="280px">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($eventdosens as $eventdosen)
+                    <?php $__currentLoopData = $eventreqdosens; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $eventreqdosen): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr>
-                        <td>{{ $eventdosen->kode_dosen }}</td>
-                        <td>{{ $eventdosen->nama_dosen }}</td>
+                        <td><?php echo e($eventreqdosen->kode_dosen); ?></td>
+                        <td><?php echo e($eventreqdosen->nama_dosen); ?></td>
                        
-                        <td>{{ $eventdosen->training_topic }}</td>
-                        <td>{{ $eventdosen->no_hp }}</td>
+                        <td><?php echo e($eventreqdosen->training_topic); ?></td>
+                        <td><?php echo e($eventreqdosen->no_hp); ?></td>
+                        <td><?php echo e($eventreqdosen->status); ?></td>
                         <td>
-                            <a class="btn btn-info" href="{{ route('eventdosens.show', $eventdosen->kode_dosen) }}">Show</a>
+                            <a class="btn btn-info" href="<?php echo e(route('eventreqdosens.show', $eventreqdosen->kode_dosen)); ?>">Show</a>
                         </td>
                     </tr>
-                    @endforeach
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </tbody>
             </table>
         </div>
@@ -109,4 +111,5 @@
         }
     }
 </script>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.home', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Magang KWUJTI\https---github.com-achmadrachmandika-eventees\resources\views/eventreqdosens/index.blade.php ENDPATH**/ ?>

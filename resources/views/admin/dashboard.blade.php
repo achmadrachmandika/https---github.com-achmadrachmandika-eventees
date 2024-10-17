@@ -28,6 +28,19 @@
                     </div>
                 </a>
             </div>
+
+            <div class="col-md-6 col-xl-3 mb-4">
+                <a href="{{ route('eventreqdosens.index') }}" class="card bg-c-blue order-card"
+                    style="text-decoration: none; transition: transform 0.2s; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                    <div class="card-body">
+                        <h6 class="m-b-20">Jumlah Request Event Dosen</h6>
+                        <h2 class="text-right">
+                            <i class="fa fa-credit-card f-left"></i>
+                            <span>{{ $eventreqdosen->count() }}</span>
+                        </h2>
+                    </div>
+                </a>
+            </div>
     
             </div>
         </div>

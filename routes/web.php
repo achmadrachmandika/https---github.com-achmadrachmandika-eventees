@@ -8,7 +8,7 @@ use App\Http\Controllers\EventHubController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\TransactionController;
-use App\Http\Controllers\EventDosenController;
+use App\Http\Controllers\EventReqDosenController;
 use App\Http\Controllers\Auth\RegisterDosenController;
 use App\Http\Controllers\Auth\RegisterMahasiswaController;
 use App\Http\Controllers\EventMhsController;
@@ -47,7 +47,7 @@ Route::middleware('auth')->group(function () {
     // Rute untuk admin dan user
      Route::middleware('role:admin|dosen')->group(function () {
        
-        Route::resource('eventdosens', EventDosenController::class);
+        Route::resource('eventreqdosens', EventReqDosenController::class);
     });
 
       Route::middleware('role:mahasiswa')->group(function () {

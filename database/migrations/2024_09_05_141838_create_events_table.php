@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('events', function (Blueprint $table) {
             $table->string('kode_event', 100)->primary();
             $table->string('kode_dosen', 100); // Add kode_dosen field
-            $table->foreign('kode_dosen')->references('kode_dosen')->on('eventdosens')->onDelete('cascade');
+            $table->foreign('kode_dosen')->references('kode_dosen')->on('eventreqdosens')->onDelete('cascade');
             $table->text('photo');
             $table->string('nama_event', 100);
             $table->json('benefits');

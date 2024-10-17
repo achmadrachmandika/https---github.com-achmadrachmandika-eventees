@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Event; 
+use App\Models\Eventreqdosen; 
 
 class HomeAdminController extends Controller
 {
@@ -13,7 +14,8 @@ class HomeAdminController extends Controller
     public function index()
     {
             $event = Event::all(); // Ambil semua event
-          return view ('admin.dashboard' , compact('event'));
+            $eventreqdosen = Eventreqdosen::all();
+          return view ('admin.dashboard' , compact('event', 'eventreqdosen'));
     }
 
     /**

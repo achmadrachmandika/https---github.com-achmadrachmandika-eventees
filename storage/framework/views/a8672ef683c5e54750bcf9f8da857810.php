@@ -29,7 +29,7 @@ unset($__errorArgs, $__bag); ?>
                     <label for="kode_dosen" class="form-label"><strong>Kode Dosen:</strong></label>
                     <select id="kode_dosen" name="kode_dosen" class="form-control" onchange="updateFields()">
                         <option value="">Pilih Kode Dosen</option>
-                        <?php $__currentLoopData = $eventdosens; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $dosen): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php $__currentLoopData = $eventreqdosens; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $dosen): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <option value="<?php echo e($dosen->kode_dosen); ?>" data-training="<?php echo e($dosen->training_topic); ?>"
                             data-nohp="<?php echo e($dosen->no_hp); ?>">
                             <?php echo e($dosen->kode_dosen); ?>

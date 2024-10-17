@@ -24,7 +24,7 @@
                     <label for="kode_dosen" class="form-label"><strong>Kode Dosen:</strong></label>
                     <select id="kode_dosen" name="kode_dosen" class="form-control" onchange="updateFields()">
                         <option value="">Pilih Kode Dosen</option>
-                        @foreach($eventdosens as $dosen)
+                        @foreach($eventreqdosens as $dosen)
                         <option value="{{ $dosen->kode_dosen }}" data-training="{{ $dosen->training_topic }}"
                             data-nohp="{{ $dosen->no_hp }}">
                             {{ $dosen->kode_dosen }}
