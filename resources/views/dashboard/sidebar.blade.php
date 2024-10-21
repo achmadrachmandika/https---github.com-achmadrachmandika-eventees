@@ -70,6 +70,15 @@
                     </a>
                 </li>
 
+                <li class="nav-item">
+                    <a href="{{ route('user.index') }}" class="nav-link {{ request()->routeIs('user.index') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-file-alt"></i>
+                        <p>
+                            Daftar Peserta
+                        </p>
+                    </a>
+                </li>
+
                 <!-- Spacer for logout -->
                 <li class="nav-item flex-grow-1"></li>
 

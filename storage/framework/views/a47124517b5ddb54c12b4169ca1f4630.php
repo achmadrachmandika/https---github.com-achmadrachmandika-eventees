@@ -14,23 +14,8 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="kode_dosen" class="form-label"><strong>Kode Dosen:</strong></label>
-                        <select id="kode_dosen" name="kode_dosen"
-                            class="form-control <?php $__errorArgs = ['kode_dosen'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>" required>
-                            <?php $__currentLoopData = $eventdosens; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $dosen): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <option value="<?php echo e($dosen->kode_dosen); ?>" <?php echo e($event->kode_dosen == $dosen->kode_dosen ?
-                                'selected' : ''); ?>>
-                                <?php echo e($dosen->kode_dosen); ?>
-
-                            </option>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        </select>
+                        <input type="text" id="kode_dosen" name="kode_dosen" class="form-control"
+                            value="<?php echo e(old('kode_dosen', $event->kode_dosen)); ?>" readonly>
                         <?php $__errorArgs = ['kode_dosen'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -42,6 +27,7 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                     </div>
+
 
                     <div class="col-md-6 mb-3">
                         <label for="kode_event" class="form-label"><strong>Kode Event:</strong></label>

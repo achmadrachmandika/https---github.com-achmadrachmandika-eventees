@@ -41,7 +41,7 @@
             </div>
 
             <div class="col-md-6 col-xl-3 mb-4">
-                <a href="#" class="card bg-c-blue order-card"
+                <a href="<?php echo e(route('user.index')); ?>" class="card bg-c-blue order-card"
                     style="text-decoration: none; transition: transform 0.2s; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
                     <div class="card-body">
                         <h6 class="m-b-20">Jumlah Pendaftar</h6>

@@ -16,19 +16,13 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="kode_dosen" class="form-label"><strong>Kode Dosen:</strong></label>
-                        <select id="kode_dosen" name="kode_dosen"
-                            class="form-control @error('kode_dosen') is-invalid @enderror" required>
-                            @foreach($eventdosens as $dosen)
-                            <option value="{{ $dosen->kode_dosen }}" {{ $event->kode_dosen == $dosen->kode_dosen ?
-                                'selected' : '' }}>
-                                {{ $dosen->kode_dosen }}
-                            </option>
-                            @endforeach
-                        </select>
+                        <input type="text" id="kode_dosen" name="kode_dosen" class="form-control"
+                            value="{{ old('kode_dosen', $event->kode_dosen) }}" readonly>
                         @error('kode_dosen')
                         <span class="invalid-feedback">{{ $message }}</span>
                         @enderror
                     </div>
+
 
                     <div class="col-md-6 mb-3">
                         <label for="kode_event" class="form-label"><strong>Kode Event:</strong></label>
