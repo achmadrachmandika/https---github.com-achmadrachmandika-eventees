@@ -1,5 +1,12 @@
 @extends('layouts.app')
 <link rel="stylesheet" href="{{ asset('css/styleeventhub.css') }}">
+<style>
+    .blurred {
+        filter: blur(2px);
+        pointer-events: none;
+        /* Mencegah interaksi klik */
+    }
+</style>
 @section('content')
 
 <div id="hero-wrap" style="background-color: rgb(1, 107, 107);" data-stellar-background-ratio="0.5">
@@ -23,12 +30,11 @@
     <div class="intro-section text-center mb-5">
         <h2 class="eventees-title2">"{Wadah Edukasi Jembatan Prestasi}"</h2>
         <p class="eventees-text2">Jelajahi berbagai acara menarik yang kami tawarkan. Temukan kegiatan yang sesuai
-            dengan
-            minat Anda dan bergabunglah dengan kami dalam setiap momen spesial. Jangan lewatkan kesempatan untuk menjadi
-            bagian dari pengalaman tak terlupakan!</p>
+            dengan minat Anda dan bergabunglah dengan kami dalam setiap momen spesial. Jangan lewatkan kesempatan untuk
+            menjadi bagian dari pengalaman tak terlupakan!</p>
     </div>
 
-    @if (Auth::check() && Auth::user()->hasRole('mahasiswa'))
+    @if (Auth::check() && Auth::user()->hasRole('dosen'))
     <div class="container">
         <div class="row">
             @if (session('error'))
@@ -37,46 +43,49 @@
             </div>
             @endif
 
-            @foreach ($events as $event)
+            @foreach ($eventdosens as $eventdosen)
+            @if ($eventdosen->kuota > 0)
+            <!-- Cek kuota -->
             <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
                 <div class="card text-dark card-has-bg click-col"
-                    onclick="handleCardClick('{{ route('eventhub.show', ['kode_event' => $event->kode_event]) }}', {{ auth()->check() ? 'true' : 'false' }})"
-                    style="background-image:url('{{ asset('storage/' . $event->photo) }}');">
-                    <img class="card-img d-none" src="{{ asset('storage/' . $event->photo) }}"
-                        alt="{{ $event->nama_event }}">
+                    onclick="handleCardClick('{{ route('eventhub.showdosen', ['kode_evndsn' => $eventdosen->kode_evndsn]) }}', {{ auth()->check() ? 'true' : 'false' }})">
+                    <img class="card-img d-none" src="{{ asset('storage/' . $eventdosen->photo) }}"
+                        alt="{{ $eventdosen->nama_event }}">
 
                     <div class="card-img-overlay d-flex flex-column">
                         <div class="card-body">
-                            <small class="card-meta mb-2">{{ $event->kode_event }}</small>
+                            <small class="card-meta mb-2">{{ $eventdosen->kode_evndsn }}</small>
                             <h4 class="card-title mt-0">
-                                <a class="text-dark" href="#">{{ $event->nama_event }}</a>
+                                <a class="text-dark" href="#">{{ $eventdosen->nama_event }}</a>
                             </h4>
 
                             <h4 class="card-title mt-0">
-                                <a class="text-dark" href="#">Rp.{{ number_format($event->harga, 0, ',', '.') }}</a>
+                                <a class="text-dark" href="#">Rp.{{ number_format($eventdosen->harga_dosen, 0, ',', '.')
+                                    }}</a>
                             </h4>
                             <h4 class="card-title mt-0">
-                                <a class="text-dark" href="#">{{ $event->kuota }} Kuota Tersedia</a>
+                                <a class="text-dark" href="#">{{ $eventdosen->kuota }} Kuota Tersedia</a>
                             </h4>
 
                             <small><i class="far fa-clock"></i> {{
-                                \Carbon\Carbon::parse($event->tanggal)->format('d-m-Y') }}</small>
+                                \Carbon\Carbon::parse($eventdosen->tanggal)->format('d-m-Y') }}</small>
                             <br>
                             <small><i class="far fa-clock"></i> {{
-                                \Carbon\Carbon::parse($event->jam)->format('H:i:s') }}</small>
+                                \Carbon\Carbon::parse($eventdosen->jam)->format('H:i:s') }}</small>
                         </div>
                         <div class="card-footer">
                             <div class="media">
                                 <img class="mr-3 rounded-circle" src="{{ asset('images/eventeeslog1.png') }}"
                                     alt="Eventees Logo" style="max-width:100px">
                                 <div class="media-body">
-                                    <small>{{ $event->description }}</small>
+                                    <small>{{ $eventdosen->description }}</small>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            @endif
             @endforeach
         </div>
     </div>

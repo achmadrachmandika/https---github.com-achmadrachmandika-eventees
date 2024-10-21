@@ -12,6 +12,7 @@ class Transaction extends Model
     protected $fillable = [
         'transaction_id',
         'kode_event',
+        'kode_evndsn', // Tambahkan kolom ini
         'order_id',
         'payment_type',
         'gross_amount',
@@ -26,5 +27,10 @@ class Transaction extends Model
     public function event()
     {
         return $this->belongsTo(Event::class, 'kode_event', 'kode_event');
+    }
+
+    public function eventDosen()
+    {
+        return $this->belongsTo(EventDosen::class, 'kode_evndsn', 'kode_evndsn'); // Relasi ke EventDosen
     }
 }

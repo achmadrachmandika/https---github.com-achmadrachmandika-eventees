@@ -37,6 +37,7 @@
             @endif
 
             @foreach ($events as $event)
+            @if ($event ->kuota > 0)
             <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
                 <div class="card text-dark card-has-bg click-col"
                     onclick="handleCardClick('{{ route('eventhub.show', ['kode_event' => $event->kode_event]) }}', {{ auth()->check() ? 'true' : 'false' }})"
@@ -77,6 +78,7 @@
                     </div>
                 </div>
             </div>
+            @endif
             @endforeach
         </div>
     </div>

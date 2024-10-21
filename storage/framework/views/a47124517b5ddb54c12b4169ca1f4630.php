@@ -194,6 +194,37 @@ endif;
 unset($__errorArgs, $__bag); ?>
                     </div>
 
+                    <div class="col-md-6 mb-3">
+                        <label for="harga" class="form-label"><strong>Harga:</strong></label>
+                        <input type="number" id="harga" name="harga" class="form-control"
+                            value="<?php echo e(old('harga', $event->harga)); ?>">
+                        <?php $__errorArgs = ['harga'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                        <div class="text-danger"><?php echo e($message); ?></div>
+                        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label for="kuota" class="form-label"><strong>Kuota:</strong></label>
+                        <input type="number" id="kuota" name="kuota" class="form-control" value="<?php echo e(old('kuota', $event->kuota)); ?>">
+                        <?php $__errorArgs = ['kuota'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                        <div class="text-danger"><?php echo e($message); ?></div>
+                        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                    </div>
+
                     <div class="col-md-12 text-end">
                         <div class="btn-group">
                             <button type="submit" class="btn btn-success">Update</button>

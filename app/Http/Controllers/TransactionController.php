@@ -11,6 +11,11 @@ use Midtrans\Notification;
 
 class TransactionController extends Controller
 {
+        public function index()
+    {
+        $transactions = Transaction::all();
+        return view('transaction.index', compact('transactions')); // Memisahkan kedua variabel dengan koma
+    }
     public function __construct()
     {
         // Set your Merchant Server Key

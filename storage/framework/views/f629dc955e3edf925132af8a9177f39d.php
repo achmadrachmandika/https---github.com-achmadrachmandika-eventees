@@ -28,10 +28,11 @@
 <div class="card" style="margin: 20px; padding: 20px;">
     <div class="card-header">
         <div class="d-flex justify-content-between align-items-center">
-            <h2 class="font-weight-bold">Daftar Event</h2>
+            <h2 class="font-weight-bold">Daftar Event Dosen</h2>
             <div class="col-md-6 d-flex flex-row justify-content-end mb-3">
                 <input class="form-control me-2" type="text" id="myInput" onkeyup="myFunction()" placeholder="Cari.."
                     title="Type in a name">
+                <a class="btn btn-success" href="<?php echo e(route('eventdosens.create')); ?>">Masukkan Event</a>
             </div>
         </div>
     </div>
@@ -48,22 +49,55 @@
                 <thead class="bg-secondary text-white text-center sticky-header">
                     <tr>
                         <th>Kode Event Dosen</th>
-                        <th>Nama Dosen</th>
-                        <th>Topik Pelatihan</th>
-                        <th>Nomor HP</th>
+                        <th>Photo</th>
+                        <th>Nama Event</th>
+                        <th>Tanggal</th>
+                        <th>Jam</th>
+                        <th>Harga Dosen</th>
+                        <th>Kuota</th>
+                        <th>Benefits</th>
+                        <th>Kategori</th>
+                        <th>Status</th>
                         <th width="280px">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php $__currentLoopData = $eventdosens; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $eventdosen): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr>
-                        <td><?php echo e($eventdosen->kode_dosen); ?></td>
-                        <td><?php echo e($eventdosen->nama_dosen); ?></td>
-                       
-                        <td><?php echo e($eventdosen->training_topic); ?></td>
-                        <td><?php echo e($eventdosen->no_hp); ?></td>
+                        <td><?php echo e($eventdosen->kode_evndsn); ?></td>
                         <td>
-                            <a class="btn btn-info" href="<?php echo e(route('eventdosens.show', $eventdosen->kode_dosen)); ?>">Show</a>
+                            <?php if($eventdosen->photo): ?>
+                            <?php
+                            $imagePath = asset('storage/' . $eventdosen->photo);
+                            ?>
+                            <img src="<?php echo e($imagePath); ?>" alt="<?php echo e($eventdosen->kode_evndsn); ?>"
+                                style="max-width: 100px; height: 100px;">
+                            <?php else: ?>
+                            Tidak Ada Foto
+                            <?php endif; ?>
+                        </td>
+                        <td><?php echo e($eventdosen->nama_event); ?></td>
+                        <td><?php echo e(\Carbon\Carbon::parse($eventdosen->tanggal)->format('d-m-Y')); ?></td>
+                        <td><?php echo e(\Carbon\Carbon::parse($eventdosen->jam)->format('H:i:s')); ?></td>
+                        <td><?php echo e($eventdosen->harga_dosen); ?></td>
+                        <td><?php echo e($eventdosen->kuota); ?></td>
+                        <td>
+                            <?php $__currentLoopData = $eventdosen->benefits; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $benefit): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <div><?php echo e($benefit); ?></div>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        </td>
+                        <td><?php echo e($eventdosen->kategori); ?></td>
+                        <td><?php echo e($eventdosen->status); ?></td>
+                        <td>
+                            <a class="btn btn-info" href="<?php echo e(route('eventdosens.show', $eventdosen->kode_evndsn)); ?>">Show</a>
+                            <a class="btn btn-primary" href="<?php echo e(route('eventdosens.edit', $eventdosen->kode_evndsn)); ?>">Edit</a>
+                            <form action="<?php echo e(route('eventdosens.destroy', $eventdosen->kode_evndsn)); ?>" method="POST"
+                                style="display:inline;">
+                                <?php echo csrf_field(); ?>
+                                <?php echo method_field('DELETE'); ?>
+                                <button type="submit" class="btn btn-outline-danger"
+                                    onclick="return confirmDelete()">Hapus</button>
+                            </form>
                         </td>
                     </tr>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -74,6 +108,9 @@
 </div>
 
 <script>
+    function confirmDelete() {
+        return confirm('Apakah Anda yakin ingin menghapus Event ini?');
+    }
 
     // Menambahkan timestamp untuk cache busting gambar
     window.onload = function() {

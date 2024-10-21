@@ -1,8 +1,10 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4"
     style="background: linear-gradient(to bottom, rgb(41, 48, 66), rgb(41, 48, 66)); color: #fff;">
     <!-- Brand Logo -->
-    <a href="{{ route('admin.dashboard') }}" class="brand-link"
-        <h1 class="brand-title" style="font-size: 24px; margin: 3px; color: #fff; text-alignt:center;">EVENTEEShub</h1>
+    <a href="{{ route('admin.dashboard') }}" class="brand-link">
+       <img src="{{ asset('images/logo_eventeesFix2.svg') }}" alt="AdminLTE Logo" class="brand-image elevation-4"
+            style="opacity: 1; border-radius: 20px; width: 120px; height: 100px;">
+        <span class="brand-text" style="font-weight: bold;">HUB</span>
     </a>
 
     <!-- Sidebar -->
@@ -14,7 +16,7 @@
 
                 <li class="nav-item">
                     <a href="{{ route('events.index') }}"
-                        class="nav-link {{ request()->routeIs('events.index') ? 'active' : '' }}">
+                        class="nav-link {{ request()->routeIs('events.index', 'events.create', 'events.edit', 'events.show') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-calendar-alt"></i>
                         <p>
                             Event Mahasiswa
@@ -22,18 +24,18 @@
                     </a>
                 </li>
 
-                {{-- <li class="nav-item">
-                    <a href="{{ route('events.index') }}" class="nav-link {{ request()->routeIs('events.index') ? 'active' : '' }}">
+                <li class="nav-item">
+                    <a href="{{ route('eventdosens.index') }}" class="nav-link {{ request()->routeIs('eventdosens.index', 'eventdosens.create', 'eventdosens.edit', 'eventdosens.show') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-calendar-alt"></i>
                         <p>
                             Event Untuk Dosen
                         </p>
                     </a>
-                </li> --}}
+                </li>
 
                 <li class="nav-item">
                     <a href="{{ route('eventreqdosens.index') }}"
-                        class="nav-link {{ request()->routeIs('eventreqdosens.index') ? 'active' : '' }}">
+                        class="nav-link {{ request()->routeIs('eventreqdosens.index','eventreqdosens.show') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-calendar-alt"></i>
                         <p>
                             Event Request Dosen
@@ -42,9 +44,9 @@
                 </li>
                 <!-- Keuangan Link -->
                 <li class="nav-item">
-                    <a href="{{ route('pembayaran.index') }}"
-                        class="nav-link {{ request()->routeIs('pembayaran.index') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-money-bill-wave"></i>
+                    <a href="{{ route('transaction.index') }}"
+                        class="nav-link {{ request()->routeIs('transaction.index') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-file-alt"></i>
                         <p>
                             Keuangan
                         </p>
