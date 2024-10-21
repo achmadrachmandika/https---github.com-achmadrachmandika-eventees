@@ -55,6 +55,7 @@
                         <th>Tanggal</th>
                         <th>Jam</th>
                         <th>Harga</th>
+                        <th>Kuota</th>
                         <th>Benefits</th>
                         <th>Kategori</th>
                         <th>Status</th>
@@ -81,6 +82,7 @@
                         <td>{{ \Carbon\Carbon::parse($event->tanggal)->format('d-m-Y') }}</td>
                         <td>{{ \Carbon\Carbon::parse($event->jam)->format('H:i:s') }}</td>
                         <td>{{ $event->harga }}</td>
+                        <td>{{ $event->kuota }}</td>
                         <td>
                             @foreach($event->benefits as $benefit)
                             <div>{{ $benefit }}</div>

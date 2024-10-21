@@ -8,47 +8,105 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo e(asset('css/styleshow.css')); ?>">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .event-header {
+            position: relative;
+            height: 300px;
+            background-color: #007bff;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .img-fluid.event-image { /* Use a period before each class name */
+         height: 120px; /* Fixed height for the frame */
+            width: 120px; /* Prevent repeating */
+            border: 2px solid #160404; /* Example border */
+            border-radius: 25px; /* Rounded corners (optional) */
+            margin-left: 400px; /* Spacing to the left */
+            margin-top: 20px; /* Add this line to move the image down */
+        }
+
+        .event-details {
+            padding: 20px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin-top: -50px; /* Overlap with header */
+        }
+
+        .footer-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .btn-primary {
+            background-color: #ff5722;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #e64a19;
+        }
+
+        .font-weight-bold {
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .footer-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .footer-buttons a,
+            .footer-buttons button {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container mt-5 pt-5">
+    <div class="container mt-5">
         <div class="row justify-content-center">
-            <div class="col-12 col-sm-8 col-md-6 col-lg-5">
-                <div class="card shadow-sm">
-                    <div class="card-header text-center">
-                        <h2 class="font-weight-bold"><?php echo e($event->nama_event); ?></h2>
-                    </div>
-                    <div class="card-body">
-                        <div class="text-center mb-3">
-                            <img src="<?php echo e(asset('storage/' . $event->photo)); ?>" alt="<?php echo e($event->nama_event); ?>"
-                                class="img-fluid rounded mb-3">
-                        </div>
-                        <div class="mb-3">
-                            <p class="font-weight-bold">Kode Event: <span class="font-weight-normal"><?php echo e($event->kode_event); ?></span></p>
-                            <p class="font-weight-bold">Tanggal: <span class="font-weight-normal"><?php echo e(\Carbon\Carbon::parse($event->tanggal)->format('d-m-Y')); ?></span></p>
-                            <p class="font-weight-bold">Deskripsi: <span class="font-weight-normal"><?php echo e($event->description); ?></span></p>
-                                    <p class="font-weight-bold">Kategori: <span class="font-weight-normal"><?php echo e($event->kategori); ?></span></p>
-                                            <p class="font-weight-bold">Status: <span class="font-weight-normal"><?php echo e($event->status); ?></span></p>
-                            <p class="font-weight-bold">Harga: <span class="font-weight-normal">Rp. <?php echo e(number_format($event->harga, 0, ',', '.')); ?></span></p>
-                        </div>
+            <div class="col-12 col-sm-10 col-md-8 col-lg-6">
+                <img src="<?php echo e(asset('storage/' . $event->photo)); ?>" alt="<?php echo e($event->nama_event); ?>" class="img-fluid event-image">
+                <div class="event-details">
+                    <p class="font-weight-bold">Kode Event: <span class="font-weight-normal"><?php echo e($event->kode_event); ?></span></p>
+                    <p class="font-weight-bold">Tanggal: <span class="font-weight-normal"><?php echo e(\Carbon\Carbon::parse($event->tanggal)->format('d-m-Y')); ?></span></p>
+                    <p class="font-weight-bold">Deskripsi: <span class="font-weight-normal"><?php echo e($event->description); ?></span></p>
+                    <p class="font-weight-bold">Kategori: <span class="font-weight-normal"><?php echo e($event->kategori); ?></span></p>
+                    <p class="font-weight-bold">Status: <span class="font-weight-normal"><?php echo e($event->status); ?></span></p>
+                    <p class="font-weight-bold">Harga: <span class="font-weight-normal">Rp. <?php echo e(number_format($event->harga, 0, ',', '.')); ?></span></p>
+                    <p class="font-weight-bold">Kuota: <span class="font-weight-normal"><?php echo e($event->kuota); ?></span></p>
 
-                        <?php if($event->benefits && count($event->benefits) > 0): ?>
-                        <div class="mb-3">
-                            <p class="font-weight-bold">Benefits:</p>
-                            <ul class="list-unstyled">
-                                <?php $__currentLoopData = $event->benefits; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $benefit): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <?php if($benefit): ?>
-                                <li class="mb-2"><i class="fas fa-check-circle text-success"></i> <?php echo e($benefit); ?></li>
-                                <?php endif; ?>
-                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                            </ul>
-                        </div>
-                        <?php endif; ?>
+                    <?php if($event->benefits && count($event->benefits) > 0): ?>
+                    <div class="mb-3">
+                        <p class="font-weight-bold">Benefits:</p>
+                        <ul class="list-unstyled">
+                            <?php $__currentLoopData = $event->benefits; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $benefit): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <?php if($benefit): ?>
+                            <li><i class="fas fa-check-circle text-success"></i> <?php echo e($benefit); ?></li>
+                            <?php endif; ?>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        </ul>
                     </div>
-                    <div class="card-footer d-flex justify-content-between">
-                        <a href="<?php echo e(route('eventhub')); ?>" class="btn btn-outline-primary">Kembali ke Daftar Event</a>
-                        <button id="pay-button" class="btn btn-outline-primary">Bayar</button>
-                    </div>
+                    <?php endif; ?>
+                </div>
+                <div class="footer-buttons">
+                    <a href="<?php echo e(auth()->user()->hasRole('mahasiswa') ? route('eventmhs') : route('eventhub')); ?>" class="btn btn-outline-secondary">
+                        Kembali ke Daftar Event
+                    </a>
+                    <button id="pay-button" class="btn btn-primary">Bayar</button>
                 </div>
             </div>
         </div>

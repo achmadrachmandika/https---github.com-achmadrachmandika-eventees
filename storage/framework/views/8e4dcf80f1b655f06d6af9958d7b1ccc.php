@@ -53,6 +53,7 @@
                         <th>Tanggal</th>
                         <th>Jam</th>
                         <th>Harga</th>
+                        <th>Kuota</th>
                         <th>Benefits</th>
                         <th>Kategori</th>
                         <th>Status</th>
@@ -79,6 +80,7 @@
                         <td><?php echo e(\Carbon\Carbon::parse($event->tanggal)->format('d-m-Y')); ?></td>
                         <td><?php echo e(\Carbon\Carbon::parse($event->jam)->format('H:i:s')); ?></td>
                         <td><?php echo e($event->harga); ?></td>
+                        <td><?php echo e($event->kuota); ?></td>
                         <td>
                             <?php $__currentLoopData = $event->benefits; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $benefit): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <div><?php echo e($benefit); ?></div>

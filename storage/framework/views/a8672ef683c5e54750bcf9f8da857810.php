@@ -95,6 +95,22 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                 </div>
+                
+                <div class="col-md-6 mb-3">
+                    <label for="kuota" class="form-label"><strong>Kuota:</strong></label>
+                    <input type="number" id="kuota" name="kuota" class="form-control" placeholder="Kuota" value="<?php echo e(old('kuota')); ?>"
+                        step="1" min="0" required>
+                    <?php $__errorArgs = ['kuota'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                    <div class="text-danger"><?php echo e($message); ?></div>
+                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                </div>
 
                 <div class="col-md-6 mb-3">
                     <label for="tanggal" class="form-label"><strong>Tanggal:</strong></label>

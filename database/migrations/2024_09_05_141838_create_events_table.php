@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('nama_event', 100);
             $table->json('benefits');
             $table->bigInteger('harga');
+            $table->integer('kuota');
             $table->enum('status', ['Unpaid', 'Paid']);
             $table->enum('kategori', ['Online', 'Offline']);
             $table->date('tanggal');

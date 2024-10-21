@@ -61,6 +61,15 @@
                     <div class="text-danger">{{ $message }}</div>
                     @enderror
                 </div>
+                
+                <div class="col-md-6 mb-3">
+                    <label for="kuota" class="form-label"><strong>Kuota:</strong></label>
+                    <input type="number" id="kuota" name="kuota" class="form-control" placeholder="Kuota" value="{{ old('kuota') }}"
+                        step="1" min="0" required>
+                    @error('kuota')
+                    <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                </div>
 
                 <div class="col-md-6 mb-3">
                     <label for="tanggal" class="form-label"><strong>Tanggal:</strong></label>

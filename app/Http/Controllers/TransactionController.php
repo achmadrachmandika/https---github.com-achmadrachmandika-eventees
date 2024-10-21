@@ -24,56 +24,70 @@ class TransactionController extends Controller
     }
 
     public function createTransaction(Request $request)
-    {
-        $request->validate([
-            'kode_event' => 'required|exists:events,kode_event',
-            'nama' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255',
-            'nip' => 'required|string|max:15',
+{
+    $request->validate([
+        'kode_event' => 'required|exists:events,kode_event',
+        'nama' => 'required|string|max:255',
+        'email' => 'required|string|email|max:255',
+        'nip' => 'required|string|max:15',
+    ]);
+
+    $event = Event::where('kode_event', $request->kode_event)->firstOrFail();
+
+    // Periksa apakah kuota tersedia
+    if ($event->kuota <= 0) {
+        return response()->json(['error' => 'Kuota tidak tersedia.'], 400);
+    }
+
+    // Kurangi kuota
+    $event->kuota--;
+    $event->save();
+
+    $orderId = uniqid();
+
+    $params = [
+        'transaction_details' => [
+            'order_id' => $orderId,
+            'gross_amount' => $event->harga,
+        ],
+        'customer_details' => [
+            'first_name' => $request->nama,
+            'email' => $request->email,
+            'phone' => $request->nip,  // Using nip as phone number for Midtrans
+        ],
+        'item_details' => [
+            [
+                'id' => $event->kode_event,
+                'price' => $event->harga,
+                'quantity' => 1,
+                'name' => $event->nama_event,
+            ],
+        ],
+    ];
+
+    try {
+        $snapToken = Snap::getSnapToken($params);
+
+        Transaction::create([
+            'transaction_id' => $orderId,
+            'kode_event' => $event->kode_event,
+            'order_id' => $orderId,
+            'payment_type' => 'pending',
+            'gross_amount' => $event->harga,
+            'transaction_status' => 'pending',
+            'transaction_details' => json_encode($params),
         ]);
 
-        $event = Event::findOrFail($request->kode_event);
+        return response()->json(['snap_token' => $snapToken], 201);
+    } catch (\Exception $e) {
+        // Jika terjadi kesalahan, kembalikan kuota yang sudah dikurangi
+        $event->kuota++; // Rollback kuota
+        $event->save();
 
-        $orderId = uniqid();
-
-        $params = [
-            'transaction_details' => [
-                'order_id' => $orderId,
-                'gross_amount' => $event->harga,
-            ],
-            'customer_details' => [
-                'first_name' => $request->nama,
-                'email' => $request->email,
-                'phone' => $request->nip,  // Using nip as phone number for Midtrans
-            ],
-            'item_details' => [
-                [
-                    'id' => $event->kode_event,
-                    'price' => $event->harga,
-                    'quantity' => 1,
-                    'name' => $event->nama_event,
-                ],
-            ],
-        ];
-
-        try {
-            $snapToken = Snap::getSnapToken($params);
-
-            Transaction::create([
-                'transaction_id' => $orderId,
-                'kode_event' => $event->kode_event,
-                'order_id' => $orderId,
-                'payment_type' => 'pending',
-                'gross_amount' => $event->harga,
-                'transaction_status' => 'pending',
-                'transaction_details' => json_encode($params),
-            ]);
-
-            return response()->json(['snap_token' => $snapToken], 201);
-        } catch (\Exception $e) {
-            return response()->json(['error' => $e->getMessage()], 500);
-        }
+        return response()->json(['error' => $e->getMessage()], 500);
     }
+}
+
 
      public function notificationHandler(Request $request)
     {

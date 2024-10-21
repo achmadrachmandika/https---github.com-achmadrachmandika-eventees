@@ -25,7 +25,7 @@ Route::get('/register/mahasiswa', [RegisterMahasiswaController::class, 'showRegi
 Route::post('/register/mahasiswa', [RegisterMahasiswaController::class, 'register']);
 
 // Rute untuk Event Hub
-Route::get('/eventhub', [EventHubController::class, 'index'])->name('eventhub');
+
 Route::get('/eventhubshow/{kode_event}', [EventHubController::class, 'show'])->name('eventhub.show');
 
 // Rute yang memerlukan otentikasi
@@ -48,6 +48,7 @@ Route::middleware('auth')->group(function () {
      Route::middleware('role:admin|dosen')->group(function () {
        
         Route::resource('eventreqdosens', EventReqDosenController::class);
+        Route::get('/eventhub', [EventHubController::class, 'index'])->name('eventhub');
     });
 
       Route::middleware('role:mahasiswa')->group(function () {

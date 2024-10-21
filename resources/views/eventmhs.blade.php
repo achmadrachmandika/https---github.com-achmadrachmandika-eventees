@@ -1,18 +1,17 @@
 @extends('layouts.app')
 <link rel="stylesheet" href="{{ asset('css/styleeventhub.css') }}">
-@section('content')
 
-<div id="hero-wrap" style="background-color: #FFA500;" data-stellar-background-ratio="0.5">
+@section('content')
+<div id="hero-wrap" style="background-color: #008080;" data-stellar-background-ratio="0.5">
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
             <div class="col-md-7 ftco-animate text-center" data-scrollax="properties: { translateY: '70%' }">
                 <img src="{{ asset('images/logo_eventeesFix.svg') }}" alt="Eventees HUB Logo"
                     class="hero-logo img-fluid">
                 <p class="mb-5" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Penyedia Event JTI
-                    Pertama <a href="#"></a></p>
+                    Pertama</p>
                 <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
-                    <a data-toggle="modal" class="btn btn-white btn-outline-white px-4 py-3"
-                        data-target="#createEventModal">Cari Event</a>
+                    <a href="#eventees_1" class="btn btn-white btn-outline-white px-4 py-3">Cari Event</a>
                 </p>
             </div>
         </div>
@@ -24,19 +23,19 @@
         <h2 class="eventees-title2">"{Wadah Edukasi Jembatan Prestasi}"</h2>
         <p class="eventees-text2">Jelajahi berbagai acara menarik yang kami tawarkan. Temukan kegiatan yang sesuai
             dengan
-            minat
-            Anda dan bergabunglah dengan kami dalam setiap momen spesial. Jangan lewatkan kesempatan untuk menjadi
-            bagian
-            dari pengalaman tak terlupakan!</p>
+            minat Anda dan bergabunglah dengan kami dalam setiap momen spesial. Jangan lewatkan kesempatan untuk menjadi
+            bagian dari pengalaman tak terlupakan!</p>
     </div>
+
+    @if (Auth::check() && Auth::user()->hasRole('mahasiswa'))
     <div class="container">
         <div class="row">
-
             @if (session('error'))
             <div class="alert alert-danger">
                 {{ session('error') }}
             </div>
             @endif
+
             @foreach ($events as $event)
             <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
                 <div class="card text-dark card-has-bg click-col"
@@ -51,8 +50,13 @@
                             <h4 class="card-title mt-0">
                                 <a class="text-dark" href="#">{{ $event->nama_event }}</a>
                             </h4>
+
                             <h4 class="card-title mt-0">
-                                <a class="text-dark" href="#">Rp.{{ $event->harga }}</a>
+                                <a class="text-dark" href="#">Rp.{{ number_format($event->harga, 0, ',', '.') }}</a>
+                            </h4>
+
+                            <h4 href="#" style="color: {{ $event->kuota < 10 ? 'red' : 'green' }}; text-decoration: none;">
+                                Kuota tersisa: {{ $event->kuota }}
                             </h4>
 
                             <small><i class="far fa-clock"></i> {{
@@ -76,6 +80,13 @@
             @endforeach
         </div>
     </div>
+    @else
+    {{-- <div class="alert alert-warning text-center">
+        Anda harus menjadi mahasiswa untuk melihat acara ini. Silakan <a href="{{ route('login') }}">login</a> atau
+        daftar.
+    </div> --}}
+    @endif
+</section>
 
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
         aria-hidden="true">
@@ -87,9 +98,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    Anda harus login untuk melihat detail acara ini.
-                </div>
+                <div class="modal-body">Anda harus login untuk melihat detail acara ini.</div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                     <a href="{{ route('login') }}" class="btn btn-primary">Login</a>
@@ -97,6 +106,7 @@
             </div>
         </div>
     </div>
+
 <section class="ftco-section-3 img">
     <div class="overlay"></div>
     <div class="container">
@@ -140,7 +150,6 @@
         </div>
     </div>
 </section>
-
 </section>
 @endsection
 
@@ -161,46 +170,22 @@
                 footer: '<a href="/login">Login</a>'
             });
         });
-    });
-</script>
-<script>
-    $(document).ready(function() {
-$(window).on('scroll', function() {
-var scrollPos = $(document).scrollTop();
-$('.nav-link').each(function() {
-var currLink = $(this);
-var refElement = $(currLink.attr('href'));
-if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height()> scrollPos) {
-    $('.nav-link').removeClass('active');
-    currLink.addClass('active');
-    } else {
-    currLink.removeClass('active');
-    }
-    });
-    });
-    });
-</script>
-<script>
-    function navigateToEvent(url) {
-        window.location.href = url;
-    }
-</script>
 
-<script>
-    document.getElementById('feedback-form').addEventListener('submit', function(event) {
-        event.preventDefault();
-        
-        // Check if the user is authenticated
-        @if(!Auth::check())
-            alert('Anda harus login terlebih dahulu untuk mengirim kritik dan saran.');
-            window.location.href = "{{ route('login') }}";
-        @else
-            this.submit(); // Proceed with form submission
-        @endif
+        $(window).on('scroll', function() {
+            var scrollPos = $(document).scrollTop();
+            $('.nav-link').each(function() {
+                var currLink = $(this);
+                var refElement = $(currLink.attr('href'));
+                if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+                    $('.nav-link').removeClass('active');
+                    currLink.addClass('active');
+                } else {
+                    currLink.removeClass('active');
+                }
+            });
+        });
     });
-</script>
 
-<script>
     function handleCardClick(url, isLoggedIn) {
         if (isLoggedIn) {
             window.location.href = url;
@@ -208,5 +193,15 @@ if (refElement.position().top <= scrollPos && refElement.position().top + refEle
             $('#loginModal').modal('show');
         }
     }
+
+    document.getElementById('feedback-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        @if(!Auth::check())
+            alert('Anda harus login terlebih dahulu untuk mengirim kritik dan saran.');
+            window.location.href = "{{ route('login') }}";
+        @else
+            this.submit(); // Proceed with form submission
+        @endif
+    });
 </script>
 @endsection

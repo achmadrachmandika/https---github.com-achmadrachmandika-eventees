@@ -17,17 +17,17 @@
                 <div class="ftco-footer-widget mb-4">
                     <h2 class="ftco-heading-2">Recent Blog</h2>
                     
-                    <div class="block-21 mb-4 d-flex">
-                        <a class="blog-img mr-4" style="background-image: url({{asset('images/eo2.jpg')}});"></a>
-                        <div class="text">
-                            <h3 class="heading"><a href="#">Percayalah dengan kemampuanmu dan banggalah pada dirimu</a></h3>
-                            <div class="meta">
-                                <div><a href="#"><span class="icon-calendar"></span> 17 09, 2024</a></div>
-                                <div><a href="#"><span class="icon-person"></span> KWU</a></div>
-                                <div><a href="#"><span class="icon-chat"></span> Eventees</a></div>
-                            </div>
+                   <div class="block-21 d-flex align-items-start">
+                    <div class="blog-img" style="background-image: url({{ asset('images/logo_eventeesFix.svg') }});"></div>
+                    <div class="text">
+                        <h3 class="heading"><a href="#">EVENTEESHUB</a></h3>
+                        <div class="meta">
+                            <div><a href="#"><span class="icon-calendar"></span> 17 09, 2024</a></div>
+                            <div><a href="#"><span class="icon-person"></span> KWU</a></div>
+                            <div><a href="#"><span class="icon-chat"></span> Eventees</a></div>
                         </div>
                     </div>
+                </div>
                 </div>
             </div>
             <div class="col-md-2">
@@ -47,9 +47,9 @@
                     <div class="block-23 mb-3">
                         <ul>
                             <li><span class="icon icon-map-marker"></span><span class="text">Jalan Soekarno Hatta No.9, Jatimulyo, Kec. Lowokwaru, Kota Malang, Jawa Timur 65141</span></li>
-                            <li><a href="#"><span class="icon icon-phone"></span><span class="text">+62</span></a></li>
+                            <li><a href="#"><span class="icon icon-phone"></span><span class="text">+6283111963962</span></a></li>
                             <li><a href="#"><span class="icon icon-envelope"></span><span
-                                        class="text">eventees.com</span></a></li>
+                                        class="text">eventees@gmail.com</span></a></li>
                         </ul>
                     </div>
                 </div>

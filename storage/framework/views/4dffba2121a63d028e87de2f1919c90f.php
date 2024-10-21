@@ -1,18 +1,17 @@
 
 <link rel="stylesheet" href="<?php echo e(asset('css/styleeventhub.css')); ?>">
-<?php $__env->startSection('content'); ?>
 
-<div id="hero-wrap" style="background-color: #FFA500;" data-stellar-background-ratio="0.5">
+<?php $__env->startSection('content'); ?>
+<div id="hero-wrap" style="background-color: #008080;" data-stellar-background-ratio="0.5">
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
             <div class="col-md-7 ftco-animate text-center" data-scrollax="properties: { translateY: '70%' }">
                 <img src="<?php echo e(asset('images/logo_eventeesFix.svg')); ?>" alt="Eventees HUB Logo"
                     class="hero-logo img-fluid">
                 <p class="mb-5" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Penyedia Event JTI
-                    Pertama <a href="#"></a></p>
+                    Pertama</p>
                 <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
-                    <a data-toggle="modal" class="btn btn-white btn-outline-white px-4 py-3"
-                        data-target="#createEventModal">Cari Event</a>
+                    <a href="#eventees_1" class="btn btn-white btn-outline-white px-4 py-3">Cari Event</a>
                 </p>
             </div>
         </div>
@@ -24,20 +23,20 @@
         <h2 class="eventees-title2">"{Wadah Edukasi Jembatan Prestasi}"</h2>
         <p class="eventees-text2">Jelajahi berbagai acara menarik yang kami tawarkan. Temukan kegiatan yang sesuai
             dengan
-            minat
-            Anda dan bergabunglah dengan kami dalam setiap momen spesial. Jangan lewatkan kesempatan untuk menjadi
-            bagian
-            dari pengalaman tak terlupakan!</p>
+            minat Anda dan bergabunglah dengan kami dalam setiap momen spesial. Jangan lewatkan kesempatan untuk menjadi
+            bagian dari pengalaman tak terlupakan!</p>
     </div>
+
+    <?php if(Auth::check() && Auth::user()->hasRole('mahasiswa')): ?>
     <div class="container">
         <div class="row">
-
             <?php if(session('error')): ?>
             <div class="alert alert-danger">
                 <?php echo e(session('error')); ?>
 
             </div>
             <?php endif; ?>
+
             <?php $__currentLoopData = $events; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $event): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
                 <div class="card text-dark card-has-bg click-col"
@@ -52,8 +51,14 @@
                             <h4 class="card-title mt-0">
                                 <a class="text-dark" href="#"><?php echo e($event->nama_event); ?></a>
                             </h4>
+
                             <h4 class="card-title mt-0">
-                                <a class="text-dark" href="#">Rp.<?php echo e($event->harga); ?></a>
+                                <a class="text-dark" href="#">Rp.<?php echo e(number_format($event->harga, 0, ',', '.')); ?></a>
+                            </h4>
+
+                            <h4 href="#" style="color: <?php echo e($event->kuota < 10 ? 'red' : 'green'); ?>; text-decoration: none;">
+                                Kuota tersisa: <?php echo e($event->kuota); ?>
+
                             </h4>
 
                             <small><i class="far fa-clock"></i> <?php echo e(\Carbon\Carbon::parse($event->tanggal)->format('d-m-Y')); ?></small>
@@ -75,6 +80,10 @@
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
     </div>
+    <?php else: ?>
+    
+    <?php endif; ?>
+</section>
 
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
         aria-hidden="true">
@@ -86,9 +95,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    Anda harus login untuk melihat detail acara ini.
-                </div>
+                <div class="modal-body">Anda harus login untuk melihat detail acara ini.</div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                     <a href="<?php echo e(route('login')); ?>" class="btn btn-primary">Login</a>
@@ -96,6 +103,7 @@
             </div>
         </div>
     </div>
+
 <section class="ftco-section-3 img">
     <div class="overlay"></div>
     <div class="container">
@@ -139,7 +147,6 @@
         </div>
     </div>
 </section>
-
 </section>
 <?php $__env->stopSection(); ?>
 
@@ -160,46 +167,22 @@
                 footer: '<a href="/login">Login</a>'
             });
         });
-    });
-</script>
-<script>
-    $(document).ready(function() {
-$(window).on('scroll', function() {
-var scrollPos = $(document).scrollTop();
-$('.nav-link').each(function() {
-var currLink = $(this);
-var refElement = $(currLink.attr('href'));
-if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height()> scrollPos) {
-    $('.nav-link').removeClass('active');
-    currLink.addClass('active');
-    } else {
-    currLink.removeClass('active');
-    }
-    });
-    });
-    });
-</script>
-<script>
-    function navigateToEvent(url) {
-        window.location.href = url;
-    }
-</script>
 
-<script>
-    document.getElementById('feedback-form').addEventListener('submit', function(event) {
-        event.preventDefault();
-        
-        // Check if the user is authenticated
-        <?php if(!Auth::check()): ?>
-            alert('Anda harus login terlebih dahulu untuk mengirim kritik dan saran.');
-            window.location.href = "<?php echo e(route('login')); ?>";
-        <?php else: ?>
-            this.submit(); // Proceed with form submission
-        <?php endif; ?>
+        $(window).on('scroll', function() {
+            var scrollPos = $(document).scrollTop();
+            $('.nav-link').each(function() {
+                var currLink = $(this);
+                var refElement = $(currLink.attr('href'));
+                if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+                    $('.nav-link').removeClass('active');
+                    currLink.addClass('active');
+                } else {
+                    currLink.removeClass('active');
+                }
+            });
+        });
     });
-</script>
 
-<script>
     function handleCardClick(url, isLoggedIn) {
         if (isLoggedIn) {
             window.location.href = url;
@@ -207,6 +190,16 @@ if (refElement.position().top <= scrollPos && refElement.position().top + refEle
             $('#loginModal').modal('show');
         }
     }
+
+    document.getElementById('feedback-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        <?php if(!Auth::check()): ?>
+            alert('Anda harus login terlebih dahulu untuk mengirim kritik dan saran.');
+            window.location.href = "<?php echo e(route('login')); ?>";
+        <?php else: ?>
+            this.submit(); // Proceed with form submission
+        <?php endif; ?>
+    });
 </script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Magang KWUJTI\https---github.com-achmadrachmandika-eventees\resources\views/eventmhs.blade.php ENDPATH**/ ?>

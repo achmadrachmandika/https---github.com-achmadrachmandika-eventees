@@ -20,6 +20,7 @@ class Event extends Model
         'photo',
         'nama_event',
         'harga',
+        'kuota',
         'benefits',
         'tanggal',
         'status',

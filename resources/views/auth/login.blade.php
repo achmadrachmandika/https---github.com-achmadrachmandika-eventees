@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <script src="{{ asset('js/app.js') }}" defer></script>
     <title>Eventees-Login</title>
 </head>
 
@@ -27,7 +30,7 @@
                                 <div class="form-floating mb-3">
                                     <input id="email"
                                         class="form-control form-control-lg @error('email') is-invalid @enderror"
-                                        type="email" name="email" placeholder=" " value="{{ old('email') }}" />
+                                        type="email" name="email" placeholder=" " value="{{ old('email') }}" required />
                                     <label for="email" class="form-label">Email</label>
                                     @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -38,7 +41,7 @@
                                 <div class="form-floating mb-3">
                                     <input id="password"
                                         class="form-control form-control-lg @error('password') is-invalid @enderror"
-                                        type="password" name="password" placeholder=" " />
+                                        type="password" name="password" placeholder=" " required />
                                     <label for="password" class="form-label">Password</label>
                                     @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -46,39 +49,54 @@
                                     </span>
                                     @enderror
                                 </div>
-                                <div class="text-left gap-2 mt-4">
+                                <div class="text-center">
                                     <button type="submit" class="btn btn-lg btn-primary">Masuk</button>
                                 </div>
-                               <div class="text-left gap-2 mt-4">
-                                <a href="#" class="btn btn-secondary" onclick="confirmRole()">Daftar</a>
-                            </div>
+                                <div class="text-center mt-4">
+                                    <a href="#" class="btn btn-secondary" onclick="showRoleModal()">Daftar</a>
+                                </div>
                             </form>
-                            <!-- Tombol Register -->
-                         
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Modal for Role Confirmation -->
+        <div class="modal fade" id="roleModal" tabindex="-1" aria-labelledby="roleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="roleModalLabel">Pilih Role Anda</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Apakah Anda seorang Dosen atau Mahasiswa?</p>
+                        <button class="btn btn-primary" onclick="confirmRole('dosen')">Dosen</button>
+                        <button class="btn btn-secondary" onclick="confirmRole('mahasiswa')">Mahasiswa</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://unpkg.com/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function confirmRole(role) {
+            if (role === 'dosen') {
+                window.location.href = "{{ route('register.dosen') }}";
+            } else if (role === 'mahasiswa') {
+                window.location.href = "{{ route('register.mahasiswa') }}";
+            }
+        }
+
+        function showRoleModal() {
+            $('#roleModal').modal('show');
+        }
+    </script>
 </body>
 
 </html>
-<script>
-    function confirmRole() {
-        const role = prompt("Apakah Anda seorang Dosen atau Mahasiswa? Ketik 'Dosen' untuk Dosen, atau 'Mahasiswa' untuk Mahasiswa.").toLowerCase();
-        
-        if (role === 'dosen') {
-            // Jika pengguna mengetik 'Dosen', arahkan ke route dosen
-            window.location.href = "{{ route('register.dosen') }}";
-        } else if (role === 'mahasiswa') {
-            // Jika pengguna mengetik 'Mahasiswa', arahkan ke route mahasiswa
-            window.location.href = "{{ route('register.mahasiswa') }}"; // Pastikan rute ini ada
-        } else {
-            alert("Input tidak valid. Silakan coba lagi."); // Tampilkan peringatan jika input tidak valid
-        }
-    }
-</script>

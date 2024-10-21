@@ -125,6 +125,23 @@
                         @enderror
                     </div>
 
+                    <div class="col-md-6 mb-3">
+                        <label for="harga" class="form-label"><strong>Harga:</strong></label>
+                        <input type="number" id="harga" name="harga" class="form-control"
+                            value="{{ old('harga', $event->harga) }}">
+                        @error('harga')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label for="kuota" class="form-label"><strong>Kuota:</strong></label>
+                        <input type="number" id="kuota" name="kuota" class="form-control" value="{{ old('kuota', $event->kuota) }}">
+                        @error('kuota')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+
                     <div class="col-md-12 text-end">
                         <div class="btn-group">
                             <button type="submit" class="btn btn-success">Update</button>

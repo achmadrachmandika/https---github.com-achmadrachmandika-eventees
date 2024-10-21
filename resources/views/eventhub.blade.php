@@ -22,20 +22,21 @@
 <section id="eventees_1" class="wrapper">
     <div class="intro-section text-center mb-5">
         <h2 class="eventees-title2">"{Wadah Edukasi Jembatan Prestasi}"</h2>
-        <p class="eventees-text2">Jelajahi berbagai acara menarik yang kami tawarkan. Temukan kegiatan yang sesuai dengan
-            minat
-            Anda dan bergabunglah dengan kami dalam setiap momen spesial. Jangan lewatkan kesempatan untuk menjadi
-            bagian
-            dari pengalaman tak terlupakan!</p>
+        <p class="eventees-text2">Jelajahi berbagai acara menarik yang kami tawarkan. Temukan kegiatan yang sesuai
+            dengan
+            minat Anda dan bergabunglah dengan kami dalam setiap momen spesial. Jangan lewatkan kesempatan untuk menjadi
+            bagian dari pengalaman tak terlupakan!</p>
     </div>
+
+    @if (Auth::check() && Auth::user()->hasRole('mahasiswa'))
     <div class="container">
         <div class="row">
-            
             @if (session('error'))
             <div class="alert alert-danger">
                 {{ session('error') }}
             </div>
             @endif
+
             @foreach ($events as $event)
             <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
                 <div class="card text-dark card-has-bg click-col"
@@ -43,22 +44,26 @@
                     style="background-image:url('{{ asset('storage/' . $event->photo) }}');">
                     <img class="card-img d-none" src="{{ asset('storage/' . $event->photo) }}"
                         alt="{{ $event->nama_event }}">
-    
+
                     <div class="card-img-overlay d-flex flex-column">
                         <div class="card-body">
                             <small class="card-meta mb-2">{{ $event->kode_event }}</small>
                             <h4 class="card-title mt-0">
                                 <a class="text-dark" href="#">{{ $event->nama_event }}</a>
                             </h4>
+
                             <h4 class="card-title mt-0">
-                                <a class="text-dark" href="#">Rp.{{ $event->harga }}</a>
+                                <a class="text-dark" href="#">Rp.{{ number_format($event->harga, 0, ',', '.') }}</a>
                             </h4>
-    
+                            <h4 class="card-title mt-0">
+                                <a class="text-dark" href="#">{{ $event->kuota }} Kuota Tersedia</a>
+                            </h4>
+
                             <small><i class="far fa-clock"></i> {{
                                 \Carbon\Carbon::parse($event->tanggal)->format('d-m-Y') }}</small>
-                                <br>
-                                <small><i class="far fa-clock"></i> {{
-                                    \Carbon\Carbon::parse($event->jam)->format('H:i:s') }}</small>
+                            <br>
+                            <small><i class="far fa-clock"></i> {{
+                                \Carbon\Carbon::parse($event->jam)->format('H:i:s') }}</small>
                         </div>
                         <div class="card-footer">
                             <div class="media">
@@ -75,31 +80,13 @@
             @endforeach
         </div>
     </div>
-
-    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="loginModalLabel">Silahkan Login Terlebih Dahulu</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    Anda harus login untuk melihat detail acara ini.
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                    <a href="{{ route('login') }}" class="btn btn-primary">Login</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    
+    @else
+    {{-- <div class="alert alert-warning text-center">
+        Anda harus menjadi mahasiswa untuk melihat acara ini. Silakan <a href="{{ route('login') }}">login</a> atau
+        daftar.
+    </div> --}}
+    @endif
 </section>
-
 <!-- Create Event Modal -->
     <div class="modal fade" id="createEventModal" tabindex="-1" role="dialog" aria-labelledby="createEventModalLabel"
         aria-hidden="true">
@@ -151,7 +138,7 @@
         <div class="row d-md-flex">
             <div class="col-md-3 d-flex ftco-animate">
                 <div class="img img-2 align-self-stretch"
-                    style="background-image: url({{ asset('images/logo_eventeesFix.svg') }});">
+                    style="background-image: url({{ asset('images/logo_eventeesFix2.svg') }});">
                 </div>
             </div>
             <div class="col-md-6 volunteer pl-md-5 ftco-animate">
