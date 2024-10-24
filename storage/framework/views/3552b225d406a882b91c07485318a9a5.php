@@ -33,6 +33,8 @@
     <link rel="stylesheet" href="<?php echo e(asset('css/style.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('css/styleeventhubshow.css')); ?>">
         <link rel="stylesheet" href="<?php echo e(asset('css/stylefont.css')); ?>">
+
+        
     
 
 
@@ -95,6 +97,8 @@
     <script src="<?php echo e(asset('js/google-map.js')); ?>"></script>
     <script src="<?php echo e(asset('js/main.js')); ?>"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    
 
     <?php echo $__env->yieldContent('script'); ?>
 </body>

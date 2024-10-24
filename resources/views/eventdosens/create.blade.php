@@ -20,48 +20,56 @@
         <form action="{{ route('eventdosens.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
-            <div class="mb-3">
+              <div class="col-md-12 mb-3">
                 <label for="kode_evndsn" class="form-label">Kode Event Dosen</label>
                 <input type="text" class="form-control" id="kode_evndsn" name="kode_evndsn" required>
             </div>
 
-            <div class="mb-3">
+              <div class="col-md-12 mb-3">
                 <label for="photo" class="form-label">Photo</label>
                 <input type="file" class="form-control" id="photo" name="photo">
             </div>
 
-            <div class="mb-3">
+              <div class="col-md-12 mb-3">
                 <label for="nama_event" class="form-label">Nama Event</label>
                 <input type="text" class="form-control" id="nama_event" name="nama_event" required>
             </div>
 
-            <div class="mb-3">
+              <div class="col-md-12 mb-3">
                 <label for="tanggal" class="form-label">Tanggal</label>
                 <input type="date" class="form-control" id="tanggal" name="tanggal" required>
             </div>
 
-            <div class="mb-3">
-                <label for="jam" class="form-label">Jam</label>
-                <input type="time" class="form-control" id="jam" name="jam" required>
+              <div class="col-md-12 mb-3">
+                <label for="jam_mulai" class="form-label">jam_mulai</label>
+                <input type="time" class="form-control" id="jam_mulai" name="jam_mulai" required>
             </div>
 
-            <div class="mb-3">
-                <label for="harga_dosen" class="form-label">Harga</label>
-                <input type="number" class="form-control" id="harga_dosen" name="harga_dosen" required>
+            <div class="col-md-12 mb-3">
+              <label for="jam_pulang" class="form-label">jam_pulang</label>
+              <input type="time" class="form-control" id="jam_pulang" name="jam_pulang" required>
             </div>
 
-            <div class="mb-3">
+              <div class="col-md-12 mb-3">
                 <label for="kuota" class="form-label">Kuota</label>
                 <input type="number" class="form-control" id="kuota" name="kuota" required>
             </div>
 
-            <div class="mb-3">
-                <label for="benefits" class="form-label">Benefits</label>
-                <textarea class="form-control" id="benefits" name="benefits[]" rows="3"></textarea>
-                <small class="form-text text-muted">Pisahkan dengan koma untuk beberapa benefits.</small>
-            </div>
+              <div class="col-md-12 mb-3">
+        
+                    <label for="benefits" class="form-label"><strong>Benefits:</strong></label>
+                    <input type="text" id="benefits" name="benefits[]" class="form-control mb-2" placeholder="Benefit 1"
+                        value="{{ old('benefits.0') }}">
+                    @for ($i = 1; $i <= 9; $i++) <input type="text" id="benefits" name="benefits[]" class="form-control mb-2"
+                        placeholder="Benefit {{ $i+1 }}" value="{{ old('benefits.' . $i) }}">
+                        @endfor
+                        @error('benefits')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                </div>
+            
 
-            <div class="mb-3">
+              <div class="col-md-12 mb-3">
                 <label for="kategori" class="form-label">Kategori</label>
                 <select class="form-control" id="kategori" name="kategori" required>
                     <option value="Online">Online</option>
@@ -69,15 +77,8 @@
                 </select>
             </div>
 
-            <div class="mb-3">
-                <label for="status" class="form-label">Status</label>
-                <select class="form-control" id="status" name="status" required>
-                    <option value="Paid">Paid</option>
-                    <option value="Unpaid">Unpaid</option>
-                </select>
-            </div>
 
-            <div class="mb-3">
+              <div class="col-md-12 mb-3">
                 <label for="description" class="form-label">Deskripsi</label>
                 <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
             </div>

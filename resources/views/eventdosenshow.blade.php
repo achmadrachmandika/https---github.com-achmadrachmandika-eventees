@@ -90,10 +90,6 @@
                             }}</span></p>
                     <p class="font-weight-bold">Kategori: <span class="font-weight-normal">{{ $eventdosen->kategori
                             }}</span></p>
-                    <p class="font-weight-bold">Status: <span class="font-weight-normal">{{ $eventdosen->status
-                            }}</span></p>
-                    <p class="font-weight-bold">Harga: <span class="font-weight-normal">Rp. {{
-                            number_format($eventdosen->harga_dosen, 0, ',', '.') }}</span></p>
                     <p class="font-weight-bold">Kuota: <span class="font-weight-normal">{{ $eventdosen->kuota }}</span>
                     </p>
 
@@ -115,7 +111,7 @@
                         class="btn btn-outline-secondary">
                         Kembali ke Daftar Event
                     </a>
-                    <button id="pay-button" class="btn btn-primary">Bayar</button>
+                    <button id="interest-button" class="btn btn-primary">Tertarik</button>
                 </div>
             </div>
         </div>
@@ -124,31 +120,11 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js"
-        data-client-key="{{ env('MIDTRANS_CLIENT_KEY', 'SB-Mid-client-pe0su41EHxvjXTK9') }}"></script>
-    <script type="text/javascript">
-        document.getElementById('pay-button').onclick = function () {
-            console.log('Pay button clicked');
-            
-            $.ajax({
-                url: '{{ route('transactions.create') }}',
-                method: 'POST',
-                data: {
-                    _token: '{{ csrf_token() }}',
-                    kode_event: '{{ $eventdosen->kode_evndsn }}',
-                    nama: '{{ Auth::user()->name }}',
-                    email: '{{ Auth::user()->email }}',
-                    nip: '{{ Auth::user()->nip }}'
-                },
-                success: function (data) {
-                    console.log('Transaction created successfully:', data);
-                    snap.pay(data.snap_token);
-                },
-                error: function (error) {
-                    console.error('Error creating transaction:', error);
-                }
+
+    <script>
+        document.getElementById('interest-button').addEventListener('click', function() {
+                alert('Hubungi Nomor 083111963962 untuk mengkonfirmasi dengan menyertakan kode event yang ingin diambil');
             });
-        };
     </script>
 </body>
 

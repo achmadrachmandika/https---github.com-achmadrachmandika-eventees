@@ -1,12 +1,6 @@
 @extends('layouts.app')
 <link rel="stylesheet" href="{{ asset('css/styleeventhub.css') }}">
-<style>
-    .blurred {
-        filter: blur(2px);
-        pointer-events: none;
-        /* Mencegah interaksi klik */
-    }
-</style>
+
 @section('content')
 
 <div id="hero-wrap" style="background-color: rgb(1, 107, 107);" data-stellar-background-ratio="0.5">
@@ -16,6 +10,9 @@
                 <img src="{{ asset('images/logo_eventeesFix.svg') }}" alt="Eventees HUB Logo" class="hero-logo img-fluid">
                 <p class="mb-5" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Penyedia Event JTI
                     Pertama <a href="#"></a></p>
+                       <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
+                    <a href="#eventees_1" class="btn btn-white btn-outline-white px-4 py-3">Cari Event</a>
+                </p>
                 <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
                     <a data-toggle="modal" class="btn btn-white btn-outline-white px-4 py-3" data-target="#createEventModal">Request Event</a>
                 </p>
@@ -42,31 +39,33 @@
                 {{ session('error') }}
             </div>
             @endif
-
+    
+            @if ($eventdosens->isEmpty())
+            <div class="col-12">
+                <div class="alert alert-warning text-center">
+                    <strong>Tidak ada event yang tersedia saat ini.</strong>
+                </div>
+            </div>
+            @else
             @foreach ($eventdosens as $eventdosen)
             @if ($eventdosen->kuota > 0)
-            <!-- Cek kuota -->
             <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
                 <div class="card text-dark card-has-bg click-col"
                     onclick="handleCardClick('{{ route('eventhub.showdosen', ['kode_evndsn' => $eventdosen->kode_evndsn]) }}', {{ auth()->check() ? 'true' : 'false' }})">
                     <img class="card-img d-none" src="{{ asset('storage/' . $eventdosen->photo) }}"
                         alt="{{ $eventdosen->nama_event }}">
-
+    
                     <div class="card-img-overlay d-flex flex-column">
                         <div class="card-body">
                             <small class="card-meta mb-2">{{ $eventdosen->kode_evndsn }}</small>
                             <h4 class="card-title mt-0">
                                 <a class="text-dark" href="#">{{ $eventdosen->nama_event }}</a>
                             </h4>
-
-                            <h4 class="card-title mt-0">
-                                <a class="text-dark" href="#">Rp.{{ number_format($eventdosen->harga_dosen, 0, ',', '.')
-                                    }}</a>
-                            </h4>
+    
                             <h4 class="card-title mt-0">
                                 <a class="text-dark" href="#">{{ $eventdosen->kuota }} Kuota Tersedia</a>
                             </h4>
-
+    
                             <small><i class="far fa-clock"></i> {{
                                 \Carbon\Carbon::parse($eventdosen->tanggal)->format('d-m-Y') }}</small>
                             <br>
@@ -77,9 +76,6 @@
                             <div class="media">
                                 <img class="mr-3 rounded-circle" src="{{ asset('images/eventeeslog1.png') }}"
                                     alt="Eventees Logo" style="max-width:100px">
-                                <div class="media-body">
-                                    <small>{{ $eventdosen->description }}</small>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -87,13 +83,9 @@
             </div>
             @endif
             @endforeach
+            @endif
         </div>
     </div>
-    @else
-    {{-- <div class="alert alert-warning text-center">
-        Anda harus menjadi mahasiswa untuk melihat acara ini. Silakan <a href="{{ route('login') }}">login</a> atau
-        daftar.
-    </div> --}}
     @endif
 </section>
 <!-- Create Event Modal -->

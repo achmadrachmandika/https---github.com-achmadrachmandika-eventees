@@ -37,6 +37,13 @@
             </div>
             <?php endif; ?>
 
+            <?php if($events->isEmpty()): ?>
+            <div class="col-12">
+                <div class="alert alert-warning text-center">
+                    <strong>Tidak ada event yang tersedia saat ini.</strong>
+                </div>
+            </div>
+            <?php else: ?>
             <?php $__currentLoopData = $events; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $event): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <?php if($event ->kuota > 0): ?>
             <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
@@ -70,9 +77,7 @@
                             <div class="media">
                                 <img class="mr-3 rounded-circle" src="<?php echo e(asset('images/eventeeslog1.png')); ?>"
                                     alt="Eventees Logo" style="max-width:100px">
-                                <div class="media-body">
-                                    <small><?php echo e($event->description); ?></small>
-                                </div>
+                             
                             </div>
                         </div>
                     </div>
@@ -80,6 +85,7 @@
             </div>
             <?php endif; ?>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            <?php endif; ?>
         </div>
     </div>
     <?php else: ?>

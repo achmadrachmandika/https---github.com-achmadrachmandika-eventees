@@ -51,4 +51,16 @@ class EventReqDosenController extends Controller
         $eventreqdosen = Eventreqdosen::findOrFail($kode_dosen);
         return view('eventreqdosens.show', compact('eventreqdosen'));
     }
+
+    public function destroy(string $kode_dosen)
+{
+    // Find the Eventreqdosen entry by kode_dosen
+    $eventreqdosen = Eventreqdosen::where('kode_dosen', $kode_dosen)->firstOrFail();
+
+    // Delete the entry
+    $eventreqdosen->delete();
+
+    // Redirect with a success message
+    return redirect()->route('eventreqdosens.index')->with('success', 'Event deleted successfully.');
+}
 }

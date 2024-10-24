@@ -16,12 +16,11 @@ return new class extends Migration
             $table->text('photo');
             $table->string('nama_event', 100);
             $table->json('benefits');
-            $table->bigInteger('harga_dosen');
             $table->integer('kuota');
-            $table->enum('status', ['Unpaid', 'Paid']);
             $table->enum('kategori', ['Online', 'Offline']);
             $table->date('tanggal');
-            $table->time('jam');
+            $table->time('jam_mulai');  // Menambahkan kolom jam_mulai
+            $table->time('jam_pulang'); 
             $table->text('description');
             $table->timestamps();
         });

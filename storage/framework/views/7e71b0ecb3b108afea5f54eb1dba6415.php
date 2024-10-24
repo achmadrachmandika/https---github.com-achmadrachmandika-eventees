@@ -16,14 +16,15 @@
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a href="#hero-wrap" class="nav-link">Home</a>
+                    <a href="<?php echo e(Auth::user()->role === 'admin' || Auth::user()->role === 'dosen' ? '/eventhub' : '/eventmhs'); ?>"
+                        class="nav-link <?php echo e(request()->is('eventhub') || request()->is('eventmhs') ? 'active' : ''); ?>">
+                        Home
+                    </a>
                 </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#events-section" class="nav-link">Events</a>
-                </li>
+                
+                  <li class="nav-item <?php echo e(request()->is('about') ? 'active' : ''); ?>"><a href="/about" class="nav-link">About</a></li>
+                
+                
            
 
                 <?php if(auth()->check()): ?>
@@ -54,4 +55,5 @@
         </div>
     </div>
 </nav>
+
 <?php /**PATH D:\Magang KWUJTI\https---github.com-achmadrachmandika-eventees\resources\views/layouts/header.blade.php ENDPATH**/ ?>

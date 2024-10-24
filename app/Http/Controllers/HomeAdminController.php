@@ -7,6 +7,7 @@ use App\Models\Event;
 use App\Models\Eventreqdosen; 
 use App\Models\User; 
 use App\Models\Feedback; 
+use App\Models\EventDosen; 
 
 
 class HomeAdminController extends Controller
@@ -20,7 +21,8 @@ class HomeAdminController extends Controller
             $eventreqdosen = Eventreqdosen::all();
             $user = User::all();
             $feedbacks = Feedback::all();
-          return view ('admin.dashboard' , compact('event', 'eventreqdosen', 'user', 'feedbacks'));
+            $eventdosens = EventDosen::all();
+          return view ('admin.dashboard' , compact('event', 'eventreqdosen', 'user', 'feedbacks', 'eventdosens'));
     }
 
     /**

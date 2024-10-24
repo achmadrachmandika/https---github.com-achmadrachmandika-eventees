@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <section class="bg-light py-3 py-md-5">
+    <section class="bg-light py-3 py-md-10">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 col-xxl-4">
@@ -20,7 +20,7 @@
                         <div class="card-body p-3 p-md-4 p-xl-5">
                             <div class="text-center mb-3">
                                 <a href="#!">
-                                    <img src="images/eventeeslog1.png" alt="EventeesHUB Logo" width="200" height="90">
+                                    <img src="images/logo_eventeesFix2.svg" alt="EventeesHUB Logo" width="200" height="90">
                                 </a>
                             </div>
                             <h2 class="fs-6 fw-normal text-center text-secondary mb-4">Selamat Datang di EventeesHUB
@@ -53,16 +53,15 @@ endif;
 unset($__errorArgs, $__bag); ?>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input id="password"
-                                        class="form-control form-control-lg <?php $__errorArgs = ['password'];
+                                    <input id="password" class="form-control form-control-lg <?php $__errorArgs = ['password'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>"
-                                        type="password" name="password" placeholder=" " required />
+unset($__errorArgs, $__bag); ?>" type="password"
+                                        name="password" placeholder=" " required />
                                     <label for="password" class="form-label">Password</label>
                                     <?php $__errorArgs = ['password'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -76,6 +75,7 @@ $message = $__bag->first($__errorArgs[0]); ?>
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
+                                    <span toggle="#password" class="fa fa-eye toggle-password" style="cursor: pointer;"></span>
                                 </div>
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-lg btn-primary">Masuk</button>
@@ -125,6 +125,15 @@ unset($__errorArgs, $__bag); ?>
             $('#roleModal').modal('show');
         }
     </script>
+
+    <script>
+    document.querySelector('.toggle-password').addEventListener('click', function () {
+        const passwordInput = document.getElementById('password');
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
+        this.classList.toggle('fa-eye-slash');
+    });
+</script>
 </body>
 
 </html><?php /**PATH D:\Magang KWUJTI\https---github.com-achmadrachmandika-eventees\resources\views/auth/login.blade.php ENDPATH**/ ?>

@@ -47,14 +47,15 @@
             </div>
 
             <div class="mb-3">
-                <label for="jam" class="form-label">Jam</label>
-                <input type="time" class="form-control" id="jam" name="jam" value="{{ $eventdosen->jam }}" required>
+                <label for="jam_mulai" class="form-label">jam_mulai</label>
+                <input type="time" class="form-control" id="jam_mulai" name="jam_mulai" value="{{ $eventdosen->jam_mulai }}" required>
             </div>
 
             <div class="mb-3">
-                <label for="harga_dosen" class="form-label">Harga Dosen</label>
-                <input type="number" class="form-control" id="harga_dosen" name="harga_dosen" value="{{ $eventdosen->harga_dosen }}" required>
-            </div>
+                    <label for="jam_pulang" class="form-label">jam_pulang</label>
+                    <input type="time" class="form-control" id="jam_pulang" name="jam_pulang" value="{{ $eventdosen->jam_pulang }}"
+                        required>
+                </div>
 
             <div class="mb-3">
                 <label for="kuota" class="form-label">Kuota</label>

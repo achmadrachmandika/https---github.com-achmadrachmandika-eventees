@@ -1,11 +1,5 @@
 <link rel="stylesheet" href="<?php echo e(asset('css/styleeventhub.css')); ?>">
-<style>
-    .blurred {
-        filter: blur(2px);
-        pointer-events: none;
-        /* Mencegah interaksi klik */
-    }
-</style>
+
 <?php $__env->startSection('content'); ?>
 
 <div id="hero-wrap" style="background-color: rgb(1, 107, 107);" data-stellar-background-ratio="0.5">
@@ -15,6 +9,9 @@
                 <img src="<?php echo e(asset('images/logo_eventeesFix.svg')); ?>" alt="Eventees HUB Logo" class="hero-logo img-fluid">
                 <p class="mb-5" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Penyedia Event JTI
                     Pertama <a href="#"></a></p>
+                       <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
+                    <a href="#eventees_1" class="btn btn-white btn-outline-white px-4 py-3">Cari Event</a>
+                </p>
                 <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
                     <a data-toggle="modal" class="btn btn-white btn-outline-white px-4 py-3" data-target="#createEventModal">Request Event</a>
                 </p>
@@ -42,30 +39,33 @@
 
             </div>
             <?php endif; ?>
-
+    
+            <?php if($eventdosens->isEmpty()): ?>
+            <div class="col-12">
+                <div class="alert alert-warning text-center">
+                    <strong>Tidak ada event yang tersedia saat ini.</strong>
+                </div>
+            </div>
+            <?php else: ?>
             <?php $__currentLoopData = $eventdosens; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $eventdosen): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <?php if($eventdosen->kuota > 0): ?>
-            <!-- Cek kuota -->
             <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
                 <div class="card text-dark card-has-bg click-col"
                     onclick="handleCardClick('<?php echo e(route('eventhub.showdosen', ['kode_evndsn' => $eventdosen->kode_evndsn])); ?>', <?php echo e(auth()->check() ? 'true' : 'false'); ?>)">
                     <img class="card-img d-none" src="<?php echo e(asset('storage/' . $eventdosen->photo)); ?>"
                         alt="<?php echo e($eventdosen->nama_event); ?>">
-
+    
                     <div class="card-img-overlay d-flex flex-column">
                         <div class="card-body">
                             <small class="card-meta mb-2"><?php echo e($eventdosen->kode_evndsn); ?></small>
                             <h4 class="card-title mt-0">
                                 <a class="text-dark" href="#"><?php echo e($eventdosen->nama_event); ?></a>
                             </h4>
-
-                            <h4 class="card-title mt-0">
-                                <a class="text-dark" href="#">Rp.<?php echo e(number_format($eventdosen->harga_dosen, 0, ',', '.')); ?></a>
-                            </h4>
+    
                             <h4 class="card-title mt-0">
                                 <a class="text-dark" href="#"><?php echo e($eventdosen->kuota); ?> Kuota Tersedia</a>
                             </h4>
-
+    
                             <small><i class="far fa-clock"></i> <?php echo e(\Carbon\Carbon::parse($eventdosen->tanggal)->format('d-m-Y')); ?></small>
                             <br>
                             <small><i class="far fa-clock"></i> <?php echo e(\Carbon\Carbon::parse($eventdosen->jam)->format('H:i:s')); ?></small>
@@ -74,9 +74,6 @@
                             <div class="media">
                                 <img class="mr-3 rounded-circle" src="<?php echo e(asset('images/eventeeslog1.png')); ?>"
                                     alt="Eventees Logo" style="max-width:100px">
-                                <div class="media-body">
-                                    <small><?php echo e($eventdosen->description); ?></small>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -84,10 +81,9 @@
             </div>
             <?php endif; ?>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            <?php endif; ?>
         </div>
     </div>
-    <?php else: ?>
-    
     <?php endif; ?>
 </section>
 <!-- Create Event Modal -->

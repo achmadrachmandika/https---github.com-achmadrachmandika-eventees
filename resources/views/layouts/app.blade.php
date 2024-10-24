@@ -33,6 +33,14 @@
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" href="{{ asset('css/styleeventhubshow.css') }}">
         <link rel="stylesheet" href="{{ asset('css/stylefont.css') }}">
+
+        {{-- <link rel="stylesheet" href="css/bootstrap.min1.css">
+            <!-- Themify Icons -->
+            <link rel="stylesheet" href="css/themify-icons1.css">
+            <!-- Owl carousel -->
+            <link rel="stylesheet" href="css/owl.carousel1.min.css">
+            <!-- Main css -->
+            <link rel="stylesheet" href="{{asset('css/style1.css')}}"> --}}
     
 
 
@@ -103,6 +111,13 @@
     <script src="{{asset('js/google-map.js')}}"></script>
     <script src="{{asset('js/main.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    {{-- <script src="js/jquery-3.2.1.min2.js"></script>
+        <script src="js/bootstrap.bundle.min2.js"></script>
+        <!-- Plugins JS -->
+        <script src="js/owl.carousel.min2.js"></script>
+        <!-- Custom JS -->
+        <script src="js/script2.js"></script> --}}
 
     @yield('script')
 </body>

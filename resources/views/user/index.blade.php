@@ -48,11 +48,11 @@
             <table id="myTable" class="table table-striped mt-4" style="text-align: center;">
                 <thead class="bg-secondary text-white text-center sticky-header">
                    <tr>
-                        <th>ID</th>
+                        <th>Nomor</th>
                         <th>Nama</th>
                         <th>NIP</th>
                         <th>Email</th>
-                        <th>Dibuat Pada</th>
+                        <th>Dibuat</th>
                        
                     </tr>
                 </thead>

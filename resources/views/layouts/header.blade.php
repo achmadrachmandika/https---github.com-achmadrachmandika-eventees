@@ -16,14 +16,15 @@
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a href="#hero-wrap" class="nav-link">Home</a>
+                    <a href="{{ Auth::user()->role === 'admin' || Auth::user()->role === 'dosen' ? '/eventhub' : '/eventmhs' }}"
+                        class="nav-link {{ request()->is('eventhub') || request()->is('eventmhs') ? 'active' : '' }}">
+                        Home
+                    </a>
                 </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#events-section" class="nav-link">Events</a>
-                </li>
+                
+                  <li class="nav-item {{ request()->is('about') ? 'active' : '' }}"><a href="/about" class="nav-link">About</a></li>
+                
+                {{-- <li class="nav-item {{ request()->is('event') ? 'active' : '' }}"><a href="/event" class="nav-link">Event</a></li> --}}
            
 
                 @if(auth()->check())
@@ -57,3 +58,4 @@
         </div>
     </div>
 </nav>
+

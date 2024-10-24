@@ -52,12 +52,11 @@
                         <th>Photo</th>
                         <th>Nama Event</th>
                         <th>Tanggal</th>
-                        <th>Jam</th>
-                        <th>Harga Dosen</th>
+                        <th>Jam Mulai</th>
+                        <th>Jam Selesai</th>
                         <th>Kuota</th>
                         <th>Benefits</th>
                         <th>Kategori</th>
-                        <th>Status</th>
                         <th width="280px">Action</th>
                     </tr>
                 </thead>
@@ -78,8 +77,8 @@
                         </td>
                         <td>{{ $eventdosen->nama_event }}</td>
                         <td>{{ \Carbon\Carbon::parse($eventdosen->tanggal)->format('d-m-Y') }}</td>
-                        <td>{{ \Carbon\Carbon::parse($eventdosen->jam)->format('H:i:s') }}</td>
-                        <td>{{ $eventdosen->harga_dosen }}</td>
+                        <td>{{ \Carbon\Carbon::parse($eventdosen->jam_mulai)->format('H:i:s') }}</td>
+                        <td>{{ \Carbon\Carbon::parse($eventdosen->jam_pulang)->format('H:i:s') }}</td>
                         <td>{{ $eventdosen->kuota }}</td>
                         <td>
                             @foreach($eventdosen->benefits as $benefit)
@@ -87,7 +86,6 @@
                             @endforeach
                         </td>
                         <td>{{ $eventdosen->kategori }}</td>
-                        <td>{{ $eventdosen->status }}</td>
                         <td>
                             <a class="btn btn-info" href="{{ route('eventdosens.show', $eventdosen->kode_evndsn) }}">Show</a>
                             <a class="btn btn-primary" href="{{ route('eventdosens.edit', $eventdosen->kode_evndsn) }}">Edit</a>

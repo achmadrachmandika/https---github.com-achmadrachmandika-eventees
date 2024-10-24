@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register Mahasiswa</title>
+    <title>Registrasi Mahasiswa</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}"> <!-- Pastikan untuk menyertakan CSS -->
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <script src="{{ asset('js/app.js') }}" defer></script> <!-- Pastikan untuk menyertakan JS -->
@@ -15,14 +15,14 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register Mahasiswa') }}</div>
+                <div class="card-header">{{ __('Daftar Sebagai Mahasiswa') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register.mahasiswa') }}">
                         @csrf
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nama') }}</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
@@ -52,7 +52,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Email Address')
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Masukkan Email')
                                 }}</label>
 
                             <div class="col-md-6">
@@ -85,8 +85,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm
-                                Password') }}</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Konfirmasi Password') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control"

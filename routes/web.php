@@ -14,6 +14,7 @@ use App\Http\Controllers\Auth\RegisterDosenController;
 use App\Http\Controllers\Auth\RegisterMahasiswaController;
 use App\Http\Controllers\EventMhsController;
 use App\Http\Controllers\EventDosenController;
+use App\Http\Controllers\AboutController;
 // Rute utama
 // Rute umum
 Route::get('/', function () {
@@ -73,6 +74,7 @@ Route::middleware('auth')->group(function () {
     Route::middleware('role:mahasiswa|dosen|admin')->group(function () {
         Route::post('/transactions', [TransactionController::class, 'createTransaction'])->name('transactions.create');
         Route::post('/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
+        Route::get('/about', [AboutController::class, 'index'])->name('about');
     });
 });
 

@@ -34,9 +34,11 @@
                 <div class="ftco-footer-widget mb-4 ml-md-4">
                     <h2 class="ftco-heading-2">Site Links</h2>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="py-2 d-block">Home</a></li>
-                        <li><a href="#" class="py-2 d-block">About</a></li>
-                        <li><a href="#" class="py-2 d-block">Event</a></li>
+                        <li><a href="{{ Auth::user()->role === 'admin' || Auth::user()->role === 'dosen' ? '/eventhub' : '/eventmhs' }}"
+                            class="nav-link {{ request()->is('eventhub') || request()->is('eventmhs') ? 'active' : '' }}">
+                            Home
+                        </a></li>
+                        <li><a href="/about" class="nav-link">About</a></li>
                        
                     </ul>
                 </div>

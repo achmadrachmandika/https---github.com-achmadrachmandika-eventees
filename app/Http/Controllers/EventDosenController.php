@@ -26,11 +26,10 @@ class EventDosenController extends Controller
             'photo' => 'nullable|image|file|max:2048',
             'nama_event' => 'required|string',
             'benefits' => 'nullable|array',
-            'harga_dosen' => 'required|numeric',
             'kuota' => 'required|integer',
             'tanggal' => 'required|date',
-            'jam' => 'required|string',
-            'status' => 'required|in:Paid,Unpaid',
+            'jam_mulai' => 'required|string',
+            'jam_pulang' => 'required|string',
             'kategori' => 'required|in:Online,Offline',
             'description' => 'required|string',
         ]);
@@ -42,17 +41,17 @@ class EventDosenController extends Controller
         }
 
         // Save the event
+        
         $eventDosen = EventDosen::create([
             'kode_evndsn' => $request->input('kode_evndsn'),
             'photo' => $photoPath,
             'nama_event' => $request->input('nama_event'),
             'benefits' => $request->input('benefits'),
-            'harga_dosen' => $request->input('harga_dosen'),
             'kuota' => $request->input('kuota'),
             'tanggal' => $request->input('tanggal'),
-            'jam' => $request->input('jam'),
+            'jam_mulai' => $request->input('jam_mulai'),
+            'jam_pulang' => $request->input('jam_pulang'),
             'kategori' => $request->input('kategori'),
-            'status' => $request->input('status'),
             'description' => $request->input('description'),
         ]);
 
@@ -80,12 +79,11 @@ class EventDosenController extends Controller
             'photo' => 'nullable|image|file|max:2048',
             'nama_event' => 'required|string',
             'benefits' => 'nullable|array',
-            'harga_dosen' => 'required|numeric',
             'kuota' => 'required|integer',
             'tanggal' => 'required|date',
-            'jam' => 'required|string',
+            'jam_mulai' => 'required|string',
+            'jam_pulang' => 'required|string',
             'kategori' => 'required|in:Online,Offline',
-            'status' => 'required|in:Paid,Unpaid',
             'description' => 'required|string',
         ]);
 
@@ -105,12 +103,11 @@ class EventDosenController extends Controller
         $eventdosen->update([
             'nama_event' => $request->input('nama_event'),
             'benefits' => $request->input('benefits'),
-            'harga_dosen' => $request->input('harga_dosen'),
             'kuota' => $request->input('kuota'),
             'tanggal' => $request->input('tanggal'),
-            'jam' => $request->input('jam'),
+            'jam_mulai' => $request->input('jam_mulai'),
+            'jam_pulang' => $request->input('jam_pulang'),
             'kategori' => $request->input('kategori'),
-            'status' => $request->input('status'),
             'description' => $request->input('description'),
         ]);
 

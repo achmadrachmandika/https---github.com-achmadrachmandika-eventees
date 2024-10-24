@@ -26,7 +26,7 @@ unset($__errorArgs, $__bag); ?>
                 </div>
 
                 <div class="col-md-6 mb-3">
-                    <label for="kode_dosen" class="form-label"><strong>Kode Dosen:</strong></label>
+                    <label for="kode_dosen" class="form-label"><strong>Kode Pelatihan:</strong></label>
                     <select id="kode_dosen" name="kode_dosen" class="form-control" onchange="updateFields()">
                         <option value="">Pilih Kode Dosen</option>
                         <?php $__currentLoopData = $eventreqdosens; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $dosen): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>

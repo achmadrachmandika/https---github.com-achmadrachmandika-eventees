@@ -21,7 +21,7 @@
                 </div>
 
                 <div class="col-md-6 mb-3">
-                    <label for="kode_dosen" class="form-label"><strong>Kode Dosen:</strong></label>
+                    <label for="kode_dosen" class="form-label"><strong>Kode Pelatihan:</strong></label>
                     <select id="kode_dosen" name="kode_dosen" class="form-control" onchange="updateFields()">
                         <option value="">Pilih Kode Dosen</option>
                         @foreach($eventreqdosens as $dosen)

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register Dosen</title>
+    <title>Registrasi Dosen</title>
     <link rel="stylesheet" href="<?php echo e(asset('css/app.css')); ?>"> <!-- Pastikan untuk menyertakan CSS -->
     <link rel="stylesheet" href="<?php echo e(asset('css/style.css')); ?>">
     <script src="<?php echo e(asset('js/app.js')); ?>" defer></script> <!-- Pastikan untuk menyertakan JS -->
@@ -15,14 +15,14 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Register Dosen</div>
+                    <div class="card-header">Daftar Sebagai Dosen</div>
 
                     <div class="card-body">
                         <form method="POST" action="<?php echo e(route('register.dosen')); ?>">
                             <?php echo csrf_field(); ?>
 
                             <div class="form-group row">
-                                <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
+                                <label for="name" class="col-md-4 col-form-label text-md-right">Nama</label>
 
                                 <div class="col-md-6">
                                     <input id="name" type="text"
@@ -81,7 +81,7 @@ unset($__errorArgs, $__bag); ?>
                             </div>
 
                             <div class="form-group row">
-                                <label for="email" class="col-md-4 col-form-label text-md-right">Email Address</label>
+                                <label for="email" class="col-md-4 col-form-label text-md-right">Masukkan Email</label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="email"
@@ -141,7 +141,7 @@ unset($__errorArgs, $__bag); ?>
                             </div>
 
                             <div class="form-group row">
-                                <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Confirm
+                                <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Konfirmasi
                                     Password</label>
 
                                 <div class="col-md-6">
@@ -153,7 +153,7 @@ unset($__errorArgs, $__bag); ?>
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        Register
+                                        Daftar
                                     </button>
                                     <a href="<?php echo e(route('login')); ?>" class="btn btn-secondary ml-2">Kembali</a>
                                 </div>

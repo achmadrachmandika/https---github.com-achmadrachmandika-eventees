@@ -15,15 +15,14 @@ class EventDosen extends Model
 
     protected $fillable = [
         'kode_evndsn',
-        'photo',
         'nama_event',
-        'harga_dosen',
+        'photo',
         'kuota',
         'benefits',
         'tanggal',
-        'status',
         'description',
-        'jam',
+        'jam_mulai',
+        'jam_pulang',
         'kategori',
     ];
 

@@ -36,6 +36,13 @@
             </div>
             @endif
 
+            @if ($events->isEmpty())
+            <div class="col-12">
+                <div class="alert alert-warning text-center">
+                    <strong>Tidak ada event yang tersedia saat ini.</strong>
+                </div>
+            </div>
+            @else
             @foreach ($events as $event)
             @if ($event ->kuota > 0)
             <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
@@ -70,9 +77,7 @@
                             <div class="media">
                                 <img class="mr-3 rounded-circle" src="{{ asset('images/eventeeslog1.png') }}"
                                     alt="Eventees Logo" style="max-width:100px">
-                                <div class="media-body">
-                                    <small>{{ $event->description }}</small>
-                                </div>
+                             
                             </div>
                         </div>
                     </div>
@@ -80,6 +85,7 @@
             </div>
             @endif
             @endforeach
+            @endif
         </div>
     </div>
     @else
