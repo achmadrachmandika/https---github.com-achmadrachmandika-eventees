@@ -1,11 +1,12 @@
 <?php $__env->startSection('content'); ?>
-<div class="hero-wrap" style="background-color: rgb(1, 107, 107);">
+<div id="hero-wrap01"
+    style="background-image: url(<?php echo e(asset('images/event/Edit-40.jpg')); ?>); background-size: cover; background-position: center; background-repeat: no-repeat;"
+    data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
             <div class="col-md-7 ftco-animate text-center" data-scrollax="properties: { translateY: '70%' }">
-                <img src="<?php echo e(asset('images/logo_eventeesFix.svg')); ?>" alt="Eventees HUB Logo"
-                    class="hero-logo img-fluid">
+                
                 <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"></p>
                 <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Tentang
                     EventeesHUB</h1>
@@ -20,7 +21,7 @@
         <div class="row d-flex">
             <div class="col-md-6 d-flex ftco-animate">
                 <div class="img img-about align-self-stretch"
-                    style="background-image: url(<?php echo e(asset('images/tim_eventees.jpg')); ?>); width: 100%;"></div>
+                    style="background-image: url(<?php echo e(asset('images/event/eventees1.JPG')); ?>); width: 100%;"></div>
             </div>
             <div class="col-md-6 pl-md-5 ftco-animate">
                 <h2 class="mb-4">Selamat datang di EventeesHUB</h2>
@@ -30,6 +31,41 @@
                 pengetahuan di era digital.</p>
             </div>
         </div>
+
+       
+    </div>
+</section>
+
+<section class="ftco-gallery">
+    <div class="d-md-flex">
+        <a href="<?php echo e(asset('images/event/edit-11.jpg')); ?>"
+            class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
+            style="background-image: url(images/event/edit-11.jpg);">
+            <div class="icon d-flex justify-content-center align-items-center">
+                <span class="icon-search"></span>
+            </div>
+        </a>
+        <a href="<?php echo e(asset('images/event/edit-7.jpg')); ?>"
+            class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
+            style="background-image: url(images/event/edit-7.jpg);">
+            <div class="icon d-flex justify-content-center align-items-center">
+                <span class="icon-search"></span>
+            </div>
+        </a>
+        <a href="<?php echo e(asset('images/event/edit-36.jpg')); ?>"
+            class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
+            style="background-image: url(images/event/edit-36.jpg);">
+            <div class="icon d-flex justify-content-center align-items-center">
+                <span class="icon-search"></span>
+            </div>
+        </a>
+        <a href="<?php echo e(asset('images/event/edit-20.jpg')); ?>"
+            class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
+            style="background-image: url(images/event/edit-20.jpg);">
+            <div class="icon d-flex justify-content-center align-items-center">
+                <span class="icon-search"></span>
+            </div>
+        </a>
     </div>
 </section>
 
@@ -49,9 +85,9 @@
                         <div class="img" style="background-image: url(<?php echo e(asset('images/Eka_Eventees.jpeg')); ?>);"></div>
                         <div class="info ml-4">
                             <h3><a>Eka Evita Anggraini</a></h3>
-                            <span class="position">Hipster</span>
+                            
                             <div class="text">
-                                <p>CEO <span>EventeesHUB</span></p>
+                                <p>Hustler <span>EventeesHUB</span></p>
                             </div>
                         </div>
                     </div>
@@ -63,9 +99,9 @@
                         <div class="img" style="background-image: url(<?php echo e(asset('images/Rudi_Eventees.jpeg')); ?>);"></div>
                         <div class="info ml-4">
                             <h3><a>M. Rohmatul Mauludi</a></h3>
-                            <span class="position">Hustler</span>
+                            
                             <div class="text">
-                                <p>CEO <span>EventeesHUB</span></p>
+                                <p>Hipster <span>EventeesHUB</span></p>
                             </div>
                         </div>
                     </div>
@@ -77,9 +113,9 @@
                         <div class="img" style="background-image: url(<?php echo e(asset('images/Rafi_Eventees.jpeg')); ?>);"></div>
                         <div class="info ml-4">
                             <h3><a>M. Rafi Prabowo</a></h3>
-                            <span class="position">Hacker</span>
+                            
                             <div class="text">
-                                <p>CFO <span>EventeesHUB</span></p>
+                                <p>Hacker <span>EventeesHUB</span></p>
                             </div>
                         </div>
                     </div>
@@ -91,9 +127,9 @@
                         <div class="img" style="background-image: url(<?php echo e(asset('images/Kiki_Eventees.jpeg')); ?>);"></div>
                         <div class="info ml-4">
                             <h3><a>Achmad Rachmandika Rizky Pratama</a></h3>
-                            <span class="position">Hacker</span>
+                            
                             <div class="text">
-                                <p>CFO <span>EventeesHUB</span></p>
+                                <p>Hacker <span>EventeesHUB</span></p>
                             </div>
                         </div>
                     </div>

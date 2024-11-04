@@ -5,8 +5,9 @@
     
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="<?php echo e(Auth::user()->hasRole('mahasiswa') ? '/eventmhs' : '/eventhub'); ?>">
-            Eventees HUB
+        <a class="navbar-brand" href="<?php echo e(Auth::user()->hasRole('mahasiswa') ? '/eventmhs' : 
+            (Auth::user()->hasRole('dosen') || Auth::user()->hasRole('admin') ? '/eventhub' : '/')); ?>">
+            <img src="<?php echo e(asset('images/logo_eventeesFix2.svg')); ?>" alt="Eventees HUB Logo" style="max-height: 50px;">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
             aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,10 +17,12 @@
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a href="<?php echo e(Auth::user()->role === 'admin' || Auth::user()->role === 'dosen' ? '/eventhub' : '/eventmhs'); ?>"
-                        class="nav-link <?php echo e(request()->is('eventhub') || request()->is('eventmhs') ? 'active' : ''); ?>">
-                        Home
-                    </a>
+                    <li class="nav-item">
+                        <a href="<?php echo e(Auth::user()->hasRole('admin') || Auth::user()->hasRole('dosen') ? '/eventhub' : '/eventmhs'); ?>"
+                            class="nav-link <?php echo e(request()->is('eventhub') || request()->is('eventmhs') ? 'active' : ''); ?>">
+                            Home
+                        </a>
+                    </li>
                 </li>
                 
                   <li class="nav-item <?php echo e(request()->is('about') ? 'active' : ''); ?>"><a href="/about" class="nav-link">About</a></li>

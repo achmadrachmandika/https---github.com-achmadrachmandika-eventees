@@ -2,12 +2,29 @@
 <link rel="stylesheet" href="{{ asset('css/styleeventhub.css') }}">
 
 @section('content')
+<style>
+    #hero-wrap01 {
+        background-size: cover;
+        /* Menyesuaikan ukuran gambar latar belakang */
+        background-position: center;
+        /* Memusatkan gambar */
+        background-repeat: no-repeat;
+        /* Mencegah pengulangan gambar */
+    }
 
-<div id="hero-wrap" style="background-color: rgb(1, 107, 107);" data-stellar-background-ratio="0.5">
+    
+    
+</style>
+
+
+
+<div id="hero-wrap01"
+    style="background-image: url({{asset('images/event/Edit-32.jpg')}}); background-size: cover; background-position: center; background-repeat: no-repeat;"
+    data-stellar-background-ratio="0.5">
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
             <div class="col-md-7 ftco-animate text-center" data-scrollax="properties: { translateY: '70%' }">
-                <img src="{{ asset('images/logo_eventeesFix.svg') }}" alt="Eventees HUB Logo" class="hero-logo img-fluid">
+                {{-- <img src="{{ asset('images/logo_eventeesFix.svg') }}" alt="Eventees HUB Logo" class="hero-logo img-fluid"> --}}
                 <p class="mb-5" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Penyedia Event JTI
                     Pertama <a href="#"></a></p>
                        <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
@@ -31,7 +48,7 @@
             menjadi bagian dari pengalaman tak terlupakan!</p>
     </div>
 
-    @if (Auth::check() && Auth::user()->hasRole('dosen'))
+    @if (Auth::check() && (Auth::user()->hasRole('dosen') || Auth::user()->hasRole('admin')))
     <div class="container">
         <div class="row">
             @if (session('error'))
@@ -133,7 +150,8 @@
     </div>
     </section>
 
-<section class="ftco-section-3 img">
+<section class="ftco-section-30 img"
+    style="background-image: url({{ asset('images/event/Edit-7.jpg') }}); background-size: cover; background-position: center; background-repeat: no-repeat;">
     <div class="overlay"></div>
     <div class="container">
         <div class="row d-md-flex">
@@ -150,7 +168,6 @@
                 @endif
 
                 @if(Auth::check())
-                <!-- Check if the user is authenticated -->
                 <form id="feedback-form" action="{{ route('feedback.store') }}" method="POST" class="volunter-form">
                     @csrf
                     <div class="form-group">

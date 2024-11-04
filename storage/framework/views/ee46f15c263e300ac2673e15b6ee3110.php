@@ -103,11 +103,13 @@
                     <?php endif; ?>
                 </div>
                 <div class="footer-buttons">
-                    <a href="<?php echo e(auth()->user()->hasRole('dosen') ? route('eventhub') : route('eventmhs')); ?>"
-                        class="btn btn-outline-secondary">
-                        Kembali ke Daftar Event
+                  <a href="<?php echo e(auth()->check() ? (auth()->user()->hasRole('dosen') || auth()->user()->hasRole('admin') ? route('eventhub') : route('eventmhs')) : '/'); ?>"
+                    class="btn btn-outline-secondary">
+                    Kembali ke Daftar Event
+                </a>
+                   <a id="interest-button" class="btn btn-primary" href="#">
+                        Tertarik
                     </a>
-                    <button id="interest-button" class="btn btn-primary">Tertarik</button>
                 </div>
             </div>
         </div>
@@ -117,11 +119,20 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <script>
-        document.getElementById('interest-button').addEventListener('click', function() {
-                alert('Hubungi Nomor 083111963962 untuk mengkonfirmasi dengan menyertakan kode event yang ingin diambil');
-            });
+     <script>
+        document.getElementById('interest-button').addEventListener('click', function(e) {
+            e.preventDefault(); // Mencegah tindakan default tombol
+            const kodeEvent = "<?php echo e($eventdosen->kode_evndsn); ?>";
+            const namaEvent = "<?php echo e($eventdosen->nama_event); ?>";
+            const namaDosen = "<?php echo e($user->name); ?>";
+            const message = `Halo, saya "${namaDosen}" saya tertarik untuk menjadi pemateri di event "${namaEvent}" dengan kode event "${kodeEvent}".`;
+            const whatsappNumber = '62895607927429';
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank'); // Membuka tautan di tab baru
+        });
     </script>
+
+
 </body>
 
 </html><?php /**PATH D:\Magang KWUJTI\https---github.com-achmadrachmandika-eventees\resources\views/eventdosenshow.blade.php ENDPATH**/ ?>
