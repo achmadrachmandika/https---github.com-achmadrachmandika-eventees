@@ -1,23 +1,10 @@
 <link rel="stylesheet" href="<?php echo e(asset('css/styleeventhub.css')); ?>">
 
 <?php $__env->startSection('content'); ?>
-<style>
-    #hero-wrap01 {
-        background-size: cover;
-        /* Menyesuaikan ukuran gambar latar belakang */
-        background-position: center;
-        /* Memusatkan gambar */
-        background-repeat: no-repeat;
-        /* Mencegah pengulangan gambar */
-    }
-
-    
-    
-</style>
 
 
 
-<div id="hero-wrap01"
+<div id="hero-wrap"
     style="background-image: url(<?php echo e(asset('images/event/Edit-32.jpg')); ?>); background-size: cover; background-position: center; background-repeat: no-repeat;"
     data-stellar-background-ratio="0.5">
     <div class="container">
@@ -148,7 +135,7 @@
     </div>
     </section>
 
-<section class="ftco-section-30 img"
+<section class="ftco-section-3 img"
     style="background-image: url(<?php echo e(asset('images/event/Edit-7.jpg')); ?>); background-size: cover; background-position: center; background-repeat: no-repeat;">
     <div class="overlay"></div>
     <div class="container">

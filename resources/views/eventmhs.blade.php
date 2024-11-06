@@ -2,19 +2,9 @@
 <link rel="stylesheet" href="{{ asset('css/styleeventhub.css') }}">
 <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.4/components/facts/fact-4/assets/css/fact-4.css">
-<style>
-    #hero-wrap01 {
-        background-size: cover;
-        /* Menyesuaikan ukuran gambar latar belakang */
-        background-position: center;
-        /* Memusatkan gambar */
-        background-repeat: no-repeat;
-        /* Mencegah pengulangan gambar */
-    }
 
-</style>
 @section('content')
-<div id="hero-wrap01"
+<div id="hero-wrap"
     style="background-image: url({{asset('images/event/Edit-32.jpg')}}); background-size: cover; background-position: center; background-repeat: no-repeat;"
     data-stellar-background-ratio="0.5">
     <div class="container">
@@ -199,7 +189,7 @@
         </div>
     </div>
 
-<section class="ftco-section-30 img"
+<section class="ftco-section-3 img"
     style="background-image: url({{ asset('images/event/Edit-7.jpg') }}); background-size: cover; background-position: center; background-repeat: no-repeat;">
     <div class="overlay"></div>
     <div class="container">
