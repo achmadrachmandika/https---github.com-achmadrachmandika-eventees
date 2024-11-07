@@ -13,7 +13,7 @@ class RegisterDosenController extends Controller
 {
     use RegistersUsers;
 
-    protected $redirectTo = '/eventhub';
+    protected $redirectTo = '/';
 
     public function __construct()
     {

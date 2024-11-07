@@ -4,14 +4,13 @@
 @section('content')
 
 
-
-<div id="hero-wrap01"
+<div id="hero-wrap"
     style="background-image: url({{asset('images/event/Edit-32.jpg')}}); background-size: cover; background-position: center; background-repeat: no-repeat;"
     data-stellar-background-ratio="0.5">
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
             <div class="col-md-7 ftco-animate text-center" data-scrollax="properties: { translateY: '70%' }">
-                {{-- <img src="{{ asset('images/logo_eventeesFix.svg') }}" alt="Eventees HUB Logo" class="hero-logo img-fluid"> --}}
+          
                 <p class="mb-5" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Penyedia Event JTI
                     Pertama <a href="#"></a></p>
                        <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
@@ -27,7 +26,7 @@
 
 {{-- rgb(1, 107, 107); --}}
 
-<section id="eventees_1" class="wrapper">
+<section class="wrapper">
     <div class="intro-section text-center mb-5">
         <h2 class="eventees-title2">"{Wadah Edukasi Jembatan Prestasi}"</h2>
         <p class="eventees-text2">Jelajahi berbagai acara menarik yang kami tawarkan. Temukan kegiatan yang sesuai
