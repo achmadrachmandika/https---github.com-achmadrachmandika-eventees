@@ -5,9 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="<?php echo e(asset('css/app.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('css/style.css')); ?>">
-    <script src="<?php echo e(asset('js/app.js')); ?>" defer></script>
     <title>Eventees-Login</title>
 </head>
 

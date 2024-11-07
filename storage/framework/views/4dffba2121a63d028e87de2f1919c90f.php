@@ -1,9 +1,8 @@
 <link rel="stylesheet" href="<?php echo e(asset('css/styleeventhub.css')); ?>">
-<link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.4/components/facts/fact-4/assets/css/fact-4.css">
+
 
 <?php $__env->startSection('content'); ?>
-<div id="hero-wrap"
+<div id="hero-wrap01"
     style="background-image: url(<?php echo e(asset('images/event/Edit-32.jpg')); ?>); background-size: cover; background-position: center; background-repeat: no-repeat;"
     data-stellar-background-ratio="0.5">
     <div class="container">
@@ -56,8 +55,8 @@
                                 d="M6 2a.5.5 0 0 1 .47.33L10 12.036l1.53-4.208A.5.5 0 0 1 12 7.5h3.5a.5.5 0 0 1 0 1h-3.15l-1.88 5.17a.5.5 0 0 1-.94 0L6 3.964 4.47 8.171A.5.5 0 0 1 4 8.5H.5a.5.5 0 0 1 0-1h3.15l1.88-5.17A.5.5 0 0 1 6 2Z" />
                         </svg>
                     </div>
-                    <h5 class="display-6 fw-bold m-1">1890+</h5>
-                    <p class="text-secondary m-0">Issues Solved</p>
+                    <h5 class="display-6 fw-bold m-1">1+</h5>
+                    <p class="text-secondary m-0">Masalah yang terpecahkan</p>
                 </div>
             </div>
             <div class="col-6 col-lg-3">
@@ -69,8 +68,8 @@
                                 d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v8A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-8A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5zm1.886 6.914L15 7.151V12.5a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5V7.15l6.614 1.764a1.5 1.5 0 0 0 .772 0zM1.5 4h13a.5.5 0 0 1 .5.5v1.616L8.129 7.948a.5.5 0 0 1-.258 0L1 6.116V4.5a.5.5 0 0 1 .5-.5z" />
                         </svg>
                     </div>
-                    <h5 class="display-6 fw-bold m-1">250K</h5>
-                    <p class="text-secondary m-0">Finished Projects</p>
+                    <h5 class="display-6 fw-bold m-1">2</h5>
+                    <p class="text-secondary m-0">Proyek</p>
                 </div>
             </div>
             <div class="col-6 col-lg-3">
@@ -83,7 +82,7 @@
                             <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z" />
                         </svg>
                     </div>
-                    <h5 class="display-6 fw-bold m-1">786+</h5>
+                    <h5 class="display-6 fw-bold m-1">1</h5>
                     <p class="text-secondary m-0">Awwwards Winning</p>
                 </div>
             </div>
@@ -235,7 +234,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
 </script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script>

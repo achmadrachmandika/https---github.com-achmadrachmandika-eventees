@@ -25,23 +25,13 @@
     <link rel="stylesheet" href="<?php echo e(asset('css/ionicons.min.css')); ?>">
 
     <link rel="stylesheet" href="<?php echo e(asset('css/bootstrap-datepicker.css')); ?>">
-    <link rel="stylesheet" href="<?php echo e(asset('css/jquery.timepicker.css')); ?>">
 
 
     <link rel="stylesheet" href="<?php echo e(asset('css/flaticon.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('css/icomoon.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('css/style.css')); ?>">
-    <link rel="stylesheet" href="<?php echo e(asset('css/styleeventhubshow.css')); ?>">
-        <link rel="stylesheet" href="<?php echo e(asset('css/stylefont.css')); ?>">
-
-        
-    
-
-
-
-
-    
-    
+     <link rel="stylesheet" href="<?php echo e(asset('css/styleeventhubshow.css')); ?>">
+        <link rel="stylesheet" href="<?php echo e(asset('css/stylefont.css')); ?>"> 
 </head>
 
 <body>
@@ -88,17 +78,8 @@
     <script src="<?php echo e(asset('js/jquery.magnific-popup.min.js')); ?>"></script>
     <script src="<?php echo e(asset('js/aos.js')); ?>"></script>
     <script src="<?php echo e(asset('js/jquery.animateNumber.min.js')); ?>"></script>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="<?php echo e(asset(' js/jquery.timepicker.min.js')); ?>"></script>
     <script src="<?php echo e(asset('js/scrollax.min.js')); ?>"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false">
-    </script>
-    <script src="<?php echo e(asset('js/google-map.js')); ?>"></script>
     <script src="<?php echo e(asset('js/main.js')); ?>"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    
 
     <?php echo $__env->yieldContent('script'); ?>
 </body>
