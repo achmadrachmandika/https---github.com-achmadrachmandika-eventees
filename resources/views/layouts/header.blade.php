@@ -5,10 +5,10 @@
     
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="{{ 
+        {{-- <a class="navbar-brand" href="{{ 
             Auth::user()->hasRole('mahasiswa') ? '/eventmhs' : 
             (Auth::user()->hasRole('dosen') || Auth::user()->hasRole('admin') ? '/eventhub' : '/')
-        }}">
+        }}"> --}}
             <img src="{{ asset('images/logo_eventeesFix2.svg') }}" alt="Eventees HUB Logo" style="max-height: 50px;">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
@@ -18,31 +18,38 @@
 
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
+                @if(Auth::check() && Auth::user()->hasAnyRole(['admin', 'mahasiswa', 'dosen']))
                 <li class="nav-item">
-                    <li class="nav-item">
-                        <a href="{{ Auth::user()->hasRole('admin') || Auth::user()->hasRole('dosen') ? '/eventhub' : '/eventmhs' }}"
-                            class="nav-link {{ request()->is('eventhub') || request()->is('eventmhs') ? 'active' : '' }}">
-                            Home
-                        </a>
-                    </li>
+                    <a href="{{ Auth::user()->hasRole('admin') || Auth::user()->hasRole('dosen') ? '/eventhub' : '/eventmhs' }}"
+                        class="nav-link {{ request()->is('eventhub') || request()->is('eventmhs') ? 'active' : '' }}">
+                        Home
+                    </a>
                 </li>
-                
-                  <li class="nav-item {{ request()->is('about') ? 'active' : '' }}"><a href="/about" class="nav-link">About</a></li>
-                
-                {{-- <li class="nav-item {{ request()->is('event') ? 'active' : '' }}"><a href="/event" class="nav-link">Event</a></li> --}}
-           
-
+                @else
+                <li class="nav-item">
+                    <a href="/home" class="nav-link {{ request()->is('home') ? 'active' : '' }}">
+                        Home
+                    </a>
+                </li>
+                @endif
+        
+                <li class="nav-item {{ request()->is('about') ? 'active' : '' }}"><a href="/about" class="nav-link">About</a>
+                </li>
+        
+                {{-- <li class="nav-item {{ request()->is('event') ? 'active' : '' }}"><a href="/event"
+                        class="nav-link">Event</a></li> --}}
+        
                 @if(auth()->check())
                 <div class="dropdown mt-2">
                     <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         Hi, {{auth()->user()->name}}
                     </a>
-
+        
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         <li>
                             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                                        document.getElementById('logout-form').submit();">
                                 <div style="color: red">Sign Out</div>
                             </a>
                         </li>
@@ -52,13 +59,11 @@
                     </ul>
                 </div>
                 @else
-                {{-- <div class="dropdown mt-2">
-                    <a class="btn btn-secondary" href="{{route('donation')}}" role="button" aria-expanded="false">
-                        Login
-                    </a>
-                </div> --}}
+                <li class="nav-item">
+                    <a href="{{ route('login') }}" class="btn btn-primary mt-2">Login</a>
+                </li>
                 @endif
-
+        
             </ul>
         </div>
     </div>

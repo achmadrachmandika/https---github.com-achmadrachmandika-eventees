@@ -13,7 +13,7 @@
                 <p class="mb-5" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Penyedia Event JTI
                     Pertama <a href="#"></a></p>
                        <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
-                    <a href="#eventees_1" class="btn btn-white btn-outline-white px-4 py-3">Cari Event</a>
+                    
                 </p>
                 <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
                     <a data-toggle="modal" class="btn btn-white btn-outline-white px-4 py-3" data-target="#createEventModal">Request Event</a>

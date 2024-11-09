@@ -2,7 +2,37 @@
 <link rel="stylesheet" href="{{ asset('css/styleeventhub.css') }}">
 {{-- <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.4/components/facts/fact-4/assets/css/fact-4.css"> --}}
+<style>
+    #hero-wrap01 {
+        background-image: url('{{ asset(' images/event/Edit-40.jpg') }}');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100vh;
+    }
 
+    @media (max-width: 768px) {
+        #hero-wrap01 {
+            height: 70vh;
+        }
+
+        .breadcrumbs,
+        .bread {
+            font-size: 1.5rem;
+        }
+    }
+
+    @media (max-width: 576px) {
+        #hero-wrap01 {
+            height: 50vh;
+        }
+
+        .breadcrumbs,
+        .bread {
+            font-size: 1.2rem;
+        }
+    }
+</style>
 @section('content')
 <div id="hero-wrap01"
     style="background-image: url({{asset('images/event/Edit-32.jpg')}}); background-size: cover; background-position: center; background-repeat: no-repeat;"
@@ -196,7 +226,7 @@
         <div class="row d-md-flex">
             <div class="col-md-3 d-flex ftco-animate">
                 <div class="img img-2 align-self-stretch"
-                    style="background-image: url({{ asset('images/logo_eventeesFix2.svg') }});">
+                    style="background-image: url({{ asset('images/logo_eventeesFix.svg') }});">
                 </div>
             </div>
             <div class="col-md-6 volunteer pl-md-5 ftco-animate">

@@ -164,4 +164,21 @@ unset($__errorArgs, $__bag); ?>
     </div>
 </body>
 
-</html><?php /**PATH D:\Magang KWUJTI\https---github.com-achmadrachmandika-eventees\resources\views/auth/register-dosen.blade.php ENDPATH**/ ?>
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<?php if(session('success')): ?>
+<script>
+    Swal.fire({
+        title: 'Berhasil!',
+        text: '<?php echo e(session('success')); ?>',
+        icon: 'success',
+        confirmButtonText: 'OK'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = "<?php echo e(route('login')); ?>";
+        }
+    });
+</script>
+<?php endif; ?><?php /**PATH D:\Magang KWUJTI\https---github.com-achmadrachmandika-eventees\resources\views/auth/register-dosen.blade.php ENDPATH**/ ?>

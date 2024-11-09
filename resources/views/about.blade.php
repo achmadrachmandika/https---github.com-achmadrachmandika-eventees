@@ -1,5 +1,36 @@
 @extends('layouts.app')
 
+<style>
+    #hero-wrap01 {
+        background-image: url('{{ asset(' images/event/Edit-40.jpg') }}');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100vh;
+    }
+
+    @media (max-width: 768px) {
+        #hero-wrap01 {
+            height: 70vh;
+        }
+
+        .breadcrumbs,
+        .bread {
+            font-size: 1.5rem;
+        }
+    }
+
+    @media (max-width: 576px) {
+        #hero-wrap01 {
+            height: 50vh;
+        }
+
+        .breadcrumbs,
+        .bread {
+            font-size: 1.2rem;
+        }
+    }
+</style>
 @section('content')
 <div id="hero-wrap01"
     style="background-image: url({{asset('images/event/Edit-40.jpg')}}); background-size: cover; background-position: center; background-repeat: no-repeat;"
@@ -8,8 +39,6 @@
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
             <div class="col-md-7 ftco-animate text-center" data-scrollax="properties: { translateY: '70%' }">
-                {{-- <img src="{{ asset('images/logo_eventeesFix.svg') }}" alt="Eventees HUB Logo"
-                    class="hero-logo img-fluid"> --}}
                 <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"></p>
                 <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Tentang
                     EventeesHUB</h1>
@@ -40,35 +69,43 @@
 </section>
 
 <section class="ftco-gallery">
+    <div class="container">
+    <div class="row justify-content-center mb-5 pb-3">
+        <div class="col-md-8 heading-section ftco-animate text-center">
+            <h2 class="mb-4">Event yang telah Diselenggarakan</h2>
+            <p>Berikut merupakan dokumentasi dari event yang telah kami selenggarakan</p>
+        </div>
+    </div>
     <div class="d-md-flex">
         <a href="{{asset('images/event/edit-11.jpg')}}"
             class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
-            style="background-image: url(images/event/edit-11.jpg);">
+            style="background-image: url(images/event/Edit-11.jpg);">
             <div class="icon d-flex justify-content-center align-items-center">
                 <span class="icon-search"></span>
             </div>
         </a>
         <a href="{{asset('images/event/edit-7.jpg')}}"
             class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
-            style="background-image: url(images/event/edit-7.jpg);">
+            style="background-image: url(images/event/Edit-7.jpg);">
             <div class="icon d-flex justify-content-center align-items-center">
                 <span class="icon-search"></span>
             </div>
         </a>
         <a href="{{asset('images/event/edit-36.jpg')}}"
             class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
-            style="background-image: url(images/event/edit-36.jpg);">
+            style="background-image: url(images/event/Edit-36.jpg);">
             <div class="icon d-flex justify-content-center align-items-center">
                 <span class="icon-search"></span>
             </div>
         </a>
         <a href="{{asset('images/event/edit-20.jpg')}}"
             class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
-            style="background-image: url(images/event/edit-20.jpg);">
+            style="background-image: url(images/event/Edit-20.jpg);">
             <div class="icon d-flex justify-content-center align-items-center">
                 <span class="icon-search"></span>
             </div>
         </a>
+    </div>
     </div>
 </section>
 
@@ -127,7 +164,7 @@
             <div class="col-lg-4 d-flex mb-sm-4 ftco-animate">
                 <div class="staff">
                     <div class="d-flex mb-4">
-                        <div class="img" style="background-image: url({{asset('images/Kiki_Eventees.jpeg')}});"></div>
+                        <div class="img" style="background-image: url({{asset('images/Kiki_eventees.jpeg')}});"></div>
                         <div class="info ml-4">
                             <h3><a>Achmad Rachmandika Rizky Pratama</a></h3>
                             {{-- <span class="position">Hacker</span> --}}

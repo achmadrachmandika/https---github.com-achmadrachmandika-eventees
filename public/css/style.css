@@ -10857,13 +10857,6 @@ h1, h2, h3, h4, h5,
   /* Center the image */
   background-repeat: no-repeat;
   /* Prevent repeating */
-
-  border: 5px solid #ccc;
-  /* Change to desired border color and width */
-  border-radius: 10px;
-  /* Optional: rounded corners for a softer look */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  /* Optional: subtle shadow for depth */
   overflow: hidden;
   /* Ensures the border is snug around the content */
 }
@@ -12353,10 +12346,6 @@ textarea.form-control {
   background-position: center;
   /* Center the image */
   background-repeat: no-repeat;
-  /* Prevent repeating */
-  border: 2px solid #ccc;
-  /* Example border */
-  border-radius: 8px;
   /* Rounded corners (optional) */
   margin-right: 15px;
   /* Spacing between image and text */

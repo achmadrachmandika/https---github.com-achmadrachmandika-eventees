@@ -1,6 +1,37 @@
 @extends('layouts.app')
 <link rel="stylesheet" href="{{ asset('css/styleeventhub.css') }}">
 
+<style>
+    #hero-wrap01 {
+        background-image: url('{{ asset(' images/event/Edit-40.jpg') }}');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100vh;
+    }
+
+    @media (max-width: 768px) {
+        #hero-wrap01 {
+            height: 70vh;
+        }
+
+        .breadcrumbs,
+        .bread {
+            font-size: 1.5rem;
+        }
+    }
+
+    @media (max-width: 576px) {
+        #hero-wrap01 {
+            height: 50vh;
+        }
+
+        .breadcrumbs,
+        .bread {
+            font-size: 1.2rem;
+        }
+    }
+</style>
 @section('content')
 
 
@@ -14,7 +45,7 @@
                 <p class="mb-5" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Penyedia Event JTI
                     Pertama <a href="#"></a></p>
                        <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
-                    <a href="#eventees_1" class="btn btn-white btn-outline-white px-4 py-3">Cari Event</a>
+                    {{-- <a href="#eventees_1" class="btn btn-white btn-outline-white px-4 py-3">Cari Event</a> --}}
                 </p>
                 <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
                     <a data-toggle="modal" class="btn btn-white btn-outline-white px-4 py-3" data-target="#createEventModal">Request Event</a>
@@ -143,7 +174,7 @@
         <div class="row d-md-flex">
             <div class="col-md-3 d-flex ftco-animate">
                 <div class="img img-2 align-self-stretch"
-                    style="background-image: url({{ asset('images/logo_eventeesFix2.svg') }});">
+                    style="background-image: url({{ asset('images/logo_eventeesFix.svg') }});">
                 </div>
             </div>
             <div class="col-md-6 volunteer pl-md-5 ftco-animate">

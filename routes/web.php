@@ -21,6 +21,8 @@ Route::get('/', function () {
     return view('/auth/login');
 });
 
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+  Route::get('/about', [AboutController::class, 'index'])->name('about');
 // Rute registrasi
 Route::prefix('register')->group(function () {
     Route::get('/dosen', [RegisterDosenController::class, 'showRegistrationForm'])->name('register.dosen');
@@ -74,7 +76,7 @@ Route::middleware('auth')->group(function () {
     Route::middleware('role:mahasiswa|dosen|admin')->group(function () {
         Route::post('/transactions', [TransactionController::class, 'createTransaction'])->name('transactions.create');
         Route::post('/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
-        Route::get('/about', [AboutController::class, 'index'])->name('about');
+      
     });
 });
 

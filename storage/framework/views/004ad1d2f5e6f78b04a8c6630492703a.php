@@ -2,70 +2,64 @@
     <div class="overlay"></div>
     <div class="container">
         <div class="row mb-5">
-            <div class="col-md-3">
-                <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">About Us</h2>
-                    <p>Eventees Merupakan penyelenggara pelatihan IT pertama di internal JTI</p>
-                    <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+            <!-- About Us Section -->
+            <div class="col-md-4 mb-4">
+                <div class="ftco-footer-widget">
+                    <h2 class="ftco-heading-2">Tentang Kami</h2>
+                    <p>Eventees merupakan penyelenggara pelatihan IT pertama di internal JTI.</p>
+                    <ul class="ftco-footer-social list-unstyled d-flex mt-4">
                         <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
                         <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                        <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                        <li class="ftco-animate"><a
+                                href="https://www.instagram.com/eventeeshub?igsh=dXpsY25yZmU5dWx6"><span
+                                    class="icon-instagram"></span></a></li>
                     </ul>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">Recent Blog</h2>
-                    
-                   <div class="block-21 d-flex align-items-start">
-                    <div class="blog-img" style="background-image: url(<?php echo e(asset('images/logo_eventeesFix.svg')); ?>);"></div>
-                    <div class="text">
-                        <h3 class="heading"><a href="#">EVENTEESHUB</a></h3>
-                        <div class="meta">
-                            <div><a href="#"><span class="icon-calendar"></span> 17 09, 2024</a></div>
-                            <div><a href="#"><span class="icon-person"></span> KWU</a></div>
-                            <div><a href="#"><span class="icon-chat"></span> Eventees</a></div>
+
+            <!-- Recent Blog Section -->
+            <div class="col-md-4 mb-4">
+                <div class="ftco-footer-widget">
+                    <h2 class="ftco-heading-2"> Program KWUJTI</h2>
+                    <div class="block-21 d-flex align-items-start">
+                        <div class="blog-img"
+                            style="background-image: url(<?php echo e(asset('images/jti.png')); ?>);"></div>
+                        <div class="text">
+                            <div class="meta">
+                                <div><a href="#"><span class="icon-calendar"></span> 17 09, 2024</a></div>
+                                <div><a href="#"><span class="icon-person"></span> KWU</a></div>
+                                <div><a href="#"><span class="icon-chat"></span> Eventees</a></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                </div>
             </div>
-            <div class="col-md-2">
-                <div class="ftco-footer-widget mb-4 ml-md-4">
-                    <h2 class="ftco-heading-2">Site Links</h2>
-                    <ul class="list-unstyled">
-                        <li><a href="<?php echo e(Auth::user()->role === 'admin' || Auth::user()->role === 'dosen' ? '/eventhub' : '/eventmhs'); ?>"
-                            class="nav-link <?php echo e(request()->is('eventhub') || request()->is('eventmhs') ? 'active' : ''); ?>">
-                            Home
-                        </a></li>
-                        <li><a href="/about" class="nav-link">About</a></li>
-                       
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">Have a Questions?</h2>
-                    <div class="block-23 mb-3">
+
+            <!-- Contact Information Section -->
+            <div class="col-md-4 mb-4">
+                <div class="ftco-footer-widget">
+                    <h2 class="ftco-heading-2">Jika ada pertanyaan, silahkan hubungi kami</h2>
+                    <div class="block-23">
                         <ul>
-                            <li><span class="icon icon-map-marker"></span><span class="text">Jalan Soekarno Hatta No.9, Jatimulyo, Kec. Lowokwaru, Kota Malang, Jawa Timur 65141</span></li>
-                            <li><a href="#"><span class="icon icon-phone"></span><span class="text">+6283111963962</span></a></li>
-                            <li><a href="#"><span class="icon icon-envelope"></span><span
+                            <li><span class="icon icon-map-marker"></span><span class="text">Jalan Soekarno Hatta No.9,
+                                    Jatimulyo, Kec. Lowokwaru, Kota Malang, Jawa Timur 65141</span></li>
+                            <li><a href="tel:+6283111963962"><span class="icon icon-phone"></span><span
+                                        class="text">+6283111963962</span></a></li>
+                            <li><a href="mailto:eventees@gmail.com"><span class="icon icon-envelope"></span><span
                                         class="text">eventees@gmail.com</span></a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Footer Bottom Section -->
         <div class="row">
             <div class="col-md-12 text-center">
-
-                <p>
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    Copyright &copy;<script>
+                <p class="text-muted">
+                    Copyright &copy; <script>
                         document.write(new Date().getFullYear());
-                    </script> All rights reserved Eventees
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </script> EventeesHUB dari program KWUJTI
                 </p>
             </div>
         </div>
