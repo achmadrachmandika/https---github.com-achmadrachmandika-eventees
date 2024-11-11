@@ -53,6 +53,7 @@
                         <th>NIP</th>
                         <th>Email</th>
                         <th>Dibuat</th>
+                        <th>Aksi</th>
                        
                     </tr>
                 </thead>
@@ -65,7 +66,14 @@
                         <td><?php echo e($user->email); ?></td>
                         <td><?php echo e($user->created_at); ?></td>
                             <!-- Tambahkan tombol aksi jika diperlukan -->
-                        </td>
+                            <td>
+                            <form action="<?php echo e(route('user.destroy', $user->id)); ?>" method="POST" style="display:inline;">
+                                <?php echo csrf_field(); ?>
+                                <?php echo method_field('DELETE'); ?>
+                                <button type="submit" class="btn btn-outline-danger" onclick="return confirmDelete()">Hapus</button>
+                            </form>
+                            </td>
+                      
                     </tr>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </tbody>
@@ -109,5 +117,11 @@
         }
     }
 </script>
+
+<script>
+    function confirmDelete() {
+        return confirm('Apakah Anda yakin ingin menghapus Pengguna ini?');
+    }
+    </script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('admin.home', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Magang KWUJTI\https---github.com-achmadrachmandika-eventees\resources\views/user/index.blade.php ENDPATH**/ ?>

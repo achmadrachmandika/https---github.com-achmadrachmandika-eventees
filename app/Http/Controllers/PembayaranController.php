@@ -1,6 +1,7 @@
 <?php
-
+namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+
 
 class PembayaranController extends Controller
 {
@@ -29,5 +30,16 @@ class PembayaranController extends Controller
 
         // Redirect ke halaman sukses
         return redirect()->route('pembayaran.success'); // Rute ke halaman sukses
+    }
+
+    public function success()
+    {
+        return view('pembayaran.success');
+    }
+
+    // Method untuk halaman pending
+    public function pending()
+    {
+        return view('pembayaran.pending');
     }
 }

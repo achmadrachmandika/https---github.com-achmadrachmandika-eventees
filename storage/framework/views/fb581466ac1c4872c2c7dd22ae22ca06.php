@@ -85,7 +85,6 @@
                     <p class="font-weight-bold">Tanggal: <span class="font-weight-normal"><?php echo e(\Carbon\Carbon::parse($event->tanggal)->format('d-m-Y')); ?></span></p>
                     <p class="font-weight-bold">Deskripsi: <span class="font-weight-normal"><?php echo e($event->description); ?></span></p>
                     <p class="font-weight-bold">Kategori: <span class="font-weight-normal"><?php echo e($event->kategori); ?></span></p>
-                    <p class="font-weight-bold">Status: <span class="font-weight-normal"><?php echo e($event->status); ?></span></p>
                     <p class="font-weight-bold">Harga: <span class="font-weight-normal">Rp. <?php echo e(number_format($event->harga, 0, ',', '.')); ?></span></p>
                     <p class="font-weight-bold">Kuota: <span class="font-weight-normal"><?php echo e($event->kuota); ?></span></p>
 
@@ -134,7 +133,25 @@
                 },
                 success: function (data) {
                     console.log('Transaction created successfully:', data); // Debugging line
-                    snap.pay(data.snap_token);
+                    snap.pay(data.snap_token, {
+                        // Optional callback for result
+                        onSuccess: function(result) {
+                            console.log('Payment success:', result);
+                            window.location.href = '<?php echo e(route('pembayaran.success')); ?>';
+                        },
+                        onPending: function(result) {
+                            console.log('Payment pending:', result);
+                            window.location.href = '<?php echo e(route('pembayaran.pending')); ?>';
+                        },
+                        onError: function(result) {
+                            console.log('Payment error:', result);
+                            // Optionally, handle the error and redirect or notify the user
+                        },
+                        onClose: function() {
+                            console.log('Payment popup closed without finishing payment');
+                            // Optionally, notify the user about the closure without payment
+                        }
+                    });
                 },
                 error: function (error) {
                     console.error('Error creating transaction:', error); // Debugging line
@@ -145,4 +162,6 @@
 </body>
 
 </html>
+
+
 <?php /**PATH D:\Magang KWUJTI\https---github.com-achmadrachmandika-eventees\resources\views/eventhubshow.blade.php ENDPATH**/ ?>

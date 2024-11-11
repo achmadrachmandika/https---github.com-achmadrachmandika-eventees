@@ -106,76 +106,75 @@
     </div>
     </div>
 </section>
-
-
-<section class="ftco-section bg-light">
-    <div class="container">
-        <div class="row justify-content-center mb-5 pb-3">
-            <div class="col-md-8 heading-section ftco-animate text-center">
-                <h2 class="mb-4">Tim EventeesHUB</h2>
-                <p>Berikut merupakan seluruh anggota tim dari EventeesHUB</p>
+<section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center mb-5 pb-3">
+                <div class="col-md-7 heading-section ftco-animate text-center">
+                    <h2 class="mb-4">Tim EVENTEESHUB</h2>
+                    <p>Berikut merupakan anggota tim dari eventeeshub yang dipertemukan melalui program KWUJTI periode 2</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 d-flex mb-sm-4 ftco-animate">
+                    <div class="staff">
+                        <div class="d-flex mb-4">
+                            <div class="img" style="background-image: url(<?php echo e(('images/Eka_Eventees.jpeg')); ?>);"></div>
+                            <div class="info ml-4">
+                                <h3><a href="teacher-single.html">Eka Evita Anggraini</a></h3>
+                                <span class="position">Hipster</span>
+                                <div class="text">
+                                    <p>Designer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-flex mb-sm-4 ftco-animate">
+                    <div class="staff">
+                        <div class="d-flex mb-4">
+                            <div class="img" style="background-image: url(<?php echo e(('images/Rudi_Eventees.jpeg')); ?>);"></div>
+                            <div class="info ml-4">
+                                <h3><a href="teacher-single.html">M. Rohmatul Mauludi</a></h3>
+                                <span class="position">Hustler</span>
+                                <div class="text">
+                                    <p>Perancang RAB dan Strategi pemasaran</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-flex mb-sm-4 ftco-animate">
+                    <div class="staff">
+                        <div class="d-flex mb-4">
+                            <div class="img" style="background-image: url(<?php echo e(('images/Rafi_Eventees.jpeg')); ?>);"></div>
+                            <div class="info ml-4">
+                                <h3><a href="teacher-single.html">M. Rafi Prabowo</a></h3>
+                                <span class="position">Hacker</span>
+                                <div class="text">
+                                    <p>Front End Developer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-flex mb-sm-4 ftco-animate">
+                    <div class="staff">
+                        <div class="d-flex mb-4">
+                            <div class="img" style="background-image: url(<?php echo e(('images/Kiki_eventees.jpeg')); ?>);"></div>
+                            <div class="info ml-4">
+                                <h3><a href="teacher-single.html">Achmad Rachmandika R.P</a></h3>
+                                <span class="position">Hacker</span>
+                                    <div class="text">
+                                        <p>Backend Developer</p>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-4 d-flex mb-sm-4 ftco-animate">
-                <div class="staff">
-                    <div class="d-flex mb-4">
-                        <div class="img" style="background-image: url(<?php echo e(asset('images/Eka_Eventees.jpeg')); ?>);"></div>
-                        <div class="info ml-4">
-                            <h3><a>Eka Evita Anggraini</a></h3>
-                            
-                            <div class="text">
-                                <p>Hustler <span>EventeesHUB</span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 d-flex mb-sm-4 ftco-animate">
-                <div class="staff">
-                    <div class="d-flex mb-4">
-                        <div class="img" style="background-image: url(<?php echo e(asset('images/Rudi_Eventees.jpeg')); ?>);"></div>
-                        <div class="info ml-4">
-                            <h3><a>M. Rohmatul Mauludi</a></h3>
-                            
-                            <div class="text">
-                                <p>Hipster <span>EventeesHUB</span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 d-flex mb-sm-4 ftco-animate">
-                <div class="staff">
-                    <div class="d-flex mb-4">
-                        <div class="img" style="background-image: url(<?php echo e(asset('images/Rafi_Eventees.jpeg')); ?>);"></div>
-                        <div class="info ml-4">
-                            <h3><a>M. Rafi Prabowo</a></h3>
-                            
-                            <div class="text">
-                                <p>Hacker <span>EventeesHUB</span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 d-flex mb-sm-4 ftco-animate">
-                <div class="staff">
-                    <div class="d-flex mb-4">
-                        <div class="img" style="background-image: url(<?php echo e(asset('images/Kiki_eventees.jpeg')); ?>);"></div>
-                        <div class="info ml-4">
-                            <h3><a>Achmad Rachmandika Rizky Pratama</a></h3>
-                            
-                            <div class="text">
-                                <p>Hacker <span>EventeesHUB</span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
+
 
 <!-- Modal -->
 <div class="modal fade" id="memberModal" tabindex="-1" role="dialog" aria-labelledby="memberModalLabel"

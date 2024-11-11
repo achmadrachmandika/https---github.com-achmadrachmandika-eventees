@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="{{ asset('css/styleeventhub.css') }}">
 
 <style>
-    #hero-wrap01 {
+    #hero-wrap {
         background-image: url('{{ asset(' images/event/Edit-40.jpg') }}');
         background-size: cover;
         background-position: center;
@@ -11,7 +11,7 @@
     }
 
     @media (max-width: 768px) {
-        #hero-wrap01 {
+        #hero-wrap {
             height: 70vh;
         }
 
@@ -22,7 +22,7 @@
     }
 
     @media (max-width: 576px) {
-        #hero-wrap01 {
+        #hero-wrap {
             height: 50vh;
         }
 
@@ -45,10 +45,10 @@
                 <p class="mb-5" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Penyedia Event JTI
                     Pertama <a href="#"></a></p>
                        <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
-                    {{-- <a href="#eventees_1" class="btn btn-white btn-outline-white px-4 py-3">Cari Event</a> --}}
+                    <a href="#eventees_1" class="btn btn-white btn-outline-white px-4 py-3">Cari Event</a>
                 </p>
                 <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
-                    <a data-toggle="modal" class="btn btn-white btn-outline-white px-4 py-3" data-target="#createEventModal">Request Event</a>
+                    <a data-toggle="modal" class="btn btn-white btn-outline-white px-4 py-3" data-target="#createEventModal">Ajukan Event</a>
                 </p>
             </div>
         </div>
@@ -57,7 +57,7 @@
 
 {{-- rgb(1, 107, 107); --}}
 
-<section class="wrapper">
+<section id="eventees_1" class="wrapper">
     <div class="intro-section text-center mb-5">
         <h2 class="eventees-title2">"{Wadah Edukasi Jembatan Prestasi}"</h2>
         <p class="eventees-text2">Jelajahi berbagai acara menarik yang kami tawarkan. Temukan kegiatan yang sesuai

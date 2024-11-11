@@ -13,7 +13,7 @@ class RegisterMahasiswaController extends Controller
 {
     use RegistersUsers;
 
-    protected $redirectTo = '/';
+    protected $redirectTo = '/eventmhs';
 
     public function __construct()
     {

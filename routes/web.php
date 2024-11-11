@@ -18,10 +18,13 @@ use App\Http\Controllers\AboutController;
 // Rute utama
 // Rute umum
 Route::get('/', function () {
-    return view('/auth/login');
+    return view('/home');
 });
+        Route::get('/pembayaran/success', [PembayaranController::class, 'success'])->name('pembayaran.success');
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+// Rute untuk pembayaran pending
+        Route::get('/pembayaran/pending', [PembayaranController::class, 'pending'])->name('pembayaran.pending');
+
   Route::get('/about', [AboutController::class, 'index'])->name('about');
 // Rute registrasi
 Route::prefix('register')->group(function () {
@@ -45,11 +48,13 @@ Route::middleware('auth')->group(function () {
         
         // Rute untuk Events
         Route::resource('events', EventController::class);
+        
         Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback.index');
         
         // Rute untuk Pembayaran dan Transaksi
         Route::resource('pembayaran', PembayaranController::class);
         Route::resource('transaction', TransactionController::class);
+        Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('user.destroy');
     });
 
     // Rute untuk admin dan dosen
@@ -75,10 +80,14 @@ Route::middleware('auth')->group(function () {
     // Rute untuk transaksi dan feedback untuk semua yang terautentikasi
     Route::middleware('role:mahasiswa|dosen|admin')->group(function () {
         Route::post('/transactions', [TransactionController::class, 'createTransaction'])->name('transactions.create');
+
         Route::post('/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
+
       
     });
 });
+
+
 
 // Rute untuk otentikasi
 Auth::routes();

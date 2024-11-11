@@ -13,7 +13,7 @@
         <div class="alert alert-success">
             <h4 class="alert-heading">Pembayaran Berhasil!</h4>
             <p>Terima kasih atas pembayaran Anda. Transaksi Anda telah berhasil diproses.</p>
-            <a href="{{ route('pembayaran.success') }}" class="btn btn-primary">Lihat Transaksi</a>
+            <a href="{{ route('eventmhs') }}" class="btn btn-primary">Kembali</a>
         </div>
         
     </div>

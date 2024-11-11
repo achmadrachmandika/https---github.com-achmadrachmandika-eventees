@@ -53,6 +53,7 @@
                         <th>NIP</th>
                         <th>Email</th>
                         <th>Dibuat</th>
+                        <th>Aksi</th>
                        
                     </tr>
                 </thead>
@@ -65,7 +66,14 @@
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->created_at }}</td>
                             <!-- Tambahkan tombol aksi jika diperlukan -->
-                        </td>
+                            <td>
+                            <form action="{{ route('user.destroy', $user->id) }}" method="POST" style="display:inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-outline-danger" onclick="return confirmDelete()">Hapus</button>
+                            </form>
+                            </td>
+                      
                     </tr>
                     @endforeach
                 </tbody>
@@ -109,4 +117,10 @@
         }
     }
 </script>
+
+<script>
+    function confirmDelete() {
+        return confirm('Apakah Anda yakin ingin menghapus Pengguna ini?');
+    }
+    </script>
 @endsection

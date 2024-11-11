@@ -85,7 +85,6 @@
                     <p class="font-weight-bold">Tanggal: <span class="font-weight-normal">{{ \Carbon\Carbon::parse($event->tanggal)->format('d-m-Y') }}</span></p>
                     <p class="font-weight-bold">Deskripsi: <span class="font-weight-normal">{{ $event->description }}</span></p>
                     <p class="font-weight-bold">Kategori: <span class="font-weight-normal">{{ $event->kategori }}</span></p>
-                    <p class="font-weight-bold">Status: <span class="font-weight-normal">{{ $event->status }}</span></p>
                     <p class="font-weight-bold">Harga: <span class="font-weight-normal">Rp. {{ number_format($event->harga, 0, ',', '.') }}</span></p>
                     <p class="font-weight-bold">Kuota: <span class="font-weight-normal">{{ $event->kuota }}</span></p>
 
@@ -134,7 +133,25 @@
                 },
                 success: function (data) {
                     console.log('Transaction created successfully:', data); // Debugging line
-                    snap.pay(data.snap_token);
+                    snap.pay(data.snap_token, {
+                        // Optional callback for result
+                        onSuccess: function(result) {
+                            console.log('Payment success:', result);
+                            window.location.href = '{{ route('pembayaran.success') }}';
+                        },
+                        onPending: function(result) {
+                            console.log('Payment pending:', result);
+                            window.location.href = '{{ route('pembayaran.pending') }}';
+                        },
+                        onError: function(result) {
+                            console.log('Payment error:', result);
+                            // Optionally, handle the error and redirect or notify the user
+                        },
+                        onClose: function() {
+                            console.log('Payment popup closed without finishing payment');
+                            // Optionally, notify the user about the closure without payment
+                        }
+                    });
                 },
                 error: function (error) {
                     console.error('Error creating transaction:', error); // Debugging line
@@ -145,3 +162,55 @@
 </body>
 
 </html>
+
+{{-- document.getElementById('pay-button').onclick = function () {
+console.log('Pay button clicked'); // Debugging line
+
+// Show loading indicator
+document.getElementById('loading-indicator').style.display = 'block';
+
+// Make an AJAX call to create the transaction and get the snap token
+$.ajax({
+url: '{{ route('transactions.create') }}',
+method: 'POST',
+data: {
+_token: '{{ csrf_token() }}',
+kode_event: '{{ $event->kode_event }}',
+nama: '{{ Auth::user()->name }}',
+email: '{{ Auth::user()->email }}',
+nip: '{{ Auth::user()->nip }}'
+},
+success: function (data) {
+console.log('Transaction created successfully:', data); // Debugging line
+
+// Hide loading indicator
+document.getElementById('loading-indicator').style.display = 'none';
+
+snap.pay(data.snap_token, {
+// Optional callback for result
+onSuccess: function(result) {
+console.log('Payment success:', result);
+window.location.href = '{{ route('pembayaran.success') }}';
+},
+onPending: function(result) {
+console.log('Payment pending:', result);
+window.location.href = '{{ route('pembayaran.pending') }}';
+},
+onClose: function() {
+console.log('Payment popup closed without finishing payment');
+// Optionally show a message to the user
+alert('Payment was not completed. Please try again.');
+}
+});
+},
+error: function (error) {
+console.error('Error creating transaction:', error); // Debugging line
+
+// Hide loading indicator
+document.getElementById('loading-indicator').style.display = 'none';
+
+// Show error message to the user
+alert('There was an error creating the transaction. Please try again.');
+}
+});
+}; --}}

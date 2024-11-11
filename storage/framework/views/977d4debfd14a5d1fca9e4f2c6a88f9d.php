@@ -1,5 +1,36 @@
 <link rel="stylesheet" href="<?php echo e(asset('css/styleeventhub.css')); ?>">
 
+<style>
+    #hero-wrap {
+        background-image: url('<?php echo e(asset(' images/event/Edit-40.jpg')); ?>');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100vh;
+    }
+
+    @media (max-width: 768px) {
+        #hero-wrap {
+            height: 70vh;
+        }
+
+        .breadcrumbs,
+        .bread {
+            font-size: 1.5rem;
+        }
+    }
+
+    @media (max-width: 576px) {
+        #hero-wrap {
+            height: 50vh;
+        }
+
+        .breadcrumbs,
+        .bread {
+            font-size: 1.2rem;
+        }
+    }
+</style>
 <?php $__env->startSection('content'); ?>
 
 
@@ -13,10 +44,10 @@
                 <p class="mb-5" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Penyedia Event JTI
                     Pertama <a href="#"></a></p>
                        <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
-                    
+                    <a href="#eventees_1" class="btn btn-white btn-outline-white px-4 py-3">Cari Event</a>
                 </p>
                 <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
-                    <a data-toggle="modal" class="btn btn-white btn-outline-white px-4 py-3" data-target="#createEventModal">Request Event</a>
+                    <a data-toggle="modal" class="btn btn-white btn-outline-white px-4 py-3" data-target="#createEventModal">Ajukan Event</a>
                 </p>
             </div>
         </div>
@@ -25,7 +56,7 @@
 
 
 
-<section class="wrapper">
+<section id="eventees_1" class="wrapper">
     <div class="intro-section text-center mb-5">
         <h2 class="eventees-title2">"{Wadah Edukasi Jembatan Prestasi}"</h2>
         <p class="eventees-text2">Jelajahi berbagai acara menarik yang kami tawarkan. Temukan kegiatan yang sesuai
@@ -141,7 +172,7 @@
         <div class="row d-md-flex">
             <div class="col-md-3 d-flex ftco-animate">
                 <div class="img img-2 align-self-stretch"
-                    style="background-image: url(<?php echo e(asset('images/logo_eventeesFix2.svg')); ?>);">
+                    style="background-image: url(<?php echo e(asset('images/logo_eventeesFix.svg')); ?>);">
                 </div>
             </div>
             <div class="col-md-6 volunteer pl-md-5 ftco-animate">
