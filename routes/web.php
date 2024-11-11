@@ -55,6 +55,7 @@ Route::middleware('auth')->group(function () {
         Route::resource('pembayaran', PembayaranController::class);
         Route::resource('transaction', TransactionController::class);
         Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('user.destroy');
+        Route::get('/transaksi/cetak', [TransactionController::class, 'printMoneyTransaction'])->name('cetaktransaksi');
     });
 
     // Rute untuk admin dan dosen

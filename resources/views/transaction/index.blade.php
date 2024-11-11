@@ -30,8 +30,14 @@
         <div class="d-flex justify-content-between align-items-center">
             <h2 class="font-weight-bold">Daftar Transaksi</h2>
             <div class="col-md-6 d-flex flex-row justify-content-end mb-3">
+                <!-- Input untuk mencari transaksi -->
                 <input class="form-control me-2" type="text" id="myInput" onkeyup="myFunction()" placeholder="Cari.."
                     title="Type in a name">
+    
+                <!-- Tombol untuk cetak PDF -->
+                <a href="{{ route('cetaktransaksi') }}" class="btn btn-outline-primary ms-3">
+                    Cetak PDF
+                </a>
             </div>
         </div>
     </div>

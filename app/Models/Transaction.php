@@ -33,4 +33,9 @@ class Transaction extends Model
     {
         return $this->belongsTo(EventDosen::class, 'kode_evndsn', 'kode_evndsn'); // Relasi ke EventDosen
     }
+
+    public function user()
+{
+    return $this->belongsTo(User::class, 'user_id');
+}
 }

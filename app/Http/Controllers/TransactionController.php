@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Midtrans\Config;
 use Midtrans\Snap;
 use Midtrans\Notification;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\View\View;
 
 class TransactionController extends Controller
 {
@@ -122,5 +124,18 @@ class TransactionController extends Controller
         return response()->json(['status' => 'success'], 200);
     }
 
+     public function printMoneyTransaction()
+{
+    // Mengambil data transaksi beserta relasi dengan user
+    $transactions = Transaction::all();
 
+    // Membuat instance PDF dan memanggil loadView dengan benar
+    $pdf = Pdf::loadView('cetaktransaksi', compact('transactions'));
+
+    // Men-stream PDF ke browser atau mengunduhnya
+    return $pdf->stream('laporan-transaksi.pdf'); // Atau bisa menggunakan ->download() untuk mengunduh
 }
+}
+
+
+
