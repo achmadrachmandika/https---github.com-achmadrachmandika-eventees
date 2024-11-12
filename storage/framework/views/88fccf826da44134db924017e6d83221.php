@@ -29,6 +29,35 @@
         }
     }
 </style>
+<style>
+    .gallery-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .gallery-container a {
+        flex: 1 1 calc(25% - 15px);
+        min-width: calc(50% - 15px);
+        /* Ensure minimum size for small screens */
+        background-size: cover;
+        background-position: center;
+        height: 250px;
+        position: relative;
+    }
+
+    @media (max-width: 768px) {
+        .gallery-container a {
+            flex: 1 1 calc(50% - 15px);
+        }
+    }
+
+    @media (max-width: 576px) {
+        .gallery-container a {
+            flex: 1 1 100%;
+        }
+    }
+</style>
 <?php $__env->startSection('content'); ?>
 <div id="hero-wrap01"
     style="background-image: url(<?php echo e(asset('images/event/Edit-40.jpg')); ?>); background-size: cover; background-position: center; background-repeat: no-repeat;"

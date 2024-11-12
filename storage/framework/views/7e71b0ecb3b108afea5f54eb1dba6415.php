@@ -23,7 +23,7 @@
                     </a>
                 </li>
                 <?php else: ?>
-                <li class="nav-item <?php echo e(request()->is('home') ? 'active' : ''); ?>"><a href="/" class="nav-link">Home</a>
+                <li class="nav-item <?php echo e(request()->is('/') ? 'active' : ''); ?>"><a href="/" class="nav-link">Home</a>
                 </li>
                 <?php endif; ?>
         
