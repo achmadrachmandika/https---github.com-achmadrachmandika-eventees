@@ -26,10 +26,7 @@
                     </a>
                 </li>
                 @else
-                <li class="nav-item">
-                    <a href="/home" class="nav-link {{ request()->is('home') ? 'active' : '' }}">
-                        Home
-                    </a>
+                <li class="nav-item {{ request()->is('home') ? 'active' : '' }}"><a href="/" class="nav-link">Home</a>
                 </li>
                 @endif
         
