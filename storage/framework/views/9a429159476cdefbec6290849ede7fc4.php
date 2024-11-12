@@ -17,8 +17,7 @@
                                 di internal JTI Polinema.</h1>
                             <p class="fs-5 text-white mb-4 pb-2">Penyelenggara Event Pelatihan pertama di internal JTI
                                 Polinema.</p>
-                            <a href="#events-section"
-                                class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Ikuti Pelatihan</a>
+                
                         </div>
                     </div>
                 </div>
@@ -38,8 +37,7 @@
                             </h1>
                             <p class="fs-5 text-white mb-4 pb-2">Penyelenggara Event Pelatihan pertama di internal JTI
                                 Polinema.</p>
-                            <a href="#events-section"
-                                class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Ikuti Pelatihan</a>
+                     
                         </div>
                     </div>
                 </div>

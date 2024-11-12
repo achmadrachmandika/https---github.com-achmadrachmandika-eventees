@@ -2,46 +2,43 @@
 
 <div class="container-fluid p-0 mb-5">
     <div class="owl-carousel header-carousel position-relative">
-        <!-- Carousel Item 1 -->
         <div class="owl-carousel-item position-relative">
-            <img class="img-fluid w-100" src="images/event/Edit-32.jpg" alt="">
+            <img class="img-fluid" src="images/event/Edit-32.jpg" alt="">
 
             <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
                 style="background: rgba(24, 29, 56, .7);">
                 <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-12 col-sm-10 col-md-8 col-lg-6">
-                            <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Mari kembangkan prestasi
-                                para mahasiswa</h5>
-                            <h1 class="display-4 text-white animated slideInDown">Penyelenggara Event Pelatihan pertama
+                    <div class="row justify-content-start">
+                        <div class="col-sm-10 col-lg-8">
+                            <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Penyelenggara Event
+                                Pelatihan pertama di internal JTI Polinema.</h5>
+                            <h1 class="display-3 text-white animated slideInDown">Penyelenggara Event Pelatihan pertama
                                 di internal JTI Polinema.</h1>
                             <p class="fs-5 text-white mb-4 pb-2">Penyelenggara Event Pelatihan pertama di internal JTI
                                 Polinema.</p>
                             <a href="#events-section"
-                                class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Jadilah Pemateri</a>
+                                class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Ikuti Pelatihan</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- Carousel Item 2 -->
         <div class="owl-carousel-item position-relative">
-            <img class="img-fluid w-100" src="images/event/Edit-2.jpg" alt="">
-
+            <img class="img-fluid" src="images/event/Edit-2.jpg" alt="">
             <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
                 style="background: rgba(24, 29, 56, .7);">
                 <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-12 col-sm-10 col-md-8 col-lg-6">
-                            <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Mari kembangkan prestasi
-                                para mahasiswa</h5>
-                            <h1 class="display-4 text-white animated slideInDown">Penyelenggara Event Pelatihan pertama
-                                di internal JTI Polinema.</h1>
+                    <div class="row justify-content-start">
+                        <div class="col-sm-10 col-lg-8">
+                            <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Penyelenggara Event
+                                Pelatihan pertama di internal JTI Polinema.</h5>
+                            <h1 class="display-3 text-white animated slideInDown">Penyelenggara Event Pelatihan pertama
+                                di internal JTI Polinema.
+                            </h1>
                             <p class="fs-5 text-white mb-4 pb-2">Penyelenggara Event Pelatihan pertama di internal JTI
                                 Polinema.</p>
                             <a href="#events-section"
-                                class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Jadilah Pemateri</a>
+                                class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Ikuti Pelatihan</a>
                         </div>
                     </div>
                 </div>

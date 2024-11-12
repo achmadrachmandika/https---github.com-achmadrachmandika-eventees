@@ -127,11 +127,6 @@
     </div>
 </div>
 <!-- About End -->
-
-
-<!-- Categories Start -->
-
-<!-- Categories Start -->
     
 
 <!-- Courses Start -->
