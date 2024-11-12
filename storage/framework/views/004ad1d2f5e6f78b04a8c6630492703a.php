@@ -8,8 +8,6 @@
                     <h2 class="ftco-heading-2">Tentang Kami</h2>
                     <p>Eventees merupakan penyelenggara pelatihan IT pertama di internal JTI.</p>
                     <ul class="ftco-footer-social list-unstyled d-flex mt-4">
-                        <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                        <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
                         <li class="ftco-animate"><a
                                 href="https://www.instagram.com/eventeeshub?igsh=dXpsY25yZmU5dWx6"><span
                                     class="icon-instagram"></span></a></li>
@@ -20,7 +18,12 @@
             <!-- Recent Blog Section -->
             <div class="col-md-4 mb-4">
                 <div class="ftco-footer-widget">
-                    <h2 class="ftco-heading-2"> Program KWUJTI</h2>
+                    <h2 class="ftco-heading-2">
+                        <a href="https://jti.polinema.ac.id/index.php/2024/06/24/program-kewirausahaan-jti-polinema-dibuka-kembali/"
+                            target="_blank" style="text-decoration: none; color: inherit;">
+                            Program KWUJTI
+                        </a>
+                    </h2>
                     <div class="block-21 d-flex align-items-start">
                         <div class="blog-img"
                             style="background-image: url(<?php echo e(asset('images/jti.png')); ?>);"></div>
