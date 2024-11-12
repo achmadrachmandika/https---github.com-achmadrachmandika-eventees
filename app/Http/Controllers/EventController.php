@@ -16,6 +16,7 @@ class EventController extends Controller
     {
         $events = Event::all();
         $eventreqdosens = Eventreqdosen::all(); // Pastikan untuk mengambil data dari EventDosen juga
+  
         return view('events.index', compact('events', 'eventreqdosens')); // Memisahkan kedua variabel dengan koma
     }
 

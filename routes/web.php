@@ -20,6 +20,7 @@ use App\Http\Controllers\AboutController;
 Route::get('/', function () {
     return view('/home');
 });
+Route::get('/test', [HomeController::class, 'test'])->name('test');
         Route::get('/pembayaran/success', [PembayaranController::class, 'success'])->name('pembayaran.success');
 
 // Rute untuk pembayaran pending

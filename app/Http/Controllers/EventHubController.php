@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Event; 
 use App\Models\EventDosen; 
 use App\Models\User; 
+use App\Models\Feedback; 
 use Illuminate\Support\Facades\Storage;
 
 
@@ -19,10 +20,11 @@ class EventHubController extends Controller
           // Ambil semua data events dari database
         $events = Event::all();
         $eventdosens = EventDosen::all();
+         $feedbacks = Feedback::all();
       
         
         // Kirim data events ke view
-        return view('eventhub', compact('events', 'eventdosens'));
+        return view('eventhub', compact('events', 'eventdosens', 'feedbacks'));
     }
 
     /**

@@ -90,7 +90,7 @@
                             }}</span></p>
                     <p class="font-weight-bold">Kategori: <span class="font-weight-normal">{{ $eventdosen->kategori
                             }}</span></p>
-                    <p class="font-weight-bold">Kuota: <span class="font-weight-normal">{{ $eventdosen->kuota }}</span>
+                    <p class="font-weight-bold">Pemateri: <span class="font-weight-normal">{{ $eventdosen->kuota }}</span>
                     </p>
 
                     @if($eventdosen->benefits && count($eventdosen->benefits) > 0)

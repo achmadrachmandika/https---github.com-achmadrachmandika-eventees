@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Event; 
+use App\Models\Feedback; 
 use Illuminate\Support\Facades\Storage;
 
 class EventMhsController extends Controller
@@ -14,9 +15,10 @@ class EventMhsController extends Controller
     public function index()
     {
          $events = Event::all();
+        $feedbacks = Feedback::all();
         
         // Kirim data events ke view
-        return view('eventmhs', compact('events'));
+        return view('eventmhs', compact('events', 'feedbacks'));
     }
 
     /**

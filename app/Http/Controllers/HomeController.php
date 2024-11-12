@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Feedback; 
 
 class HomeController extends Controller
 {
@@ -11,7 +12,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-       return view('home');
+        $feedbacks = Feedback::all();
+        
+       return view('home', compact('feedbacks')); 
+    }
+    public function test()
+    {
+       return view('test');
     }
 
     /**

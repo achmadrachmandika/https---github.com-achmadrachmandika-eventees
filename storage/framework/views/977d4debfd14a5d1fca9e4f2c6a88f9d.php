@@ -1,79 +1,201 @@
-<link rel="stylesheet" href="<?php echo e(asset('css/styleeventhub.css')); ?>">
-
-<style>
-    #hero-wrap {
-        background-image: url('<?php echo e(asset(' images/event/Edit-40.jpg')); ?>');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        height: 100vh;
-    }
-
-    @media (max-width: 768px) {
-        #hero-wrap {
-            height: 70vh;
-        }
-
-        .breadcrumbs,
-        .bread {
-            font-size: 1.5rem;
-        }
-    }
-
-    @media (max-width: 576px) {
-        #hero-wrap {
-            height: 50vh;
-        }
-
-        .breadcrumbs,
-        .bread {
-            font-size: 1.2rem;
-        }
-    }
-</style>
 <?php $__env->startSection('content'); ?>
 
+<div class="container-fluid p-0 mb-5">
+    <div class="owl-carousel header-carousel position-relative">
+        <!-- Carousel Item 1 -->
+        <div class="owl-carousel-item position-relative">
+            <img class="img-fluid w-100" src="images/event/Edit-32.jpg" alt="">
 
-<div id="hero-wrap"
-    style="background-image: url(<?php echo e(asset('images/event/Edit-32.jpg')); ?>); background-size: cover; background-position: center; background-repeat: no-repeat;"
-    data-stellar-background-ratio="0.5">
-    <div class="container">
-        <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
-            <div class="col-md-7 ftco-animate text-center" data-scrollax="properties: { translateY: '70%' }">
-          
-                <p class="mb-5" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Penyedia Event JTI
-                    Pertama <a href="#"></a></p>
-                       <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
-                    <a href="#eventees_1" class="btn btn-white btn-outline-white px-4 py-3">Cari Event</a>
-                </p>
-                <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
-                    <a data-toggle="modal" class="btn btn-white btn-outline-white px-4 py-3" data-target="#createEventModal">Ajukan Event</a>
-                </p>
+            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
+                style="background: rgba(24, 29, 56, .7);">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-sm-10 col-md-8 col-lg-6">
+                            <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Mari kembangkan prestasi
+                                para mahasiswa</h5>
+                            <h1 class="display-4 text-white animated slideInDown">Penyelenggara Event Pelatihan pertama
+                                di internal JTI Polinema.</h1>
+                            <p class="fs-5 text-white mb-4 pb-2">Penyelenggara Event Pelatihan pertama di internal JTI
+                                Polinema.</p>
+                            <a href="#events-section"
+                                class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Jadilah Pemateri</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carousel Item 2 -->
+        <div class="owl-carousel-item position-relative">
+            <img class="img-fluid w-100" src="images/event/Edit-2.jpg" alt="">
+
+            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
+                style="background: rgba(24, 29, 56, .7);">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-sm-10 col-md-8 col-lg-6">
+                            <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Mari kembangkan prestasi
+                                para mahasiswa</h5>
+                            <h1 class="display-4 text-white animated slideInDown">Penyelenggara Event Pelatihan pertama
+                                di internal JTI Polinema.</h1>
+                            <p class="fs-5 text-white mb-4 pb-2">Penyelenggara Event Pelatihan pertama di internal JTI
+                                Polinema.</p>
+                            <a href="#events-section"
+                                class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Jadilah Pemateri</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 
-
-<section id="eventees_1" class="wrapper">
-    <div class="intro-section text-center mb-5">
-        <h2 class="eventees-title2">"{Wadah Edukasi Jembatan Prestasi}"</h2>
-        <p class="eventees-text2">Jelajahi berbagai acara menarik yang kami tawarkan. Temukan kegiatan yang sesuai
-            dengan minat Anda dan bergabunglah dengan kami dalam setiap momen spesial. Jangan lewatkan kesempatan untuk
-            menjadi bagian dari pengalaman tak terlupakan!</p>
-    </div>
-
-    <?php if(Auth::check() && (Auth::user()->hasRole('dosen') || Auth::user()->hasRole('admin'))): ?>
+<div class="container-xxl py-5">
     <div class="container">
-        <div class="row">
+    <div class="row g-4">
+        <!-- First Item -->
+        <div class="col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="service-item text-center pt-3">
+                <div class="p-4">
+                    <i class="fa fa-3x fa-graduation-cap text-primary mb-4"></i>
+                    <h5 class="mb-3">Instruktur Terampil</h5>
+                    <p>Jadilah pemateri untuk event-event pelatihan yang kami selenggarakan, dan berbagi keahlian Anda
+                        dengan peserta yang antusias.</p>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Second Item -->
+        <div class="col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="service-item text-center pt-3">
+                <div class="p-4">
+                    <i class="fa fa-3x fa-globe text-primary mb-4"></i>
+                    <h5 class="mb-3">Kelas Online dan Offline</h5>
+                    <p>Anda memiliki fleksibilitas untuk mengadakan kelas baik secara online maupun offline, memungkinkan
+                        Anda untuk menjangkau lebih banyak peserta.</p>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Third Item -->
+        <div class="col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="0.5s">
+            <div class="service-item text-center pt-3">
+                <div class="p-4">
+                    <i class="fa fa-3x fa-home text-primary mb-4"></i>
+                    <h5 class="mb-3">Proyek Langsung</h5>
+                    <p>Selama pelatihan, Anda dapat memberikan pengalaman praktis kepada peserta dengan proyek langsung yang
+                        relevan dengan dunia nyata.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
+                <div class="position-relative h-100">
+                    <img class="img-fluid position-absolute w-100 h-100" src="images/event/Edit-40.jpg" alt=""
+                        style="object-fit: cover;">
+                </div>
+            </div>
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                <h6 class="section-title bg-white text-start text-primary pe-3">Tentang Kami</h6>
+                <h1 class="mb-4">Selamat Datang di EventeesHUB</h1>
+                <p class="mb-4">Penyelenggara pelatihan pertama di JTI Polinema</p>
+                <p class="mb-4"></p>
+                <div class="row gy-2 gx-4 mb-4">
+                    <div class="row gy-2 gx-4 mb-4">
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Pemateri Berpengalaman
+                            </p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Kelas Online</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Kelas Offline</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Interaktif</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Sertifikat</p>
+                        </div>
+                    </div>
+                    <a class="btn btn-primary py-3 px-5 mt-2" href="/about">Baca Selengkapnya</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
+                <div class="position-relative h-100">
+                    <img class="img-fluid position-absolute w-100 h-100" src="images/event/Edit-36.jpg" alt=""
+                        style="object-fit: cover;">
+                </div>
+            </div>
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                <h6 class="section-title bg-white text-start text-primary pe-3">Salurkan Materi Anda Bagi Generasi
+                    Penerus Bangsa</h6>
+                <h1 class="mb-4">Jadilah Pemateri di waktu ini</h1>
+                
+                <p class="mb-4"></p>
+                <div class="row gy-2 gx-4 mb-4">
+                    <div class="row gy-2 gx-4 mb-4">
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Tingkatkan Reputasi
+                                Profesional
+                            </p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Berbagi Ilmu dan
+                                Pengalaman</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Pengembangan Diri dan
+                                Karir</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Penghargaan dan Pengakuan
+                            </p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Memberikan Dampak Positif
+                                Bagi Mahasiswa</p>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-primary py-md-3 px-md-5 me-3" data-bs-toggle="modal"
+                        data-bs-target="#createEventModal">Ajukan Pelatihan</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Tombol untuk membuka Modal -->
+<div class="container-xxl py-5" id="events-section">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title bg-white text-center text-primary px-3">Event Pelatihan</h6>
+            <h1 class="mb-5">Jadilah Pemateri</h1>
+        </div>
+        <?php if(Auth::check() && Auth::user()->hasRole('dosen')): ?>
+        <div class="row g-4 justify-content-center">
             <?php if(session('error')): ?>
             <div class="alert alert-danger">
                 <?php echo e(session('error')); ?>
 
             </div>
             <?php endif; ?>
-    
+
             <?php if($eventdosens->isEmpty()): ?>
             <div class="col-12">
                 <div class="alert alert-warning text-center">
@@ -83,138 +205,263 @@
             <?php else: ?>
             <?php $__currentLoopData = $eventdosens; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $eventdosen): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <?php if($eventdosen->kuota > 0): ?>
-            <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
-                <div class="card text-dark card-has-bg click-col"
-                    onclick="handleCardClick('<?php echo e(route('eventhub.showdosen', ['kode_evndsn' => $eventdosen->kode_evndsn])); ?>', <?php echo e(auth()->check() ? 'true' : 'false'); ?>)">
-                    <img class="card-img d-none" src="<?php echo e(asset('storage/' . $eventdosen->photo)); ?>"
-                        alt="<?php echo e($eventdosen->nama_event); ?>">
-    
-                    <div class="card-img-overlay d-flex flex-column">
-                        <div class="card-body">
-                            <small class="card-meta mb-2"><?php echo e($eventdosen->kode_evndsn); ?></small>
-                            <h4 class="card-title mt-0">
-                                <a class="text-dark" href="#"><?php echo e($eventdosen->nama_event); ?></a>
-                            </h4>
-    
-                            <h4 class="card-title mt-0">
-                                <a class="text-dark" href="#"><?php echo e($eventdosen->kuota); ?> Kuota Tersedia</a>
-                            </h4>
-    
-                            <small><i class="far fa-clock"></i> <?php echo e(\Carbon\Carbon::parse($eventdosen->tanggal)->format('d-m-Y')); ?></small>
-                            <br>
-                            <small><i class="far fa-clock"></i> <?php echo e(\Carbon\Carbon::parse($eventdosen->jam)->format('H:i:s')); ?></small>
-                        </div>
-                        <div class="card-footer">
-                            <div class="media">
-                                <img class="mr-3 rounded-circle" src="<?php echo e(asset('images/eventeeslog1.png')); ?>"
-                                    alt="Eventees Logo" style="max-width:100px">
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="course-item bg-light">
+                        <div class="position-relative overflow-hidden">
+                            <img class="img-fluid" src="<?php echo e(asset('storage/' . $eventdosen->photo)); ?>" alt="">
+                            <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
+                                <a href="<?php echo e(route('eventhub.showdosen', ['kode_evndsn' => $eventdosen->kode_evndsn])); ?>"
+                                    class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end"
+                                    style="border-radius: 30px 0 0 30px;">
+                                    Jadilah Pemateri
+                                </a>
                             </div>
+                        </div>
+                        <div class="text-center p-4 pb-0">
+                            <div class="mb-3">
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small>(123)</small>
+                            </div>
+                            <h5 class="mb-4"><?php echo e($eventdosen->nama_event); ?></h5>
+                        </div>
+                        <div class="d-flex border-top">
+                            <small class="flex-fill text-center border-end py-2"><i
+                                    class="fa fa-user-tie text-primary me-2"></i><?php echo e($eventdosen->kode_dosen); ?></small>
+                            <small class="flex-fill text-center border-end py-2"><i
+                                    class="fa fa-clock text-primary me-2"></i> Rp.<?php echo e(\Carbon\Carbon::parse($eventdosen->jam)->format('H:i:s')); ?></small>
+                            <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i><?php echo e($eventdosen->kuota); ?> Pemateri</small>
                         </div>
                     </div>
                 </div>
+
             </div>
             <?php endif; ?>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             <?php endif; ?>
         </div>
+        <?php else: ?>
+        <!-- Jika tidak memiliki role mahasiswa, tambahkan konten alternatif di sini -->
+        <?php endif; ?>
     </div>
-    <?php endif; ?>
-</section>
-<!-- Create Event Modal -->
-    <div class="modal fade" id="createEventModal" tabindex="-1" role="dialog" aria-labelledby="createEventModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="createEventModalLabel">Request Event yang akan diselenggarakan</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+</div>
+
+<section class="feedback-section py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h3 class="section-title bg-white text-center text-primary px-3">Berikan kami masukan, Agar kami dapat
+                berkembang
+                disetiap momentnya</h6>
+
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow p-4">
+                    <h3 class="mb-4 text-center">Kritik dan Saran</h3>
+
+                    <?php if(session('success')): ?>
+                    <div class="alert alert-success"><?php echo e(session('success')); ?></div>
+                    <?php endif; ?>
+
+                    <?php if(Auth::check()): ?>
+                    <form id="feedback-form" action="<?php echo e(route('feedback.store')); ?>" method="POST">
+                        <?php echo csrf_field(); ?>
+                        <div class="form-group mb-3">
+                            <label for="name" class="form-label">Nama Anda</label>
+                            <input type="text" class="form-control" name="name" id="name" required
+                                value="<?php echo e(Auth::user()->name); ?>" readonly>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="email" class="form-label">Email Anda</label>
+                            <input type="email" class="form-control" name="email" id="email" required
+                                value="<?php echo e(Auth::user()->email); ?>" readonly>
+                        </div>
+                        <div class="form-group mb-4">
+                            <label for="message" class="form-label">Pesan</label>
+                            <textarea name="message" id="message" cols="30" rows="4" class="form-control"
+                                placeholder="Tulis pesan Anda di sini..." required></textarea>
+                        </div>
+                        <div class="form-group text-center">
+                            <input type="submit" value="Kirim Pesan" class="btn btn-primary py-2 px-4">
+                        </div>
+                    </form>
+                    <?php else: ?>
+                    <p class="text-center">Anda harus <a href="<?php echo e(route('login')); ?>">login</a> untuk memberikan kritik
+                        dan saran.</p>
+                    <?php endif; ?>
                 </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonial Start -->
+<div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container">
+        <div class="text-center">
+            <h6 class="section-title bg-white text-center text-primary px-3">Testimonial</h6>
+            <h1 class="mb-5">Feedback</h1>
+        </div>
+        <div class="owl-carousel testimonial-carousel position-relative">
+            <?php $__currentLoopData = $feedbacks; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $feedback): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <div class="testimonial-item text-center">
+                 <img class="border rounded-circle p-2 mx-auto mb-3" src="img1/profil.png"
+                    style="width: 80px; height: 80px;">
+                <h5 class="mb-0"><?php echo e($feedback->name); ?></h5>
+                <p><?php echo e($feedback->email); ?></p> <!-- Assuming email is the profession or designation -->
+                <div class="testimonial-text bg-light text-center p-4">
+                    <p class="mb-0"><?php echo e($feedback->message); ?></p>
+                </div>
+            </div>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="createEventModal" tabindex="-1" aria-labelledby="createEventModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createEventModalLabel">Request Event yang akan diselenggarakan</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
                 <form id="event-form" action="<?php echo e(route('eventreqdosens.store')); ?>" method="POST">
                     <?php echo csrf_field(); ?>
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label for="kode_dosen">Kode Dosen</label>
-                            <input type="text" class="form-control" id="kode_dosen" name="kode_dosen" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="nama_dosen">Nama Dosen</label>
-                            <input type="text" class="form-control" id="nama_dosen" name="nama_dosen" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="training_topic">Topik Pelatihan (optional)</label>
-                            <input type="text" class="form-control" id="training_topic" name="training_topic">
-                        </div>
-                        <div class="form-group">
-                            <label for="no_hp">Nomor HP</label>
-                            <input type="text" class="form-control" id="no_hp" name="no_hp" required>
-                        </div>
-                        <!-- Catatan -->
-                        <div class="alert alert-info" role="alert">
-                            Jika ingin melakukan pelatihan, diharapkan untuk menyediakan jadwal setelah pendaftaran.
-                        </div>
+
+                    <!-- Kode Dosen -->
+                    <div class="form-group mb-4">
+                        <label for="kode_dosen" class="form-label">Kode Dosen</label>
+                        <input type="text"
+                            class="form-control form-control-lg <?php $__errorArgs = ['kode_dosen'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>"
+                            id="kode_dosen" name="kode_dosen" required>
+                        <?php $__errorArgs = ['kode_dosen'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                        <span class="invalid-feedback"><?php echo e($message); ?></span>
+                        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                        <button type="submit" class="btn btn-primary">Simpan</button>
+
+                    <!-- Nama Dosen -->
+                    <div class="form-group mb-4">
+                        <label for="nama_dosen" class="form-label">Nama Dosen</label>
+                        <input type="text"
+                            class="form-control form-control-lg <?php $__errorArgs = ['nama_dosen'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>"
+                            id="nama_dosen" name="nama_dosen" required>
+                        <?php $__errorArgs = ['nama_dosen'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                        <span class="invalid-feedback"><?php echo e($message); ?></span>
+                        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                     </div>
+
+                    <!-- Topik Pelatihan -->
+                    <div class="form-group mb-4">
+                        <label for="training_topic" class="form-label">Topik Pelatihan (optional)</label>
+                        <input type="text"
+                            class="form-control form-control-lg <?php $__errorArgs = ['training_topic'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>"
+                            id="training_topic" name="training_topic">
+                        <?php $__errorArgs = ['training_topic'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                        <span class="invalid-feedback"><?php echo e($message); ?></span>
+                        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                    </div>
+
+                    <!-- Nomor HP -->
+                    <div class="form-group mb-4">
+                        <label for="no_hp" class="form-label">Nomor HP</label>
+                        <input type="text" class="form-control form-control-lg <?php $__errorArgs = ['no_hp'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>"
+                            id="no_hp" name="no_hp" required>
+                        <?php $__errorArgs = ['no_hp'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                        <span class="invalid-feedback"><?php echo e($message); ?></span>
+                        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                    </div>
+
+                    <!-- Catatan -->
+                    <div class="alert alert-info mb-4" role="alert">
+                        Jika ingin melakukan pelatihan, diharapkan untuk menyediakan jadwal setelah pendaftaran.
+                    </div>
+
+                    <!-- Tombol Submit -->
+                    <div class="form-group mb-4">
+                        <button type="submit" class="btn btn-primary btn-lg w-100">Simpan</button>
+                    </div>
+
                 </form>
             </div>
         </div>
     </div>
-    </section>
-
-<section class="ftco-section-3 img"
-    style="background-image: url(<?php echo e(asset('images/event/Edit-7.jpg')); ?>); background-size: cover; background-position: center; background-repeat: no-repeat;">
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row d-md-flex">
-            <div class="col-md-3 d-flex ftco-animate">
-                <div class="img img-2 align-self-stretch"
-                    style="background-image: url(<?php echo e(asset('images/logo_eventeesFix.svg')); ?>);">
-                </div>
-            </div>
-            <div class="col-md-6 volunteer pl-md-5 ftco-animate">
-                <h3 class="mb-3">Kritik dan Saran</h3>
-
-                <?php if(session('success')): ?>
-                <div class="alert alert-success"><?php echo e(session('success')); ?></div>
-                <?php endif; ?>
-
-                <?php if(Auth::check()): ?>
-                <form id="feedback-form" action="<?php echo e(route('feedback.store')); ?>" method="POST" class="volunter-form">
-                    <?php echo csrf_field(); ?>
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="name" placeholder="Your Name" required
-                            value="<?php echo e(Auth::user()->name); ?>" readonly>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" class="form-control" name="email" placeholder="Your Email" required
-                            value="<?php echo e(Auth::user()->email); ?>" readonly>
-                    </div>
-                    <div class="form-group">
-                        <textarea name="message" cols="30" rows="3" class="form-control" placeholder="Message"
-                            required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" value="Send Message" class="btn btn-white py-3 px-5">
-                    </div>
-                </form>
-                <?php else: ?>
-                <p>Anda harus <a href="<?php echo e(route('login')); ?>">login</a> untuk memberikan kritik dan saran.</p>
-                <?php endif; ?>
-            </div>
-        </div>
-    </div>
-</section>
+</div>
 
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('script'); ?>
 
+<!-- jQuery -->
+<!-- Bootstrap JS and Popper.js (needed for modal functionality) -->
+<?php $__env->startSection('script'); ?>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
+</script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Optional: Your custom script for initializing the modal or any extra functionality -->
 <script>
     $(document).ready(function() {
         $('#alert-login').click(function() {
@@ -227,51 +474,7 @@
         });
     });
 </script>
-<script>
-    $(document).ready(function() {
-$(window).on('scroll', function() {
-var scrollPos = $(document).scrollTop();
-$('.nav-link').each(function() {
-var currLink = $(this);
-var refElement = $(currLink.attr('href'));
-if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height()> scrollPos) {
-    $('.nav-link').removeClass('active');
-    currLink.addClass('active');
-    } else {
-    currLink.removeClass('active');
-    }
-    });
-    });
-    });
-</script>
-<script>
-    function navigateToEvent(url) {
-        window.location.href = url;
-    }
-</script>
 
-<script>
-    document.getElementById('feedback-form').addEventListener('submit', function(event) {
-        event.preventDefault();
-        
-        // Check if the user is authenticated
-        <?php if(!Auth::check()): ?>
-            alert('Anda harus login terlebih dahulu untuk mengirim kritik dan saran.');
-            window.location.href = "<?php echo e(route('login')); ?>";
-        <?php else: ?>
-            this.submit(); // Proceed with form submission
-        <?php endif; ?>
-    });
-</script>
 
-<script>
-    function handleCardClick(url, isLoggedIn) {
-        if (isLoggedIn) {
-            window.location.href = url;
-        } else {
-            $('#loginModal').modal('show');
-        }
-    }
-</script>
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Magang KWUJTI\https---github.com-achmadrachmandika-eventees\resources\views/eventhub.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts2.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Magang KWUJTI\https---github.com-achmadrachmandika-eventees\resources\views/eventhub.blade.php ENDPATH**/ ?>
