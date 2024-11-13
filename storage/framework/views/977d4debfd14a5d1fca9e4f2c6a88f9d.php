@@ -10,14 +10,8 @@
                 <div class="container">
                     <div class="row justify-content-start">
                         <div class="col-sm-10 col-lg-8">
-                            <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Penyelenggara Event
-                                Pelatihan pertama di internal JTI Polinema.</h5>
-                            <h1 class="display-3 text-white animated slideInDown">Penyelenggara Event Pelatihan pertama
-                                di internal JTI Polinema.</h1>
-                            <p class="fs-5 text-white mb-4 pb-2">Penyelenggara Event Pelatihan pertama di internal JTI
-                                Polinema.</p>
-                            <a href="#events-section"
-                                class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Ikuti Pelatihan</a>
+                            <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Salurkan pengalaman anda bagi generasi bangsa</h5>
+                            <a href="#events-section" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Ikuti Pelatihan</a>
                         </div>
                     </div>
                 </div>
@@ -30,15 +24,8 @@
                 <div class="container">
                     <div class="row justify-content-start">
                         <div class="col-sm-10 col-lg-8">
-                            <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Penyelenggara Event
-                                Pelatihan pertama di internal JTI Polinema.</h5>
-                            <h1 class="display-3 text-white animated slideInDown">Penyelenggara Event Pelatihan pertama
-                                di internal JTI Polinema.
-                            </h1>
-                            <p class="fs-5 text-white mb-4 pb-2">Penyelenggara Event Pelatihan pertama di internal JTI
-                                Polinema.</p>
-                            <a href="#events-section"
-                                class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Ikuti Pelatihan</a>
+                            <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Salurkan pengalaman anda bagi generasi bangsa</h5>
+                            <a href="#events-section" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Ikuti Pelatihan</a>
                         </div>
                     </div>
                 </div>
@@ -323,7 +310,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="createEventModalLabel">Request Event yang akan diselenggarakan</h5>
+                <h5 class="modal-title" id="createEventModalLabel">Ajukan Pelatihan yang akan diselenggarakan</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">

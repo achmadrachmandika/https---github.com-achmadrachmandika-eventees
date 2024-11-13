@@ -11,12 +11,9 @@
                 <div class="container">
                     <div class="row justify-content-start">
                         <div class="col-sm-10 col-lg-8">
-                            <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Penyelenggara Event
-                                Pelatihan pertama di internal JTI Polinema.</h5>
-                            <h1 class="display-3 text-white animated slideInDown">Penyelenggara Event Pelatihan pertama
-                                di internal JTI Polinema.</h1>
-                            <p class="fs-5 text-white mb-4 pb-2">Penyelenggara Event Pelatihan pertama di internal JTI
-                                Polinema.</p>
+                            <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Selamat Datang di Eventees Hub</h5>
+                            <h1 class="display-3 text-white animated slideInDown">Jadilah Generasi Emas Itu</h1>
+
                 
                         </div>
                     </div>
@@ -30,13 +27,9 @@
                 <div class="container">
                     <div class="row justify-content-start">
                         <div class="col-sm-10 col-lg-8">
-                            <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Penyelenggara Event
-                                Pelatihan pertama di internal JTI Polinema.</h5>
-                            <h1 class="display-3 text-white animated slideInDown">Penyelenggara Event Pelatihan pertama
-                                di internal JTI Polinema.
+                            <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Selamat Datang di Eventees Hub</h5>
+                            <h1 class="display-3 text-white animated slideInDown">Jadilah Generasi Emas Itu
                             </h1>
-                            <p class="fs-5 text-white mb-4 pb-2">Penyelenggara Event Pelatihan pertama di internal JTI
-                                Polinema.</p>
                      
                         </div>
                     </div>
@@ -162,7 +155,7 @@
                             <img class="img-fluid" src="img/cat-2.jpg" alt="">
                             <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3"
                                 style="margin: 1px;">
-                                <h5 class="m-0">Graphic Design</h5>
+                                <h5 class="m-0">Java</h5>
                                 <small class="text-primary"></small>
                             </div>
                         </a>
@@ -172,7 +165,7 @@
                             <img class="img-fluid" src="img/cat-3.jpg" alt="">
                             <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3"
                                 style="margin: 1px;">
-                                <h5 class="m-0">Video Editing</h5>
+                                <h5 class="m-0">Laravel</h5>
                                 <small class="text-primary"></small>
                             </div>
                         </a>

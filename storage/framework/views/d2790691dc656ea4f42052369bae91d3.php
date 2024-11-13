@@ -2,7 +2,7 @@
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Jika Ada Pertanyaan</h4>
+                    <h4 class="text-white mb-3">Eventees Hub</h4>
                     <li><span class="icon icon-map-marker"></span><span class="text">17 09, 2024</span></li>
                     <li><a><span class="icon icon-phone"></span><span class="text">Program KWU JTI</span></a></li>
                     <li><a href="mailto:eventees@gmail.com"><span class="icon icon-envelope"></span><span

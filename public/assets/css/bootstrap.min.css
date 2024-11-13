@@ -199,7 +199,7 @@ a {
 }
 
 a:hover {
-    color: #0596a3
+    color: #FFA500
 }
 
 a:not([href]):not([class]), a:not([href]):not([class]):hover {
@@ -3385,7 +3385,7 @@ textarea.form-control-lg {
 }
 
 .btn-link:hover {
-    color: #0596a3
+    color: #FFA500
 }
 
 .btn-link:disabled, .btn-link.disabled {
@@ -3920,7 +3920,7 @@ textarea.form-control-lg {
 }
 
 .nav-link:hover, .nav-link:focus {
-    color: #0596a3
+    color: #FFA500
 }
 
 .nav-link.disabled {
@@ -4711,14 +4711,14 @@ textarea.form-control-lg {
 
 .page-link:hover {
     z-index: 2;
-    color: #0596a3;
+    color: #FFA500;
     background-color: #e9ecef;
     border-color: #dee2e6
 }
 
 .page-link:focus {
     z-index: 3;
-    color: #0596a3;
+    color: #FFA500;
     background-color: #e9ecef;
     outline: 0;
     box-shadow: 0 0 0 .25rem rgba(6, 187, 204, 0.25)

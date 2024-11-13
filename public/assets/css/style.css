@@ -179,21 +179,61 @@
     justify-content: center;
 }
 
+/* Gaya umum untuk tombol navigasi */
+.header-carousel {
+    position: relative;
+    /* Pastikan parent container memiliki position: relative */
+}
+
 .header-carousel .owl-nav .owl-prev,
 .header-carousel .owl-nav .owl-next {
-    margin: 7px 10px;
-    /* Tambahkan margin horizontal untuk memberi jarak antar tombol */
-    width: 45px;
-    height: 45px;
+    position: absolute;
+    /* Gunakan posisi absolut */
+    bottom: 10px;
+    /* Atur jarak dari bawah */
+    margin: 5px 8px;
+    width: 35px;
+    /* Kurangi lebar tombol */
+    height: 35px;
+    /* Kurangi tinggi tombol */
     display: flex;
     align-items: center;
     justify-content: center;
     color: #FFFFFF;
     background: transparent;
     border: 1px solid #FFFFFF;
-    font-size: 22px;
+    font-size: 18px;
+    /* Kurangi ukuran font */
     transition: .5s;
 }
+
+/* Atur posisi untuk tombol kiri dan kanan */
+.header-carousel .owl-nav .owl-prev {
+    left: 10px;
+    /* Atur jarak dari kiri */
+}
+
+.header-carousel .owl-nav .owl-next {
+    right: 10px;
+    /* Atur jarak dari kanan */
+}
+
+/* Responsivitas untuk tombol navigasi */
+@media (max-width: 768px) {
+
+    .header-carousel .owl-nav .owl-prev,
+    .header-carousel .owl-nav .owl-next {
+        width: 25px;
+        /* Kurangi lebar tombol untuk layar kecil */
+        height: 25px;
+        /* Kurangi tinggi tombol untuk layar kecil */
+        font-size: 14px;
+        /* Kurangi ukuran font untuk layar kecil */
+        bottom: 5px;
+        /* Sesuaikan jarak dari bawah untuk layar kecil */
+    }
+}
+
 
 
 /* .header-carousel .owl-nav {

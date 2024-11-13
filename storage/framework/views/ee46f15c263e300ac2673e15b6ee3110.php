@@ -73,9 +73,21 @@
             }
         }
     </style>
+    <style>
+        .full-bg {
+            background-image: url('/img1/bg_1.jpg');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
 </head>
 
 <body>
+    <section class="full-bg">
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-12 col-sm-10 col-md-8 col-lg-6">
@@ -86,7 +98,7 @@
                     <p class="font-weight-bold">Tanggal: <span class="font-weight-normal"><?php echo e(\Carbon\Carbon::parse($eventdosen->tanggal)->format('d-m-Y')); ?></span></p>
                     <p class="font-weight-bold">Deskripsi: <span class="font-weight-normal"><?php echo e($eventdosen->description); ?></span></p>
                     <p class="font-weight-bold">Kategori: <span class="font-weight-normal"><?php echo e($eventdosen->kategori); ?></span></p>
-                    <p class="font-weight-bold">Kuota: <span class="font-weight-normal"><?php echo e($eventdosen->kuota); ?></span>
+                    <p class="font-weight-bold">Pemateri: <span class="font-weight-normal"><?php echo e($eventdosen->kuota); ?></span>
                     </p>
 
                     <?php if($eventdosen->benefits && count($eventdosen->benefits) > 0): ?>
@@ -104,7 +116,7 @@
                 </div>
                 <div class="footer-buttons">
                   <a href="<?php echo e(auth()->check() ? (auth()->user()->hasRole('dosen') || auth()->user()->hasRole('admin') ? route('eventhub') : route('eventmhs')) : '/'); ?>"
-                    class="btn btn-outline-secondary">
+                    class="btn btn-outline-primary">
                     Kembali ke Daftar Event
                 </a>
                    <a id="interest-button" class="btn btn-primary" href="#">
@@ -114,6 +126,7 @@
             </div>
         </div>
     </div>
+    </section>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>

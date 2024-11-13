@@ -28,7 +28,7 @@
         .img-fluid.event-image { /* Use a period before each class name */
          height: 120px; /* Fixed height for the frame */
             width: 120px; /* Prevent repeating */
-            border: 2px solid #160404; /* Example border */
+            border: 2px solid #e64a19; /* Example border */
             border-radius: 25px; /* Rounded corners (optional) */
             margin-left: 400px; /* Spacing to the left */
             margin-top: 20px; /* Add this line to move the image down */
@@ -73,10 +73,22 @@
             }
         }
     </style>
+    <style>
+        .full-bg {
+            background-image: url('/img1/bg_1.jpg');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container mt-5">
+    <section class="full-bg">
+    <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-sm-10 col-md-8 col-lg-6">
                 <img src="{{ asset('storage/' . $event->photo) }}" alt="{{ $event->nama_event }}" class="img-fluid event-image">
@@ -102,7 +114,8 @@
                     @endif
                 </div>
                 <div class="footer-buttons">
-                    <a href="{{ auth()->user()->hasRole('mahasiswa') ? route('eventmhs') : route('eventhub') }}" class="btn btn-outline-secondary">
+                    <a href="{{ auth()->user()->hasRole('mahasiswa') ? route('eventmhs') : route('eventhub') }}"
+                        class="btn btn-outline-primary">
                         Kembali ke Daftar Event
                     </a>
                     <button id="pay-button" class="btn btn-primary">Bayar</button>
@@ -110,6 +123,7 @@
             </div>
         </div>
     </div>
+    </section>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
