@@ -91,10 +91,11 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-sm-10 col-md-8 col-lg-6">
-                <img src="<?php echo e(asset('storage/' . $event->photo)); ?>" alt="<?php echo e($event->nama_event); ?>" class="img-fluid event-image">
                 <div class="event-details">
                     <p class="font-weight-bold">Kode Event: <span class="font-weight-normal"><?php echo e($event->kode_event); ?></span></p>
+                    <p class="font-weight-bold">Nama Event: <span class="font-weight-normal"><?php echo e($event->nama_event); ?></span></p>
                     <p class="font-weight-bold">Tanggal: <span class="font-weight-normal"><?php echo e(\Carbon\Carbon::parse($event->tanggal)->format('d-m-Y')); ?></span></p>
+                    <p class="font-weight-bold">Jam: <span class="font-weight-normal"><?php echo e(\Carbon\Carbon::parse($event->jam)->format('H:i:s')); ?></span></p>
                     <p class="font-weight-bold">Deskripsi: <span class="font-weight-normal"><?php echo e($event->description); ?></span></p>
                     <p class="font-weight-bold">Kategori: <span class="font-weight-normal"><?php echo e($event->kategori); ?></span></p>
                     <p class="font-weight-bold">Harga: <span class="font-weight-normal">Rp. <?php echo e(number_format($event->harga, 0, ',', '.')); ?></span></p>

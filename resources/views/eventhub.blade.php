@@ -369,7 +369,7 @@
 
                     <!-- Tombol Submit -->
                     <div class="form-group mb-4">
-                        <button type="submit" class="btn btn-primary btn-lg w-100">Simpan</button>
+                        <button type="submit" class="btn btn-primary btn-lg w-100">Ajukan</button>
                     </div>
 
                 </form>

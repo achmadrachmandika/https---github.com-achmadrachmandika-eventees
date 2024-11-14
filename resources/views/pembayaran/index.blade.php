@@ -50,6 +50,7 @@
     {{-- {{ $events->links() }} --}}
 </div>
 
+
 <script>
     $('#imageModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget);

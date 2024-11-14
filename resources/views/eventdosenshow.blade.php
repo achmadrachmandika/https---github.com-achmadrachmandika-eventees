@@ -91,19 +91,25 @@
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-12 col-sm-10 col-md-8 col-lg-6">
-                <img src="{{ asset('storage/' . $eventdosen->photo) }}" alt="{{ $eventdosen->nama_event }}"
-                    class="img-fluid event-image">
+               
                 <div class="event-details">
-                    <p class="font-weight-bold">Kode Event: <span class="font-weight-normal">{{ $eventdosen->kode_evndsn
-                            }}</span></p>
+                 
+                    <p class="font-weight-bold custom-title">
+                        Kode Event: <span class="font-weight-normal">{{ $eventdosen->kode_evndsn }}</span>
+                    </p>
                     <p class="font-weight-bold">Tanggal: <span class="font-weight-normal">{{
                             \Carbon\Carbon::parse($eventdosen->tanggal)->format('d-m-Y') }}</span></p>
-                    <p class="font-weight-bold">Deskripsi: <span class="font-weight-normal">{{ $eventdosen->description
+                            <p class="font-weight-bold">Jam Mulai: <span class="font-weight-normal">{{
+                                    \Carbon\Carbon::parse($eventdosen->jam_mulai)->format('H:i:s') }}</span></p>
+                                    <p class="font-weight-bold">Jam Pulang: <span class="font-weight-normal">{{
+                                            \Carbon\Carbon::parse($eventdosen->jam_pulang)->format('H:i:s') }}</span></p>
+                    <p class="font-weight-bold">Deskripsi Materi Pelatihan: <span class="font-weight-normal">{{ $eventdosen->description
                             }}</span></p>
                     <p class="font-weight-bold">Kategori: <span class="font-weight-normal">{{ $eventdosen->kategori
                             }}</span></p>
                     <p class="font-weight-bold">Pemateri: <span class="font-weight-normal">{{ $eventdosen->kuota }}</span>
                     </p>
+
 
                     @if($eventdosen->benefits && count($eventdosen->benefits) > 0)
                     <div class="mb-3">

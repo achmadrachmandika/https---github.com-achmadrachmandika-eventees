@@ -91,10 +91,12 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-sm-10 col-md-8 col-lg-6">
-                <img src="{{ asset('storage/' . $event->photo) }}" alt="{{ $event->nama_event }}" class="img-fluid event-image">
                 <div class="event-details">
                     <p class="font-weight-bold">Kode Event: <span class="font-weight-normal">{{ $event->kode_event }}</span></p>
+                    <p class="font-weight-bold">Nama Event: <span class="font-weight-normal">{{ $event->nama_event }}</span></p>
                     <p class="font-weight-bold">Tanggal: <span class="font-weight-normal">{{ \Carbon\Carbon::parse($event->tanggal)->format('d-m-Y') }}</span></p>
+                    <p class="font-weight-bold">Jam: <span class="font-weight-normal">{{
+                            \Carbon\Carbon::parse($event->jam)->format('H:i:s') }}</span></p>
                     <p class="font-weight-bold">Deskripsi: <span class="font-weight-normal">{{ $event->description }}</span></p>
                     <p class="font-weight-bold">Kategori: <span class="font-weight-normal">{{ $event->kategori }}</span></p>
                     <p class="font-weight-bold">Harga: <span class="font-weight-normal">Rp. {{ number_format($event->harga, 0, ',', '.') }}</span></p>

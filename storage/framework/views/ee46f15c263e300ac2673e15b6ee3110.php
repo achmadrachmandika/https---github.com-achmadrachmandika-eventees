@@ -75,7 +75,7 @@
     </style>
     <style>
         .full-bg {
-            background-image: url('/img1/bg_1.jpg');
+            background-image: url('/images/Login-Bg.png');
             background-size: cover;
             background-position: center;
             min-height: 100vh;
@@ -91,15 +91,20 @@
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-12 col-sm-10 col-md-8 col-lg-6">
-                <img src="<?php echo e(asset('storage/' . $eventdosen->photo)); ?>" alt="<?php echo e($eventdosen->nama_event); ?>"
-                    class="img-fluid event-image">
+               
                 <div class="event-details">
-                    <p class="font-weight-bold">Kode Event: <span class="font-weight-normal"><?php echo e($eventdosen->kode_evndsn); ?></span></p>
+                 
+                    <p class="font-weight-bold custom-title">
+                        Kode Event: <span class="font-weight-normal"><?php echo e($eventdosen->kode_evndsn); ?></span>
+                    </p>
                     <p class="font-weight-bold">Tanggal: <span class="font-weight-normal"><?php echo e(\Carbon\Carbon::parse($eventdosen->tanggal)->format('d-m-Y')); ?></span></p>
-                    <p class="font-weight-bold">Deskripsi: <span class="font-weight-normal"><?php echo e($eventdosen->description); ?></span></p>
+                            <p class="font-weight-bold">Jam Mulai: <span class="font-weight-normal"><?php echo e(\Carbon\Carbon::parse($eventdosen->jam_mulai)->format('H:i:s')); ?></span></p>
+                                    <p class="font-weight-bold">Jam Pulang: <span class="font-weight-normal"><?php echo e(\Carbon\Carbon::parse($eventdosen->jam_pulang)->format('H:i:s')); ?></span></p>
+                    <p class="font-weight-bold">Deskripsi Materi Pelatihan: <span class="font-weight-normal"><?php echo e($eventdosen->description); ?></span></p>
                     <p class="font-weight-bold">Kategori: <span class="font-weight-normal"><?php echo e($eventdosen->kategori); ?></span></p>
                     <p class="font-weight-bold">Pemateri: <span class="font-weight-normal"><?php echo e($eventdosen->kuota); ?></span>
                     </p>
+
 
                     <?php if($eventdosen->benefits && count($eventdosen->benefits) > 0): ?>
                     <div class="mb-3">

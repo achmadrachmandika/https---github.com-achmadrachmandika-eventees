@@ -13,7 +13,7 @@
                     <div class="row justify-content-start">
                         <div class="col-sm-10 col-lg-8">
                             <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Selamat Datang di Eventees Hub</h5>
-                            <h1 class="display-3 text-white animated slideInDown">Jadilah Generasi Emas Itu
+                            <h1 class="display-3 text-white animated slideInDown">Jadilah Generasi Emas
                             </h1>
                             <a href="#events-section" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Ikuti Pelatihan</a>
                         </div>
@@ -29,7 +29,7 @@
                     <div class="row justify-content-start">
                         <div class="col-sm-10 col-lg-8">
                             <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Selamat Datang di Eventees Hub</h5>
-                            <h1 class="display-3 text-white animated slideInDown">Jadilah Generasi Emas Itu
+                            <h1 class="display-3 text-white animated slideInDown">Jadilah Generasi Emas
                             </h1>
                             <a href="#events-section" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Ikuti Pelatihan</a>
                         </div>

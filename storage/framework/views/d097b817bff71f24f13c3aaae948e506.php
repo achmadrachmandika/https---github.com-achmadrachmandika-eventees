@@ -29,10 +29,6 @@
     <div class="card-header">
         <div class="d-flex justify-content-between align-items-center">
             <h2 class="font-weight-bold">Feedback</h2>
-            <div class="col-md-6 d-flex flex-row justify-content-end mb-3">
-                <input class="form-control" type="text" id="myInput" onkeyup="myFunction()" placeholder="Cari.."
-                    title="Type in a name">
-            </div>
         </div>
     </div>
 
@@ -44,7 +40,7 @@
 
     <div class="card-body">
         <div class="table-container">
-            <table id="myTable" class="table table-striped mt-4" style="text-align: center;">
+            <table id="myTable2" class="table table-striped mt-4" style="text-align: center;">
                 <thead class="bg-secondary text-white text-center sticky-header">
                     <tr>
                             <th>#</th>
@@ -70,6 +66,15 @@
     </div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css">
+
+<!-- JS -->
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
+<script>
+    let table = new DataTable('#myTable2');
+</script>
 <script>
 
   // Menambahkan timestamp untuk cache busting gambar
