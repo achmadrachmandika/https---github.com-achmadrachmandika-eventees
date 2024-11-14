@@ -9,7 +9,7 @@
     <title>Eventees-Login</title>
     <style>
         .full-bg {
-            background-image: url('/img1/bg_1.jpg');
+            background-image: url('/images/Login-Bg.png');
             background-size: cover;
             background-position: center;
             min-height: 100vh;
