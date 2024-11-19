@@ -77,10 +77,11 @@
             </div>
 
             <div class="mb-3">
-                <label for="status" class="form-label">Status</label>
-                <select class="form-control" id="status" name="status" required>
-                    <option value="Paid" {{ $eventdosen->status == 'Paid' ? 'selected' : '' }}>Paid</option>
-                    <option value="Unpaid" {{ $eventdosen->status == 'Unpaid' ? 'selected' : '' }}>Unpaid</option>
+                <label for="status_pelatihan" class="form-label">Status</label>
+                <select class="form-control" id="status_pelatihan" name="status_pelatihan" required>
+                    <option value="pending" {{ $eventdosen->status_pelatihan == 'pending' ? 'selected' : '' }}>Pending</option>
+                    <option value="process" {{ $eventdosen->status_pelatihan == 'process' ? 'selected' : '' }}>Process</option>
+                    <option value="success" {{ $eventdosen->status_pelatihan == 'success' ? 'selected' : '' }}>Success</option>
                 </select>
             </div>
 

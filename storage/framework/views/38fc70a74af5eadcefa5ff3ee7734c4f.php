@@ -47,14 +47,15 @@
             </div>
 
             <div class="mb-3">
-                <label for="jam" class="form-label">Jam</label>
-                <input type="time" class="form-control" id="jam" name="jam" value="<?php echo e($eventdosen->jam); ?>" required>
+                <label for="jam_mulai" class="form-label">jam_mulai</label>
+                <input type="time" class="form-control" id="jam_mulai" name="jam_mulai" value="<?php echo e($eventdosen->jam_mulai); ?>" required>
             </div>
 
             <div class="mb-3">
-                <label for="harga_dosen" class="form-label">Harga Dosen</label>
-                <input type="number" class="form-control" id="harga_dosen" name="harga_dosen" value="<?php echo e($eventdosen->harga_dosen); ?>" required>
-            </div>
+                    <label for="jam_pulang" class="form-label">jam_pulang</label>
+                    <input type="time" class="form-control" id="jam_pulang" name="jam_pulang" value="<?php echo e($eventdosen->jam_pulang); ?>"
+                        required>
+                </div>
 
             <div class="mb-3">
                 <label for="kuota" class="form-label">Kuota</label>
@@ -76,10 +77,11 @@
             </div>
 
             <div class="mb-3">
-                <label for="status" class="form-label">Status</label>
-                <select class="form-control" id="status" name="status" required>
-                    <option value="Paid" <?php echo e($eventdosen->status == 'Paid' ? 'selected' : ''); ?>>Paid</option>
-                    <option value="Unpaid" <?php echo e($eventdosen->status == 'Unpaid' ? 'selected' : ''); ?>>Unpaid</option>
+                <label for="status_pelatihan" class="form-label">Status</label>
+                <select class="form-control" id="status_pelatihan" name="status_pelatihan" required>
+                    <option value="pending" <?php echo e($eventdosen->status_pelatihan == 'pending' ? 'selected' : ''); ?>>Pending</option>
+                    <option value="process" <?php echo e($eventdosen->status_pelatihan == 'process' ? 'selected' : ''); ?>>Process</option>
+                    <option value="success" <?php echo e($eventdosen->status_pelatihan == 'success' ? 'selected' : ''); ?>>Success</option>
                 </select>
             </div>
 

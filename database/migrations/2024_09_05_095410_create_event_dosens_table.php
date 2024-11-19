@@ -18,6 +18,7 @@ return new class extends Migration
             $table->json('benefits');
             $table->integer('kuota');
             $table->enum('kategori', ['Online', 'Offline']);
+            $table->enum('status_pelatihan', ['pending', 'process', 'success']);
             $table->date('tanggal');
             $table->time('jam_mulai');  // Menambahkan kolom jam_mulai
             $table->time('jam_pulang'); 

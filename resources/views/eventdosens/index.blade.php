@@ -55,6 +55,7 @@
                         <th>Kuota</th>
                         <th>Benefits</th>
                         <th>Kategori</th>
+                        <th>Status</th>
                         <th width="280px">Action</th>
                     </tr>
                 </thead>
@@ -84,6 +85,7 @@
                             @endforeach
                         </td>
                         <td>{{ $eventdosen->kategori }}</td>
+                        <td>{{ $eventdosen->status_pelatihan }}</td>
                         <td>
                             <a class="btn btn-info" href="{{ route('eventdosens.show', $eventdosen->kode_evndsn) }}">Show</a>
                             <a class="btn btn-primary" href="{{ route('eventdosens.edit', $eventdosen->kode_evndsn) }}">Edit</a>

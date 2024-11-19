@@ -55,6 +55,7 @@
                         <th>Kuota</th>
                         <th>Benefits</th>
                         <th>Kategori</th>
+                        <th>Status</th>
                         <th width="280px">Action</th>
                     </tr>
                 </thead>
@@ -84,6 +85,7 @@
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </td>
                         <td><?php echo e($eventdosen->kategori); ?></td>
+                        <td><?php echo e($eventdosen->status_pelatihan); ?></td>
                         <td>
                             <a class="btn btn-info" href="<?php echo e(route('eventdosens.show', $eventdosen->kode_evndsn)); ?>">Show</a>
                             <a class="btn btn-primary" href="<?php echo e(route('eventdosens.edit', $eventdosen->kode_evndsn)); ?>">Edit</a>

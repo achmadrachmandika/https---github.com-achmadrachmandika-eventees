@@ -31,6 +31,7 @@ class EventDosenController extends Controller
             'jam_mulai' => 'required|string',
             'jam_pulang' => 'required|string',
             'kategori' => 'required|in:Online,Offline',
+            'status_pelatihan' => 'required|in:pending,process,success',
             'description' => 'required|string',
         ]);
 
@@ -52,6 +53,7 @@ class EventDosenController extends Controller
             'jam_mulai' => $request->input('jam_mulai'),
             'jam_pulang' => $request->input('jam_pulang'),
             'kategori' => $request->input('kategori'),
+              'status_pelatihan' => $request->input('status_pelatihan'),
             'description' => $request->input('description'),
         ]);
 
@@ -84,6 +86,7 @@ class EventDosenController extends Controller
             'jam_mulai' => 'required|string',
             'jam_pulang' => 'required|string',
             'kategori' => 'required|in:Online,Offline',
+            'status_pelatihan' => 'required|in:pending,process,success',
             'description' => 'required|string',
         ]);
 
@@ -108,6 +111,7 @@ class EventDosenController extends Controller
             'jam_mulai' => $request->input('jam_mulai'),
             'jam_pulang' => $request->input('jam_pulang'),
             'kategori' => $request->input('kategori'),
+             'status_pelatihan' => $request->input('status_pelatihan'),
             'description' => $request->input('description'),
         ]);
 

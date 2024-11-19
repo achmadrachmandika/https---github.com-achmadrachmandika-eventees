@@ -16,11 +16,11 @@
         <h4 class="font-weight-bold">Tanggal:</h4>
         <p><?php echo e(\Carbon\Carbon::parse($eventdosen->tanggal)->format('d M Y')); ?></p>
 
-        <h4 class="font-weight-bold">Jam:</h4>
-        <p><?php echo e(\Carbon\Carbon::parse($eventdosen->jam)->format('H:i')); ?></p>
+        <h4 class="font-weight-bold">Jam Mulai:</h4>
+        <p><?php echo e(\Carbon\Carbon::parse($eventdosen->jam_mulai)->format('H:i')); ?></p>
 
-        <h4 class="font-weight-bold">Harga:</h4>
-        <p><?php echo e(number_format($eventdosen->harga_dosen, 2, ',', '.')); ?> IDR</p>
+        <h4 class="font-weight-bold">Jam Mulai:</h4>
+        <p><?php echo e(\Carbon\Carbon::parse($eventdosen->jam_pulang)->format('H:i')); ?></p>
 
         <h4 class="font-weight-bold">Kuota:</h4>
         <p><?php echo e($eventdosen->kuota); ?></p>
@@ -30,9 +30,6 @@
 
         <h4 class="font-weight-bold">Kategori:</h4>
         <p><?php echo e($eventdosen->kategori); ?></p>
-
-        <h4 class="font-weight-bold">Status:</h4>
-        <p><?php echo e($eventdosen->status); ?></p>
 
         <h4 class="font-weight-bold">Deskripsi:</h4>
         <p><?php echo e($eventdosen->description); ?></p>

@@ -84,6 +84,15 @@ unset($__errorArgs, $__bag); ?>
                 </select>
             </div>
 
+            <div class="col-md-12 mb-3">
+              <label for="status_pelatihan" class="form-label">Status</label>
+              <select class="form-control" id="status_pelatihan" name="status_pelatihan" required>
+                <option value="pending">Pending</option>
+                <option value="process">Proses</option>
+                <option value="success">Sukses</option>
+              </select>
+            </div>
+
 
               <div class="col-md-12 mb-3">
                 <label for="description" class="form-label">Deskripsi</label>

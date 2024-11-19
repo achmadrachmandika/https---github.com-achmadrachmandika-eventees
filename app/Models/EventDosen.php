@@ -24,6 +24,7 @@ class EventDosen extends Model
         'jam_mulai',
         'jam_pulang',
         'kategori',
+        'status_pelatihan',
     ];
 
     // Ensure 'tanggal' is a Carbon instance
