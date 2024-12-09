@@ -279,10 +279,8 @@
                             <h5 class="mb-4"><?php echo e($eventdosen->nama_event); ?></h5>
                         </div>
                         <div class="d-flex border-top">
-                            <small class="flex-fill text-center border-end py-2"><i
-                                    class="fa fa-user-tie text-primary me-2"></i><?php echo e($eventdosen->status); ?></small>
-                            <small class="flex-fill text-center border-end py-2"><i
-                                    class="fa fa-clock text-primary me-2"></i> Jam <?php echo e(\Carbon\Carbon::parse($eventdosen->jam)->format('H:i:s')); ?></small>
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar text-primary me-2"> Tanggal </i><?php echo e(\Carbon\Carbon::parse($eventdosen->tanggal)->format('d-m-Y')); ?></small>
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"> Jam </i><?php echo e(\Carbon\Carbon::parse($eventdosen->jam)->format('H:i:s')); ?></small>
                             <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i><?php echo e($eventdosen->kuota); ?> Pemateri</small>
                         </div>
                     </div>
@@ -501,7 +499,6 @@ unset($__errorArgs, $__bag); ?>
 
 <!-- jQuery -->
 <!-- Bootstrap JS and Popper.js (needed for modal functionality) -->
-<?php $__env->startSection('script'); ?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
 </script>

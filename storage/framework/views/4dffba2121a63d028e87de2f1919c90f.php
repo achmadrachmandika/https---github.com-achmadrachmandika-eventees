@@ -157,7 +157,8 @@
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="course-item bg-light">
                         <div class="position-relative overflow-hidden">
-                            <img class="img-fluid" src="<?php echo e(asset('storage/' . $event->photo)); ?>" alt="">
+                           <img class="img-fluid" src="<?php echo e(asset('storage/' . $event->photo)); ?>" alt="Event Image"
+                            style="width: 100%; height: 200px; object-fit: cover; display: block;">
                             <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
                                 <a href="<?php echo e(route('eventhub.show', ['kode_event' => $event->kode_event])); ?>"
                                     class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">

@@ -8,7 +8,7 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
                 .full-bg {
-                    background-image: url('/img1/bg_1.jpg');
+                    background-image: url('/images/Login-Bg.png');
                     background-size: cover;
                     background-position: center;
                     min-height: 100vh;
